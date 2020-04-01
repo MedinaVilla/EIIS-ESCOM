@@ -8,7 +8,7 @@
             require __DIR__ . '/index.html';
             break;
         case "/EIIS-ESCOM/registro" :
-            require __DIR__ . '/src/registro/registro.html';
+            require __DIR__ . '/src/alumno/registro/registro.html';
             break;
         case "/EIIS-ESCOM/panel" :
             require __DIR__ . '/src/administrador/panel/panel.html';
