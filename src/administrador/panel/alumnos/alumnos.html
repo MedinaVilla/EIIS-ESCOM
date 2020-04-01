@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <title>
+        Alumno
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="assets/img/logoESCOM.png" />
+    <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/materialize/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="./panel" class="brand-logo"> &nbsp;EIIS-ESCOM</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./panel">Inicio</a></li>
+                <li class="active"><a href="./alumnos">Buscar Alumno</a></li>
+                <li><a href="./reportes">Reportes</a></li>
+                <li><b><a href="./cerrarsesion">Cerrar sesión</a></b></li>
+            </ul>
+        </div>
+    </nav>
+    <h3>Buscar Alumno </h3>
+
+    <div class="container">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="boleta" type="text" class="validate" onchange="filter('sasa')">
+                    <label for="boleta">Boleta</label>
+                </div>
+            </div>
+        </form>
+        <div class="card">
+            <h3 class="subheader">Alumnos</h3>
+            <ul id="alumnos" class="list">
+                <!-- <li id="alumnos" class="waves-effect"> -->
+                <!-- <div id="alumnos" class=" valign-wrapper">
+                        <i class="material-icons left circle white-text">folder</i>
+                        <div class="title">
+                            Work<br>
+                            <span>Jan 31, 2017</span>
+                        </div>
+                        <div>
+                            <i onClick="alert('Modificar');" class="material-icons right ">create</i>
+                            <i onClick="alert('Info');" class="material-icons right ">info</i>
+                            <i onClick="alert('Delete');" class="material-icons right ">delete</i>
+                        </div>
+                    </div> -->
+                <!-- </li> -->
+            </ul>
+        </div>
+        <script>
+            $.ajax(
+                './src/administrador/panel/alumnos/getAlumnosList.php',
+                {
+                    success: function (response) {
+                        var alumnos = JSON.parse(response);
+                        console.log(alumnos);
+                        var newList = "";
+                        $.each(alumnos, function (index, item) {
+                            newList = newList +
+                                "<li id='"+item.boleta+"' class='waves-effect'>" +
+                                "<div class='valign-wrapper'>" +
+                                "<i class='material-icons left circle white-text'>person</i>" +
+                                "<div class='title'>" +
+                                "<b>" + item.nombre + "</b><br>" +
+                                "<span>" + item.boleta + "</span>" +
+                                "</div>" +
+                                "<div>" +
+                                "<i onClick='' class='material-icons right'>create</i>" +
+                                "<i onClick='' class='material-icons right'>info</i>" +
+                                "<i onClick='' class='material-icons right'>delete</i>" +
+                                "</div>" +
+                                "</div>" +
+                                "</li>";
+                        });
+                        $('#alumnos').html(newList);
+                    },
+                    error: function () {
+                        alert('There was some error performing the AJAX call!');
+                    }
+                }
+            );
+            const input = document.getElementById("boleta");
+            input.addEventListener("keyup",filter)
+
+            function filter(){
+                const boleta = input.value;
+                console.log($("alumnos").children("li"));
+            }
+        </script>
+    </div>
+</body>
+
+</html>
