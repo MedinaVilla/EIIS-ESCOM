@@ -19,6 +19,9 @@
         case "/EIIS-ESCOM/reportes" :
             require __DIR__ . '/src/administrador/panel/reportes/reportes.html';
             break;
+        case "/EIIS-ESCOM/materias" :
+            require __DIR__ . '/src/alumno/materias/selectMaterias.html';
+            break;
         default:
             http_response_code(404);
             require __DIR__ . '/src/404.html';
