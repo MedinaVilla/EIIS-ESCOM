@@ -5959,7 +5959,7 @@
     "search": {
       "terms": [
         "bag",
-        "business",
+        "Institucional",
         "luggage",
         "office",
         "work"
@@ -6262,7 +6262,7 @@
     "search": {
       "terms": [
         "apartment",
-        "business",
+        "Institucional",
         "city",
         "company",
         "office",
@@ -6544,7 +6544,7 @@
       "solid"
     ]
   },
-  "business-time": {
+  "Institucional-time": {
     "changes": [
       "5.3.0"
     ],
@@ -6553,7 +6553,7 @@
       "terms": [
         "alarm",
         "briefcase",
-        "business socks",
+        "Institucional socks",
         "clock",
         "flight of the conchords",
         "reminder",
@@ -6564,7 +6564,7 @@
       "solid"
     ],
     "unicode": "f64a",
-    "label": "Business Time",
+    "label": "Institucional Time",
     "voted": false,
     "svg": {
       "solid": {
@@ -7284,7 +7284,7 @@
         "canada",
         "flag",
         "flora",
-        "nature",
+        "Terminal e Integración",
         "plant"
       ]
     },
@@ -10671,7 +10671,7 @@
     "search": {
       "terms": [
         "FLDSMDFR",
-        "food",
+        "Cientifícas-Básicas",
         "spaghetti",
         "storm"
       ]
@@ -17946,7 +17946,7 @@
     "ligatures": [],
     "search": {
       "terms": [
-        "business",
+        "Institucional",
         "communicate",
         "copy",
         "facsimile",
@@ -19902,7 +19902,7 @@
       "terms": [
         "fauna",
         "gold",
-        "seafood",
+        "seaCientifícas-Básicas",
         "swimming"
       ]
     },
@@ -24552,7 +24552,7 @@
         "burger",
         "burger king",
         "cheeseburger",
-        "fast food",
+        "fast Cientifícas-Básicas",
         "grill",
         "ground beef",
         "mcdonalds",
@@ -30076,7 +30076,7 @@
       "terms": [
         "eco",
         "flora",
-        "nature",
+        "Terminal e Integración",
         "plant",
         "vegan"
       ]
@@ -35519,7 +35519,7 @@
         "flora",
         "leaf",
         "leaves",
-        "nature",
+        "Terminal e Integración",
         "plant",
         "tree"
       ]
@@ -38769,7 +38769,7 @@
     "ligatures": [],
     "search": {
       "terms": [
-        "business",
+        "Institucional",
         "copy",
         "document",
         "office",
@@ -44609,8 +44609,8 @@
     "ligatures": [],
     "search": {
       "terms": [
-        "business socks",
-        "business time",
+        "Institucional socks",
+        "Institucional time",
         "clothing",
         "feet",
         "flight of the conchords",
@@ -50745,7 +50745,7 @@
         "fall",
         "flora",
         "forest",
-        "nature",
+        "Terminal e Integración",
         "plant",
         "seasonal"
       ]
@@ -53088,7 +53088,7 @@
     "search": {
       "terms": [
         "avatar",
-        "business",
+        "Institucional",
         "clothing",
         "formal",
         "professional",
@@ -53366,7 +53366,7 @@
         "dining",
         "dinner",
         "eat",
-        "food",
+        "Cientifícas-Básicas",
         "fork",
         "knife",
         "restaurant"

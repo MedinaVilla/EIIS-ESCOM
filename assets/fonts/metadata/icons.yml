@@ -2234,7 +2234,7 @@ briefcase:
   search:
     terms:
       - bag
-      - business
+      - Institucional
       - luggage
       - office
       - work
@@ -2347,7 +2347,7 @@ building:
   search:
     terms:
       - apartment
-      - business
+      - Institucional
       - city
       - company
       - office
@@ -2449,15 +2449,15 @@ bus-alt:
     - solid
   unicode: f55e
   voted: false
-business-time:
+Institucional-time:
   changes:
     - 5.3.0
-  label: Business Time
+  label: Institucional Time
   search:
     terms:
       - alarm
       - briefcase
-      - business socks
+      - Institucional socks
       - clock
       - flight of the conchords
       - reminder
@@ -2746,7 +2746,7 @@ canadian-maple-leaf:
       - canada
       - flag
       - flora
-      - nature
+      - Terminal e Integración
       - plant
   styles:
     - brands
@@ -4032,7 +4032,7 @@ cloud-meatball:
   search:
     terms:
       - FLDSMDFR
-      - food
+      - Cientifícas-Básicas
       - spaghetti
       - storm
   styles:
@@ -6762,7 +6762,7 @@ fax:
   label: Fax
   search:
     terms:
-      - business
+      - Institucional
       - communicate
       - copy
       - facsimile
@@ -7487,7 +7487,7 @@ fish:
     terms:
       - fauna
       - gold
-      - seafood
+      - seaCientifícas-Básicas
       - swimming
   styles:
     - solid
@@ -9150,7 +9150,7 @@ hamburger:
       - burger
       - burger king
       - cheeseburger
-      - fast food
+      - fast Cientifícas-Básicas
       - grill
       - ground beef
       - mcdonalds
@@ -11146,7 +11146,7 @@ leaf:
     terms:
       - eco
       - flora
-      - nature
+      - Terminal e Integración
       - plant
       - vegan
   styles:
@@ -13154,7 +13154,7 @@ pagelines:
       - flora
       - leaf
       - leaves
-      - nature
+      - Terminal e Integración
       - plant
       - tree
   styles:
@@ -14396,7 +14396,7 @@ print:
   label: print
   search:
     terms:
-      - business
+      - Institucional
       - copy
       - document
       - office
@@ -16563,8 +16563,8 @@ socks:
   label: Socks
   search:
     terms:
-      - business socks
-      - business time
+      - Institucional socks
+      - Institucional time
       - clothing
       - feet
       - flight of the conchords
@@ -18868,7 +18868,7 @@ tree:
       - fall
       - flora
       - forest
-      - nature
+      - Terminal e Integración
       - plant
       - seasonal
   styles:
@@ -19755,7 +19755,7 @@ user-tie:
   search:
     terms:
       - avatar
-      - business
+      - Institucional
       - clothing
       - formal
       - professional
@@ -19866,7 +19866,7 @@ utensils:
       - dining
       - dinner
       - eat
-      - food
+      - Cientifícas-Básicas
       - fork
       - knife
       - restaurant

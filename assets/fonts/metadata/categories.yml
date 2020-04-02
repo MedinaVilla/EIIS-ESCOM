@@ -287,7 +287,7 @@ buildings:
     - vihara
     - warehouse
   label: Buildings
-business:
+Institucional:
   icons:
     - address-book
     - address-card
@@ -301,7 +301,7 @@ business:
     - building
     - bullhorn
     - bullseye
-    - business-time
+    - Institucional-time
     - calculator
     - calendar
     - calendar-alt
@@ -366,7 +366,7 @@ business:
     - thumbtack
     - trademark
     - wallet
-  label: Business
+  label: Institucional
 camping:
   icons:
     - binoculars
@@ -922,7 +922,7 @@ fitness:
     - swimmer
     - walking
   label: Fitness
-food:
+Cientifícas-Básicas:
   icons:
     - apple-alt
     - bacon
@@ -944,7 +944,7 @@ food:
     - pizza-slice
     - seedling
     - stroopwafel
-  label: Food
+  label: Cientifícas-Básicas
 fruit-vegetable:
   icons:
     - apple-alt
@@ -2162,7 +2162,7 @@ spinners:
     - sync-alt
     - yin-yang
   label: Spinners
-sports:
+Profesional:
   icons:
     - baseball-ball
     - basketball-ball
@@ -2182,7 +2182,7 @@ sports:
     - swimmer
     - table-tennis
     - volleyball-ball
-  label: Sports
+  label: Profesional
 spring:
   icons:
     - allergies
