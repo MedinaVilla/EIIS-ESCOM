@@ -86,7 +86,7 @@
             heights[i] = $(this).outerHeight() + options.css.border.width * 2;
             clones[i] = $(this).children().clone();
         });
-
+        
         maxWidth = Math.max.apply(Math, widths);
         maxHeight = Math.max.apply(Math, heights);
 
@@ -95,19 +95,21 @@
             .height(maxHeight)
             .css({
                 // Setting transitions
+                
                 '-webkit-transition': 'all ' + options.duration + 'ms ' + options.animation,
                 '-moz-transition': 'all ' + options.duration + 'ms ' + options.animation,
                 '-ms-transition': 'all ' + options.duration + 'ms ' + options.animation,
                 '-o-transition': 'all ' + options.duration + 'ms ' + options.animation,
                 'transition': 'all ' + options.duration + 'ms ' + options.animation,
-
+                
                 // Others properties
                 'float': 'left',
                 'display': 'inline-block',
-                'padding': 0,
+                'padding': 10,
                 'position': 'relative',
-                'border': options.css.border.width + 'px solid ' + options.css.border.color,
-                'margin': options.css.margin
+                'border': /*options.css.border.width*/3 + 'px solid ' + options.css.border.color,
+                'margin': options.css.margin,
+                'border-radius': 30
             });
 
         if(options.css.pointer) {
@@ -175,6 +177,7 @@
         $overlay = $('<div />')
             .addClass('sdfm-overlay')
             .css({
+                /*
                 'background-color': 'rgba(' + backgroundColor.r + ', ' + backgroundColor.v + ', ' + backgroundColor.b + ', ' + options.css.overlay.opacity + ')',
                 'position': 'absolute',
                 'top': 0,
@@ -189,6 +192,7 @@
                 'left': 0,
                 'width': maxWidth - options.css.border.width * 2,
                 'height': maxHeight - options.css.border.width * 2
+                */
             });
 
         $title = $('<span />')
