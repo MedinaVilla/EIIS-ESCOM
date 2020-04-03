@@ -20,12 +20,13 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="./panel">Inicio</a></li>
                 <li class="active"><a href="./alumnos">Buscar Alumno</a></li>
-                <li><a href="./reportes">Reportes</a></li>
+                <li><a class="dropdown-trigger" data-target="dropdown1">Reportes<i
+                            class="material-icons right">arrow_drop_down</i></a></li>
                 <li><b><a href="./cerrarsesion">Cerrar sesión</a></b></li>
             </ul>
         </div>
     </nav>
-    <br/>
+    <br />
     <h3 class="container">Buscar Alumno</h3>
     <br />
     <div class="container">
@@ -216,6 +217,18 @@
             </div>
         </div>
     </div>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="./reporte_alumno">Alumno</a></li>
+        <li class="divider"></li>
+        <li><a href="./reporte_materia">Materia</a></li>
+    </ul>
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-trigger').dropdown();
+        });
+    </script>
+    <!-- END Dropdown Structure  -->
 </body>
 
 </html>

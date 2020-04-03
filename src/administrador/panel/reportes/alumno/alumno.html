@@ -1,0 +1,165 @@
+<html>
+
+<head>
+    <title>
+        Alumnos
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="assets/img/logoESCOM.png" />
+    <link rel="stylesheet" type="text/css" href="assets/css/login.css?3">
+    <link rel="stylesheet" type="text/css" href="assets/css/materialize/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="./panel" class="brand-logo"> &nbsp;<b>EIIS-ESCOM</b></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="./panel">Inicio</a></li>
+                    <li><a href="./alumnos">Buscar Alumno</a></li>
+                    <li><a class="dropdown-trigger" data-target="dropdown1">Reportes<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><b><a href="./cerrarsesion">Cerrar sesión</a></b></li>
+                </ul>
+            </div>
+        </nav>
+        <br />
+        <h3 class="container">Reportes por alumno</h3><br />
+        <div class="container">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Boleta" id="boleta" type="text" class="validate">
+                        <label for="boleta">Boleta del alumno:</label>
+                    </div>
+                </div>
+            </form>
+            <div class="card">
+                <h3 class="subheader">Alumnos</h3>
+                <ul id="alumnos" class="list"></ul>
+            </div>
+            <script>
+                let alumnos = [];
+                function getAlumnosList() {
+                    $.ajax(
+                        './src/administrador/panel/reportes/alumno/getAlumnosList.php',
+                        {
+                            success: function (response) {
+                                alumnos = JSON.parse(response);
+                                filter();
+                            },
+                            error: function () {
+                                alert('There was some error performing the AJAX call!');
+                            }
+                        }
+                    );
+                }
+                getAlumnosList();
+
+                const input = document.getElementById("boleta");
+                input.addEventListener("keyup", filter)
+
+                function filter() {
+                    const boleta = input.value;
+                    const resultado = document.querySelector("#alumnos");
+                    resultado.innerHTML = '';
+
+                    for (let alumno of alumnos) {
+                        if ((alumno.boleta).indexOf(boleta) !== -1) {
+                            resultado.innerHTML += "<li class='waves-effect'>" +
+                                "<div class='valign-wrapper'>" +
+                                "<i class='material-icons left circle white-text'>person</i>" +
+                                "<div class='title'>" +
+                                "<b>" + alumno.nombre + "</b><br>" +
+                                "<span>" + alumno.boleta + "</span>" +
+                                "</div>" +
+                                "<div>" +
+                                "<i onClick='openModelInfo(" + JSON.stringify(alumno) + ")'class='material-icons medium'>insert_chart</i>" +
+                                "</div>" +
+                                "</div>" +
+                                "</li>";
+                        }
+                        if (resultado.innerHTML === '') {
+                            resultado.innerHTML += "<li>Alumno no encontrado</li><br/>";
+                        }
+                    }
+                }
+                (function ($) {
+                    $(function () {
+                        $('.modal').modal();
+                    });
+                })(jQuery);
+
+                function openModelInfo(alumno) {
+                    $("#nombreA").html(alumno.nombre);
+                    $("#boletaA").html("Boleta: " + "<b>" + alumno.boleta + "</b>");
+                    $("#semestreA").html("Semestre: " + "<b>" + alumno.semestre + "</b>");
+                    $("#telefonoA").html("Telefono: " + "<b>" + alumno.telefono + "</b>");
+
+                    $('#modal1').modal('open');
+                }
+                //CRUD OPERATIONS
+                function updateAlumno() {
+
+                }
+            </script>
+
+            <!-- Modals -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4 id="nombreA"></h4>
+                    <!-- <p id="boletaA"></p>
+                    <p id="semestreA"></p>
+                    <p id="telefonoA"></p> -->
+                    <canvas id="doughnut-chart" width="20%" height="20%"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <a class="modal-close waves-effect waves-green btn-flat">Ok</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="./reporte_alumno">Alumno</a></li>
+        <li class="divider"></li>
+        <li><a href="./reporte_materia">Materia</a></li>
+    </ul>
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-trigger').dropdown();
+        });
+    </script>
+    <!-- END Dropdown Structure  -->
+</body>
+
+<script>
+    var data = {};
+    var ctx = document.getElementById('doughnut-chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["Análisis Vectorial", "Física", "Cálculo I", "Criptografía", "Álgebra"],
+            datasets: [
+                {
+                    label: "Population (millions)",
+                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                    data: [1, 1, 1, 1, 1]
+                }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Intenciones de alumno para el siguiente semestre'
+            }
+        }
+    });
+</script>
+
+</html>

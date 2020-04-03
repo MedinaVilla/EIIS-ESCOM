@@ -7,6 +7,10 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="assets/img/logoESCOM.png" />
     <link rel="stylesheet" type="text/css" href="assets/css/materialize/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/materialize.min.js"></script>
+
 </head>
 
 <body>
@@ -17,16 +21,33 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li class="active"><a href="./panel">Inicio</a></li>
                     <li><a href="./alumnos">Buscar Alumno</a></li>
-                    <li><a href="./reportes">Reportes</a></li>
+                    <!-- <li><a href="./reportes">Reportes</a></li> -->
+                    <li><a class="dropdown-trigger" data-target="dropdown1">Reportes<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
                     <li><b><a href="./cerrarsesion">Cerrar sesión</a></b></li>
                 </ul>
             </div>
         </nav>
-        <br/>
+        <br />
         <h3 class="container">Bienvenido <b>MedinaVilla</b></h3>
         <hr />
-     
+
     </div>
+
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="./reporte_alumno">Alumno</a></li>
+        <li class="divider"></li>
+        <li><a href="./reporte_materia">Materia</a></li>
+    </ul>
+    <script>
+        $(document).ready(function () {
+            console.log("sasas");
+            $('.dropdown-trigger').dropdown();
+        });
+    </script>
+    <!-- END Dropdown Structure  -->
+    
 </body>
 
 </html>
