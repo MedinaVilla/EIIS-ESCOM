@@ -6,11 +6,11 @@
         <title>Seleccionar Materias</title>
         <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'/>
         <link rel="icon" type="image/png" href="assets/img/logoESCOM.png" />
+        <link rel="stylesheet" type="text/css" href="assets/css/materiastyle.css">
         <link rel="stylesheet" type="text/css" href="assets/css/materialize/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="assets/js/jquery-3.4.1.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
-
     </head>
     <body>
         <nav class="blue">
@@ -43,144 +43,341 @@
         </div>
         <hr/>
 
-        <ul id="sort-me">
-            <li class="Cientifícas-Básicas" data-title="0" data-order="0">
-                <p class="flow-text">An&aacute;lisis Vectorial</p>   
-            </li>
-            <li class="Cientifícas-Básicas" data-title="1" data-order="1">
-                <p class="flow-text">C&aacute;lculo</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="2" data-order="2">
-                <p class="flow-text">Matem&aacute;ticas Discretas</p>
-            </li>
-            <li class="Profesional" data-title="3" data-order="3">
-                <p class="flow-text">Algoritmia Programaci&oacute;n Estructurada</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="4" data-order="4">
-                <p class="flow-text">F&iacute;sica</p>
-            </li>
-            <li class="Institucional" data-title="5" data-order="5">
-                <p class="flow-text">Ingenier&iacute;a, &Eacute;tica y Sociedad</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="6" data-order="6">
-                <p class="flow-text">Ecuaciones Diferenciales</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="7" data-order="7">
-                <p class="flow-text">&Aacute;lgebra Lineal</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="8" data-order="8">
-                <p class="flow-text">C&aacute;lculo Aplicado</p>
-            </li>
-            <li class="Profesional" data-title="9" data-order="9">
-                <p class="flow-text">Estructuras de Datos</p>
-            </li>
-            <li class="Institucional" data-title="10" data-order="10">
-                <p class="flow-text">Comunicaci&oacute;n Oral y Escrita</p>
-            </li>
-            <li class="Profesional" data-title="11" data-order="11">
-                <p class="flow-text">Análisis Fundamental de Circuitos</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="12" data-order="12">
-                <p class="flow-text">Matem&aacute;ticas Avanzadas Ingenier&iacute;a</p>
-            </li>
-            <li class="Profesional" data-title="13" data-order="13">
-                <p class="flow-text">Fundamentos Econ&oacute;micos</p>
-            </li>
-            <li class="Profesional" data-title="14" data-order="14">
-                <p class="flow-text">Fundamentos de Diseño Digital</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="15" data-order="15">
-                <p class="flow-text">Teor&iacute;a Computacional</p>
-            </li>
-            <li class="Profesional" data-title="16" data-order="16">
-                <p class="flow-text">Bases de Datos</p>
-            </li>
-            <li class="Profesional" data-title="17" data-order="17">
-                <p class="flow-text">Programaci&oacute;n Oriemtada a Objetos</p>
-            </li>
-            <li class="Profesional" data-title="18" data-order="18">
-                <p class="flow-text">Electr&oacute;nica Anal&oacute;gica</p>
-            </li>
-            <li class="Profesional" data-title="19" data-order="19">
-                <p class="flow-text">Redes de Computadoras</p>
-            </li>
-            <li class="Profesional" data-title="20" data-order="20">
-                <p class="flow-text">Diseño de Distemas Digitales</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="21" data-order="21">
-                <p class="flow-text">Probabilidad y Estad&iacute;stica</p>
-            </li>
-            <li class="Profesional" data-title="22" data-order="22">
-                <p class="flow-text">Sistemas Operativos</p>
-            </li>
-            <li class="Profesional" data-title="23" data-order="23">
-                <p class="flow-text">An&aacute;lisis y Diseño Orientado a Objetos</p>
-            </li>
-            <li class="Profesional" data-title="24" data-order="24">
-                <p class="flow-text">Tecnolog&iacute;as para la Web</p>
-            </li>
-            <li class="Profesional" data-title="25" data-order="25">
-                <p class="flow-text">Administraci&oacute;n Financiera</p>
-            </li>
-            <li class="Profesional" data-title="26" data-order="26">
-                <p class="flow-text">Arquitectura de Computadoras</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="27" data-order="27">
-                <p class="flow-text">An&aacute;lisis de Algoritmos</p>
-            </li>
-            <li class="Profesional" data-title="28" data-order="28">
-                <p class="flow-text">Ingenier&iacute;a de Software</p>
-            </li>
-            <li class="Profesional" data-title="29" data-order="29">
-                <p class="flow-text">Administraci&oacute;n de Proyectos</p>
-            </li>
-            <li class="Profesional" data-title="30" data-order="30">
-                <p class="flow-text">Instrumentaci&oacute;n</p>
-            </li>
-            <li class="Profesional" data-title="31" data-order="31">
-                <p class="flow-text">Teor&iacute;a de Comunicaciones y Señales</p>
-            </li>
-            <li class="Profesional" data-title="32" data-order="32">
-                <p class="flow-text">Aplicaciones para Comunicaciones Red</p>
-            </li>
-            <li class="Cientifícas-Básicas" data-title="33" data-order="33">
-                <p class="flow-text">M&eacute;todos Cuantitativos</p>
-            </li>
-            <li class="Profesional" data-title="34" data-order="34">
-                <p class="flow-text">Introducci&oacute;n a los Microcontroladores</p>
-            </li>
-            <li class="Profesional" data-title="35" data-order="35">
-                <p class="flow-text">Compiladores</p>
-            </li>
-            <li class="Terminal e Integración" data-title="36" data-order="36">
-                <p class="flow-text">Desarrollo de Sistemas Distribuidos</p>
-            </li>
-            <li class="Terminal e Integración" data-title="37" data-order="37">
-                <p class="flow-text">Administraci&oacute;n de Servicios en Red</p>
-            </li>
-            <li class="Terminal e Integración" data-title="38" data-order="38">
-                <p class="flow-text">Gestión Empresarial</p>
-            </li>
-            <li class="Institucional" data-title="39" data-order="39">
-                <p class="flow-text">Liderazgo</p>
-            </li>
-            <li class="Terminal e Integración" data-title="40" data-order="40">
-                <p class="flow-text">Trabajo Terminal I</p>
-            </li>
-            <li class="Terminal e Integración" data-title="41" data-order="41">
-                <p class="flow-text">Electiva</p>
-            </li>
-            <li class="Terminal e Integración" data-title="42" data-order="42">
-                <p class="flow-text">Trabajo Terminal II</p>
-            </li>
 
-
-
-
-
-
-
-        </ul>
+        <form action="#">
+            <ul id="sort-me">
+                <li class="Cientifícas-Básicas" data-order="0">
+                    <label>
+                        <input type="checkbox">
+                        <span><p class="flow-text">An&aacute;lisis Vectorial</p></span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="1">
+                    <label>
+                        <input type="checkbox">
+                        <span><p class="flow-text">C&aacute;lculo</p></span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="2">
+                    <label>
+                        <input type="checkbox">
+                        <span><p class="flow-text">Matem&aacute;ticas Discretas</p></span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="3">
+                    <label>
+                        <input type="checkbox">
+                        <span><p class="flow-text">Algoritmia y Programaci&oacute;n Estructurada</p></span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="4">
+                    <label>
+                        <input type="checkbox">
+                        <span><p class="flow-text">F&iacute;sica</p></span>
+                    </label>
+                </li>
+                <li class="Institucional" data-order="5">
+                    <label>
+                        <input type="checkbox">
+                        <span><p class="flow-text">Ingenier&iacute;a, &Eacute;tica y Sociedad</p></span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="6">
+                    <label>
+                        <input type="checkbox">
+                        <span><p class="flow-text">Ecuaciones Diferenciales</p></span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="7">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">&Aacute;lgebra Lineal</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="8">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">C&aacute;lculo Aplicado</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="9">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Estructuras de Datos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Institucional" data-order="10">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Comunicaci&oacute;n Oral y Escrita</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="11">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Análisis Fundamental de Circuitos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="12">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Matem&aacute;ticas Avanzadas para la Ingenier&iacute;a</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="13">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Fundamentos Econ&oacute;micos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="14">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Fundamentos de Diseño Digital</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="15">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Teor&iacute;a Computacional</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="16">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                                <p class="flow-text">Bases de Datos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="17">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Programaci&oacute;n Orientada a Objetos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="18">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Electr&oacute;nica Anal&oacute;gica</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="19">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Redes de Computadoras</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="20">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Diseño de Distemas Digitales</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="21">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Probabilidad y Estad&iacute;stica</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="22">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Sistemas Operativos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="23">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">An&aacute;lisis y Diseño Orientado a Objetos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="24">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Tecnolog&iacute;as para la Web</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="25">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Administraci&oacute;n Financiera</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="26">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Arquitectura de Computadoras</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="27">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">An&aacute;lisis de Algoritmos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="28">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Ingenier&iacute;a de Software</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="29">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Administraci&oacute;n de Proyectos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="30">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Instrumentaci&oacute;n</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="31">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Teor&iacute;a de Comunicaciones y Señales</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="32">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Aplicaciones para Comunicaciones en Red</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Cientifícas-Básicas" data-order="33">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">M&eacute;todos Cuantitativos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional"" data-order="34">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Introducci&oacute;n a los Microcontroladores</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="35">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Compiladores</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Terminal e Integración" data-order="36">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Desarrollo de Sistemas Distribuidos</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Terminal e Integración" data-order="37">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Administraci&oacute;n de Servicios en Red</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Terminal e Integración" data-order="38">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Gestión Empresarial</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Institucional" data-order="39">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Liderazgo</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Terminal e Integración"  data-order="40">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Trabajo Terminal I</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Terminal e Integración" data-order="41">
+                    <label>
+                        <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Electiva</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Terminal e Integración" data-order="42">
+                    <label>
+                    <input type="checkbox">
+                        <span>
+                            <p class="flow-text">Trabajo Terminal II</p>
+                        </span>
+                    </label>
+                </li>
+            </ul>
+        </form>
         <script src="assets/js/sort.js"></script>
 
     </body>

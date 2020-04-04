@@ -23,11 +23,13 @@
 
     $.layout = [];
 
+    
     $.sdFilterMe = function(el, options) {
         var $el = $(el);
 
         $(window).on('load', function() {
 
+            
             $el = $.sdFilterMe.buildLayout(el, options);
             $.layout = $.sdFilterMe.storeCoordinates($el);
 
@@ -39,7 +41,7 @@
 
             // Triggering events
 
-
+            
             $(options.filterSelector).css('cursor', 'pointer').on('click', function(e) {
                 e.preventDefault();
                 $.sdFilterMe.filterBoxes($el, $(this).attr('data-filter'), options);
@@ -112,9 +114,9 @@
                 'border-radius': 30
             });
 
-        if(options.css.pointer) {
+        /*if(options.css.pointer) {
             $wrapper.css('cursor', 'pointer');
-        }
+        }*/
 
 
         for(var i = 0; i < clones.length; ++i) {
@@ -196,7 +198,7 @@
             });
 
         $title = $('<span />')
-            .css({
+            .css({/*
                 'margin': 'auto',
                 'text-transform': 'uppercase',
                 'display': 'inline-block',
@@ -208,7 +210,7 @@
                 'color': options.css.overlay.color,
                 'font-size': '2em',
                 'border': options.css.overlay.border,
-                'font-weight': 'bold'
+                'font-weight': 'bold'*/
             }).html(title);
 
         $box.append($overlay.append($title));
@@ -250,7 +252,7 @@
     $.sdFilterMe.nothingToShow = function($wrapper, options) {
         $nothingToShow = $('<h3 />')
             .addClass('sdfm-nothing')
-            .css({
+            .css({/*
                 'font-size': '4em',
                 'color': options.nothingToShow.color,
                 'height': '0px',
@@ -267,7 +269,7 @@
                 '-moz-transition': 'all ' + options.duration + 'ms ' + options.animation,
                 '-ms-transition': 'all ' + options.duration + 'ms ' + options.animation,
                 '-o-transition': 'all ' + options.duration + 'ms ' + options.animation,
-                'transition': 'all ' + options.duration + 'ms ' + options.animation
+                'transition': 'all ' + options.duration + 'ms ' + options.animation*/
             }).html(options.nothingToShow.text);
 
         if(!$wrapper.prev('h3').hasClass('sdfm-nothing')) {
@@ -336,7 +338,7 @@
         }
     };
 
-    $.sdFilterMe.hoverEffect = function($el, options) {
+    /*$.sdFilterMe.hoverEffect = function($el, options) {
 
         $el.find('> .sdfm-inner-wrapper').hover(function() {
 
@@ -351,7 +353,7 @@
             });
 
         })
-    };
+    };*/
 
     $.sdFilterMe.addLink = function($box, link, options) {
 
@@ -446,3 +448,4 @@ jQuery(function($) {
         console.log('Box sort order is ' + order);
     });
 });
+
