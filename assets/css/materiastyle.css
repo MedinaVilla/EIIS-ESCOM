@@ -9,3 +9,22 @@ ul {
     column-count: 4;
 }
 
+button{
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.Fixed
+{
+    position: fixed;
+    top: 50%;
+    left: 89%;
+}
+
+.Fixedform
+{
+    position: fixed;
+    top: 60%;
+    left: 89%;
+}
