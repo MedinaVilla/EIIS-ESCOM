@@ -105,7 +105,7 @@
                 'transition': 'all ' + options.duration + 'ms ' + options.animation,
                 
                 // Others properties
-                'float': 'left',
+                /*'float': 'left',*/
                 'display': 'inline-block',
                 'padding': 10,
                 'position': 'relative',
