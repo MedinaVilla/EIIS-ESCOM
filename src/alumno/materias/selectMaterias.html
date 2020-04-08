@@ -32,6 +32,11 @@
                         $('.trigger-modal').modal();
                         return false;
                     }
+                    $('.modal').modal();
+                    $('#modal3').modal('open');
+                    $('.trigger-modal').modal();
+                    return true;
+
                 });
 
                 
@@ -88,6 +93,10 @@
         <div class="Fixed">
             <a id="clearAll" class="btn-floating pulse"><i class="material-icons">clear</i></a>
         </div>
+
+        <div class="Fixedform"">
+            <a id="send" class="btn-floating pulse"><i class="material-icons">send</i></a>
+        </div> 
 
         <div class="container">
         <form action="#">
@@ -423,9 +432,20 @@
                     </label>
                 </li>
             </ul> 
-            <button class="Fixedform" type="submit" name="action">
-                <a id="send"class="btn-floating pulse"><i class="material-icons">send</i></a>
-            </button> 
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                  <h4>Aviso</h4>
+                  <p class="flow-text">¿Estas Seg&uacute;ro de quieres Inscribir estas Materias? <br> Esta Encuesta solo se puede Realizar una vez</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Sí
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-light btn">No</a>
+                </div>
+            </div>
         </form>
     </div>
         <script src="assets/js/sort.js"></script>

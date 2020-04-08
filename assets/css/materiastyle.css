@@ -28,3 +28,7 @@ button{
     top: 60%;
     left: 89%;
 }
+
+.modal.footer{
+    float: left;
+}
