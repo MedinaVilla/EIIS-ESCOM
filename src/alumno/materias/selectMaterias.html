@@ -11,8 +11,52 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="assets/js/jquery-3.4.1.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#clearAll").click(function(){
+                    $('input[type=checkbox]').prop('checked',false);
+                });
+
+                $('#send').click(function() {
+                    checked = $("input[type=checkbox]:checked").length;
+
+                    if(!checked) {
+                        $('.modal').modal();
+                        $('#modal1').modal('open');
+                        $('.trigger-modal').modal();
+                        return false;
+                    }
+                    if(checked>7){
+                        $('.modal').modal();
+                        $('#modal2').modal('open');
+                        $('.trigger-modal').modal();
+                        return false;
+                    }
+                });
+
+                
+            });
+        </script>
     </head>
     <body>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Aviso</h4>
+              <p class="flow-text">Tienes que Seleccionar al menos una materia a Inscribir</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-light btn">De Acuerdo</a>
+            </div>
+        </div>
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h4>Aviso</h4>
+              <p class="flow-text">Solo puedes seleccionar como máximo 7 materias</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-light btn">De Acuerdo</a>
+            </div>
+        </div>
         <nav class="blue">
             <div class="nav-wrapper">
               <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Inscribir Materias</a>
@@ -42,7 +86,7 @@
         </div>
 
         <div class="Fixed">
-            <a class="btn-floating pulse"><i class="material-icons">clear</i></a>
+            <a id="clearAll" class="btn-floating pulse"><i class="material-icons">clear</i></a>
         </div>
 
         <div class="container">
@@ -379,9 +423,9 @@
                     </label>
                 </li>
             </ul> 
-                <button class="Fixedform" type="submit" name="action">
-                    <a class="btn-floating pulse"><i class="material-icons">send</i></a>
-                </button> 
+            <button class="Fixedform" type="submit" name="action">
+                <a id="send"class="btn-floating pulse"><i class="material-icons">send</i></a>
+            </button> 
         </form>
     </div>
         <script src="assets/js/sort.js"></script>
