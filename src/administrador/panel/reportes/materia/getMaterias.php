@@ -1,7 +1,7 @@
 <?php 
     require_once('./../../../../../config/mysqli_connect.php');
     
-    $sql = "select materia from materia;";
+    $sql = "select materia from asignatura;";
     $result = mysqli_query($conn,$sql);
     $resultCheck = mysqli_num_rows($result);
     $alumnos = [];

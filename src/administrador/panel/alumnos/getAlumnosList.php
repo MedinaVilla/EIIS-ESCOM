@@ -1,7 +1,7 @@
 <?php 
     require_once('./../../../../config/mysqli_connect.php');
     
-    $sql = "select * from alumnos;";
+    $sql = "select * from alumno;";
     $result = mysqli_query($conn,$sql);
     $resultCheck = mysqli_num_rows($result);
     $alumnos = [];

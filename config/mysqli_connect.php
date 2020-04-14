@@ -3,7 +3,7 @@
   $servername = "localhost";
   $username = "root";
   $password = "N0M3L0";
-  $dbname  = "alumnos";
+  $dbname  = "eiis";
 
   // Create connection
   $conn = mysqli_connect($servername, $username, $password, $dbname);

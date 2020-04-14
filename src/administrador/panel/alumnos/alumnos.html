@@ -74,7 +74,7 @@
                             "<div class='valign-wrapper'>" +
                             "<i class='material-icons left circle white-text'>person</i>" +
                             "<div class='title'>" +
-                            "<b>" + alumno.nombre + "</b><br>" +
+                            "<b>" + alumno.nombre + " " + alumno.apellidop + " " + alumno.apellidom + "</b><br>" +
                             "<span>" + alumno.boleta + "</span>" +
                             "</div>" +
                             "<div>" +
@@ -100,16 +100,27 @@
                 $("#nombreA").html(alumno.nombre);
                 $("#boletaA").html("Boleta: " + "<b>" + alumno.boleta + "</b>");
                 $("#semestreA").html("Semestre: " + "<b>" + alumno.semestre + "</b>");
-                $("#telefonoA").html("Telefono: " + "<b>" + alumno.telefono + "</b>");
+                $("#curp").html("CURP: " + "<b>" + alumno.curp + "</b>");
+                $("#fecha_nac").html("Fecha de nacimiento: " + "<b>" + alumno.fecha_nac + "</b>");
+                if (!alumno.fecha_nac) {
+                    $("#fecha_act").html("Fecha activacion: <b>Sin activar</b>");
+                } else {
+                    $("#telefonoA").html("Telefono: " + "<b>" + alumno.telefono + "</b>");
+                    $("#fecha_act").html("Fecha activacion: " + "<b>" + alumno.fecha_activacion + "</b>");
+
+                }
 
                 $('#modal1').modal('open');
             }
             function openModelModify(alumno) {
                 $('#nombre').val(alumno.nombre);
+                $('#apellidopB').val(alumno.apellidop);
+                $('#apellidomB').val(alumno.apellidom);
                 $('#boletaA').val(alumno.boleta);
                 $('#boletaB').val(alumno.boleta);
-                $('#semestre').val(alumno.semestre);
-                $('#telefono').val(alumno.telefono);
+                $('#curpB').val(alumno.curp);
+                $('#fecha_nacB').val(alumno.fecha_nac);
+                $('#telefonoB').val(alumno.telefono);
 
                 $('#modal2').modal('open');
             }
@@ -127,12 +138,16 @@
                         type: "POST",
                         data: {
                             nombre: document.getElementById("nombre").value,
+                            apellidop: document.getElementById("apellidopB").value,
+                            apellidom: document.getElementById("apellidomB").value,
                             boletaA: document.getElementById("boletaA").value,
                             boletaB: document.getElementById("boletaB").value,
-                            semestre: document.getElementById("semestre").value,
-                            telefono: document.getElementById("telefono").value
+                            curp: document.getElementById("curpB").value,
+                            fecha_nac: document.getElementById("fecha_nacB").value,
+                            telefono: document.getElementById("telefonoB").value
                         },
                         success: function (response) {
+                            console.log(response);
                             getAlumnosList();
                         },
                         error: function () {
@@ -166,7 +181,9 @@
             <div class="modal-content">
                 <h3 id="nombreA"></h3>
                 <p id="boletaA"></p>
-                <p id="semestreA"></p>
+                <p id="curp"></p>
+                <p id="fecha_nac"></p>
+                <p id="fecha_act"></p>
                 <p id="telefonoA"></p>
             </div>
             <div class="modal-footer">
@@ -184,16 +201,32 @@
                             <label for="nombre">Nombre</label>
                         </div>
                         <div class="input-field col s6">
+                            <input type="hidden" id="boletaA">
+                            <input placeholder="Placeholder" id="apellidopB" type="text"
+                                class="validate">
+                            <label for="nombre">Apellido paterno</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="hidden" id="boletaA">
+                            <input placeholder="Placeholder" id="apellidomB" type="text"
+                                class="validate">
+                            <label for="nombre">Apellido materno</label>
+                        </div>
+                        <div class="input-field col s6">
                             <input placeholder="Placeholder" id="boletaB" value="2016696644" type="text"
                                 class="validate">
                             <label for="boletaB">Boleta</label>
                         </div>
                         <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="semestre" value="7" type="text" class="validate">
-                            <label for="semestre">Semestre</label>
+                            <input placeholder="Placeholder" id="curpB" type="text" class="validate">
+                            <label for="semestre">CURP</label>
                         </div>
                         <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="telefono" value="5537545841" type="text"
+                            <input placeholder="Placeholder" id="fecha_nacB" type="text" class="validate">
+                            <label for="semestre">Fecha de nacimiento</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Placeholder" id="telefonoB" type="text"
                                 class="validate">
                             <label for="telefono">Teléfono</label>
                         </div>

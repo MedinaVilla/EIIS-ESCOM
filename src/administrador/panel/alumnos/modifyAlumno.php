@@ -3,13 +3,16 @@
         require_once('./../../../../config/mysqli_connect.php');
         print_r($_POST);
         $nombre = $_POST["nombre"];
+        $apellidop = $_POST["apellidop"];
+        $apellidom = $_POST["apellidom"];
         $boleta = $_POST["boletaA"];
         $boleta2 = $_POST["boletaB"];
-        $semestre = $_POST["semestre"];
-        $telefono = $_POST["telefono"];
-        $sql = "UPDATE alumnos set boleta=?, nombre=?, semestre=?, telefono=? WHERE boleta=?;";
+        $curp = $_POST["curp"];
+        $fecha_nac = $_POST["fecha_nac"];
+
+        $sql = "UPDATE alumno set boleta=?, nombre=?, apellidop=?, apellidom=?, curp=?, fecha_nac=? WHERE boleta=?;";
         $stmt = mysqli_prepare($conn,$sql);
-        mysqli_stmt_bind_param($stmt,"sssss",$boleta2,$nombre,$semestre,$telefono,$boleta);
+        mysqli_stmt_bind_param($stmt,"sssssss",$boleta2,$nombre,$apellidop,$apellidom,$curp,$fecha_nac,$boleta);
         mysqli_stmt_execute($stmt);
         $affected_rows = mysqli_stmt_affected_rows($stmt);
 

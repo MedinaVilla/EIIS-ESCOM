@@ -12,6 +12,20 @@
     <script src="assets/js/chart.js"></script>
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/materialize.min.js"></script>
+    <script>
+         window.chartColors = {
+            red: 'rgb(255, 121, 121)',
+            orange: 'rgb(255, 159, 64)',
+            yellow: 'rgb(247, 255, 121)',
+            green: 'rgb(75, 192, 192)',
+            blue: 'rgb(54, 162, 235)',
+            purple: 'rgb(153, 102, 255)',
+            grey: 'rgb(201, 203, 207)',
+            brown: 'rgb(240, 127, 103)',
+            green: 'rgb(171, 254, 115)',
+            turquish: 'rgb(230, 121, 255)'
+        };
+    </script>
 </head>
 
 <body>
@@ -98,8 +112,33 @@
                 function openModelInfo(alumno) {
                     $("#nombreA").html(alumno.nombre);
                     $("#boletaA").html("Boleta: " + "<b>" + alumno.boleta + "</b>");
-                    $("#semestreA").html("Semestre: " + "<b>" + alumno.semestre + "</b>");
-                    $("#telefonoA").html("Telefono: " + "<b>" + alumno.telefono + "</b>");
+                    
+                    window["myChart"].data.labels = [];
+                    window["myChart"].data.datasets[0].backgroundColor = [];
+                    window["myChart"].data.datasets[0].data = [];
+                    $.ajax(
+                        './src/administrador/panel/reportes/alumno/graphData.php',
+                        {
+                            type: "POST",
+                            data: {
+                                boleta: alumno.boleta
+                            },
+                            success: function (response) {
+                                let JSONresponse = JSON.parse(response);
+
+                                $.each(JSONresponse, function (index, item) {
+                                    console.log(window["myChart"]);
+                                    window["myChart"].data.labels.push(item.materia);
+                                    window["myChart"].data.datasets[0].backgroundColor.push("#3e95cd");
+                                    window["myChart"].data.datasets[0].data.push(1);
+                                });
+                                window["myChart"].update();
+                            },
+                            error: function () {
+                                alert('There was some error performing the AJAX call!');
+                            }
+                        }
+                    );
 
                     $('#modal1').modal('open');
                 }
@@ -113,9 +152,7 @@
             <div id="modal1" class="modal">
                 <div class="modal-content">
                     <h4 id="nombreA"></h4>
-                    <!-- <p id="boletaA"></p>
-                    <p id="semestreA"></p>
-                    <p id="telefonoA"></p> -->
+                    <p id="boletaA"></p>
                     <canvas id="doughnut-chart" width="20%" height="20%"></canvas>
                 </div>
                 <div class="modal-footer">
@@ -144,12 +181,16 @@
     var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["Análisis Vectorial", "Física", "Cálculo I", "Criptografía", "Álgebra"],
+            labels: [],
+            // labels: ["Análisis Vectorial", "Física", "Cálculo I", "Criptografía", "Álgebra"],
             datasets: [
                 {
-                    label: "Population (millions)",
-                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: [1, 1, 1, 1, 1]
+                    data: [],
+
+                    //     label: "Population (millions)",
+                    backgroundColor: [],
+                    //     backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                    //     data: [1, 1, 1, 1, 1]
                 }
             ]
         },

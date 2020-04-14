@@ -28,6 +28,10 @@
         case "/EIIS-ESCOM/cerrarsesion" :
             require __DIR__ . '/src/administrador/session/logout.php';
             break;
+        case "/EIIS-ESCOM/generatePDF" :
+        require __DIR__ . '/src/administrador/panel/reportes/materia/generatePDF.php';
+            break;
+
         default:
             http_response_code(404);
             require __DIR__ . '/src/404.html';
