@@ -52,9 +52,6 @@
                 $.sdFilterMe.sortBoxes($boxes, $(this).attr('data-order'), options);
             });
 
-            if(options.hoverEffect) {
-                $.sdFilterMe.hoverEffect($el, options);
-            }
         });
     };
 
@@ -108,7 +105,7 @@
                 /*'float': 'left',*/
                 'display': 'inline-block',
                 'padding': 10,
-                'position': 'relative',
+                'position': 'relative   ',
                 'border': /*options.css.border.width*/3 + 'px solid ' + options.css.border.color,
                 'margin': options.css.margin,
                 'border-radius': 30

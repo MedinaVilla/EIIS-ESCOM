@@ -13,6 +13,7 @@
         <script src="assets/js/materialize.min.js"></script>
         <script>
             $(document).ready(function(){
+
                 $("#clearAll").click(function(){
                     $('input[type=checkbox]').prop('checked',false);
                 });
@@ -36,10 +37,7 @@
                     $('#modal3').modal('open');
                     $('.trigger-modal').modal();
                     return true;
-
                 });
-
-                
             });
         </script>
     </head>
@@ -89,7 +87,6 @@
                 </div>
             </div>
         </div>
-
         <div class="Fixed">
             <a id="clearAll" class="btn-floating pulse"><i class="material-icons">clear</i></a>
         </div>
@@ -103,49 +100,49 @@
             <ul id="sort-me">
                 <li class="Cientifícas-Básicas" data-order="0">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Análisis Vectorial" onclick="Choose(this)">
                         <span><p class="flow-text">An&aacute;lisis Vectorial</p></span>
                     </label>
                 </li>
                 <li class="Cientifícas-Básicas" data-order="1">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Cálculo" onclick="Choose(this)">
                         <span><p class="flow-text">C&aacute;lculo</p></span>
                     </label>
                 </li>
                 <li class="Cientifícas-Básicas" data-order="2">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Matemáticas Discretas" onclick="Choose(this)">
                         <span><p class="flow-text">Matem&aacute;ticas Discretas</p></span>
                     </label>
                 </li>
                 <li class="Profesional" data-order="3">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Algoritmia y Programación Estructurada" onclick="Choose(this)">
                         <span><p class="flow-text">Algoritmia y Programaci&oacute;n Estructurada</p></span>
                     </label>
                 </li>
                 <li class="Cientifícas-Básicas" data-order="4">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Física" onclick="Choose(this)">
                         <span><p class="flow-text">F&iacute;sica</p></span>
                     </label>
                 </li>
                 <li class="Institucional" data-order="5">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Ingeniería, Ética y Sociedad" onclick="Choose(this)">
                         <span><p class="flow-text">Ingenier&iacute;a, &Eacute;tica y Sociedad</p></span>
                     </label>
                 </li>
                 <li class="Cientifícas-Básicas" data-order="6">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Ecuaciones Diferenciales" onclick="Choose(this)">
                         <span><p class="flow-text">Ecuaciones Diferenciales</p></span>
                     </label>
                 </li>
                 <li class="Cientifícas-Básicas" data-order="7">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Álgebra Lineal" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">&Aacute;lgebra Lineal</p>
                         </span>
@@ -153,7 +150,7 @@
                 </li>
                 <li class="Cientifícas-Básicas" data-order="8">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Cálculo Aplicado" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">C&aacute;lculo Aplicado</p>
                         </span>
@@ -161,7 +158,7 @@
                 </li>
                 <li class="Profesional" data-order="9">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Estructuras de Datos" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Estructuras de Datos</p>
                         </span>
@@ -169,7 +166,7 @@
                 </li>
                 <li class="Institucional" data-order="10">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Comunicación Oral y Escrita" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Comunicaci&oacute;n Oral y Escrita</p>
                         </span>
@@ -177,7 +174,7 @@
                 </li>
                 <li class="Profesional" data-order="11">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Análisis Fundamental de Circuitos" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Análisis Fundamental de Circuitos</p>
                         </span>
@@ -185,7 +182,7 @@
                 </li>
                 <li class="Cientifícas-Básicas" data-order="12">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Matemáticas Avanzadas para la Ingeniería" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Matem&aacute;ticas Avanzadas para la Ingenier&iacute;a</p>
                         </span>
@@ -193,7 +190,7 @@
                 </li>
                 <li class="Profesional" data-order="13">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Fundamentos Económicos" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Fundamentos Econ&oacute;micos</p>
                         </span>
@@ -201,7 +198,7 @@
                 </li>
                 <li class="Profesional" data-order="14">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Fundamentos de Diseño Digital" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Fundamentos de Diseño Digital</p>
                         </span>
@@ -209,7 +206,7 @@
                 </li>
                 <li class="Cientifícas-Básicas" data-order="15">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Teoría Computacional" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Teor&iacute;a Computacional</p>
                         </span>
@@ -217,7 +214,7 @@
                 </li>
                 <li class="Profesional" data-order="16">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Bases de Datos" onclick="Choose(this)">
                         <span>
                                 <p class="flow-text">Bases de Datos</p>
                         </span>
@@ -225,7 +222,7 @@
                 </li>
                 <li class="Profesional" data-order="17">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Programación Orientada a Objetos" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Programaci&oacute;n Orientada a Objetos</p>
                         </span>
@@ -233,7 +230,7 @@
                 </li>
                 <li class="Profesional" data-order="18">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Electrónica Analógica" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Electr&oacute;nica Anal&oacute;gica</p>
                         </span>
@@ -241,7 +238,7 @@
                 </li>
                 <li class="Profesional" data-order="19">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Redes de Computadoras" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Redes de Computadoras</p>
                         </span>
@@ -249,7 +246,7 @@
                 </li>
                 <li class="Profesional" data-order="20">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Diseño de Sistemas Digitales" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Diseño de Distemas Digitales</p>
                         </span>
@@ -257,7 +254,7 @@
                 </li>
                 <li class="Cientifícas-Básicas" data-order="21">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Probabilidad y Estadística" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Probabilidad y Estad&iacute;stica</p>
                         </span>
@@ -265,7 +262,7 @@
                 </li>
                 <li class="Profesional" data-order="22">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Sistemas Operativos" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Sistemas Operativos</p>
                         </span>
@@ -273,7 +270,7 @@
                 </li>
                 <li class="Profesional" data-order="23">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Análisis y Diseño Orientado a Objetos" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">An&aacute;lisis y Diseño Orientado a Objetos</p>
                         </span>
@@ -281,7 +278,7 @@
                 </li>
                 <li class="Profesional" data-order="24">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Tecnologías para la Web" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Tecnolog&iacute;as para la Web</p>
                         </span>
@@ -289,7 +286,7 @@
                 </li>
                 <li class="Profesional" data-order="25">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Administración Financiera" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Administraci&oacute;n Financiera</p>
                         </span>
@@ -297,7 +294,7 @@
                 </li>
                 <li class="Profesional" data-order="26">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Arquitectura de Computadoras" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Arquitectura de Computadoras</p>
                         </span>
@@ -305,7 +302,7 @@
                 </li>
                 <li class="Cientifícas-Básicas" data-order="27">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Análisis de Algoritmos" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">An&aacute;lisis de Algoritmos</p>
                         </span>
@@ -313,7 +310,7 @@
                 </li>
                 <li class="Profesional" data-order="28">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Ingeniería de Software" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Ingenier&iacute;a de Software</p>
                         </span>
@@ -321,7 +318,7 @@
                 </li>
                 <li class="Profesional" data-order="29">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Administración Financiera" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Administraci&oacute;n de Proyectos</p>
                         </span>
@@ -329,7 +326,7 @@
                 </li>
                 <li class="Profesional" data-order="30">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Instrumentación" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Instrumentaci&oacute;n</p>
                         </span>
@@ -337,7 +334,7 @@
                 </li>
                 <li class="Profesional" data-order="31">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Teoría de Comunicaciones y Señales" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Teor&iacute;a de Comunicaciones y Señales</p>
                         </span>
@@ -345,7 +342,7 @@
                 </li>
                 <li class="Profesional" data-order="32">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Aplicaciones para Comunicaciones en Red" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Aplicaciones para Comunicaciones en Red</p>
                         </span>
@@ -353,15 +350,15 @@
                 </li>
                 <li class="Cientifícas-Básicas" data-order="33">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Metodos Cuantitativos para la toma de Decisiones" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">M&eacute;todos Cuantitativos</p>
                         </span>
                     </label>
                 </li>
-                <li class="Profesional"" data-order="34">
+                <li class="Profesional" data-order="34">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Introducción a los Microcontroladores" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Introducci&oacute;n a los Microcontroladores</p>
                         </span>
@@ -369,7 +366,7 @@
                 </li>
                 <li class="Profesional" data-order="35">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Compiladores" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Compiladores</p>
                         </span>
@@ -377,7 +374,7 @@
                 </li>
                 <li class="Terminal e Integración" data-order="36">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Desarrollo de Sistemas Distribuidos" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Desarrollo de Sistemas Distribuidos</p>
                         </span>
@@ -385,7 +382,7 @@
                 </li>
                 <li class="Terminal e Integración" data-order="37">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Administración de Servicios en Red" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Administraci&oacute;n de Servicios en Red</p>
                         </span>
@@ -393,7 +390,7 @@
                 </li>
                 <li class="Terminal e Integración" data-order="38">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Gestión Empresarial" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Gestión Empresarial</p>
                         </span>
@@ -401,7 +398,7 @@
                 </li>
                 <li class="Institucional" data-order="39">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Liderazgo" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Liderazgo</p>
                         </span>
@@ -409,7 +406,7 @@
                 </li>
                 <li class="Terminal e Integración"  data-order="40">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Trabajo Terminal I" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Trabajo Terminal I</p>
                         </span>
@@ -417,7 +414,7 @@
                 </li>
                 <li class="Terminal e Integración" data-order="41">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="Electiva" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Electiva</p>
                         </span>
@@ -425,7 +422,7 @@
                 </li>
                 <li class="Terminal e Integración" data-order="42">
                     <label>
-                    <input type="checkbox">
+                    <input type="checkbox" value="Trabajo Terminal II" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Trabajo Terminal II</p>
                         </span>
@@ -438,17 +435,31 @@
                   <p class="flow-text">¿Estas Seg&uacute;ro de quieres Inscribir estas Materias? <br> Esta Encuesta solo se puede Realizar una vez</p>
                 </div>
                 <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-light btn">No</a>
                     <button class="btn waves-effect waves-light" type="submit" name="action">Sí
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
+            </div>
+            <div id="modal4" class="modal">
+                <div class="modal-content">
+                  <h4 id="nomMat">Aviso</h4>
+                </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-light btn">No</a>
+                    <a id="curse" class="waves-effect waves-light btn">Curse</a>
+                    <a id="recurse" class="waves-effect waves-light btn">Recurse</a>
                 </div>
             </div>
         </form>
     </div>
+    <!--<script>
+        function myFunction() {
+        var x = document.getElementById("is").name;
+        document.getElementById("demo").innerHTML = x;
+    }
+    </script>-->
         <script src="assets/js/sort.js"></script>
+        <script src="assets/js/choose.js"></script>
 
     </body>
 </html>
