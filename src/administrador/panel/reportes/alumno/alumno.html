@@ -13,18 +13,16 @@
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/materialize.min.js"></script>
     <script>
-         window.chartColors = {
-            red: 'rgb(255, 121, 121)',
-            orange: 'rgb(255, 159, 64)',
-            yellow: 'rgb(247, 255, 121)',
-            green: 'rgb(75, 192, 192)',
-            blue: 'rgb(54, 162, 235)',
-            purple: 'rgb(153, 102, 255)',
-            grey: 'rgb(201, 203, 207)',
-            brown: 'rgb(240, 127, 103)',
-            green: 'rgb(171, 254, 115)',
-            turquish: 'rgb(230, 121, 255)'
-        };
+         let colors =['rgb(255, 121, 121)',
+            'rgb(255, 159, 64)',
+            'rgb(247, 255, 121)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)',
+            'rgb(240, 127, 103)',
+            'rgb(171, 254, 115)',
+            'rgb(230, 121, 255)'];
     </script>
 </head>
 
@@ -65,6 +63,7 @@
                         {
                             success: function (response) {
                                 alumnos = JSON.parse(response);
+                                console.log(alumnos);
                                 filter();
                             },
                             error: function () {
@@ -89,7 +88,7 @@
                                 "<div class='valign-wrapper'>" +
                                 "<i class='material-icons left circle white-text'>person</i>" +
                                 "<div class='title'>" +
-                                "<b>" + alumno.nombre + "</b><br>" +
+                                "<b>" + alumno.nombre+ " " + alumno.apellidop + " " + alumno.apellidom + "</b><br>" +
                                 "<span>" + alumno.boleta + "</span>" +
                                 "</div>" +
                                 "<div>" +
@@ -129,7 +128,7 @@
                                 $.each(JSONresponse, function (index, item) {
                                     console.log(window["myChart"]);
                                     window["myChart"].data.labels.push(item.materia);
-                                    window["myChart"].data.datasets[0].backgroundColor.push("#3e95cd");
+                                    window["myChart"].data.datasets[0].backgroundColor.push(colors[Math.floor(Math.random() * 9)]);
                                     window["myChart"].data.datasets[0].data.push(1);
                                 });
                                 window["myChart"].update();
