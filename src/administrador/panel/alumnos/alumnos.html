@@ -97,7 +97,7 @@
             })(jQuery);
 
             function openModelInfo(alumno) {
-                $("#nombreA").html(alumno.nombre);
+                $("#nombreA").html(alumno.nombre+ " " + alumno.apellidop + " " + alumno.apellidom);
                 $("#boletaA").html("Boleta: " + "<b>" + alumno.boleta + "</b>");
                 $("#semestreA").html("Semestre: " + "<b>" + alumno.semestre + "</b>");
                 $("#curp").html("CURP: " + "<b>" + alumno.curp + "</b>");
