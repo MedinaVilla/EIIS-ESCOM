@@ -33,3 +33,15 @@ button{
     float: left;
 }
 
+#recurse{
+    background-color: rgb(138, 6, 56);
+}
+#modal4{
+    width: 30%;
+}
+
+@media only screen and (max-width: 750px) {
+    #modal4{
+        width: 85%;
+    }
+}

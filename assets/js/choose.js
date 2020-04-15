@@ -6,14 +6,15 @@ function Choose(materia){
             $('#modal4').modal('open');
             $('.trigger-modal').modal();
         }
-        $("#recurse").click(function(){
-            $(materia).attr('name', 'recurses[]');
-            $('#modal4').modal('close');
-        });
-
+        
         $("#curse").click(function(){
             $(materia).attr('name', 'curses[]');
             $('#modal4').modal('close');
+        });
+
+        $("#recurse").click(function(){
+            $(materia).attr('name', 'recurses[]');
+            $('#modal4').modal('close');  
         });
     });
 }
