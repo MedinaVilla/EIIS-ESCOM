@@ -6,7 +6,7 @@
             break;
         case "/EIIS-ESCOM" :
             require __DIR__ . '/index.html';
-            break;
+            break;        
         case "/EIIS-ESCOM/registro" :
             require __DIR__ . '/src/alumno/registro/registro.html';
             break;
@@ -29,9 +29,14 @@
             require __DIR__ . '/src/administrador/session/logout.php';
             break;
         case "/EIIS-ESCOM/generatePDF" :
-        require __DIR__ . '/src/administrador/panel/reportes/materia/generatePDF.php';
+            require __DIR__ . '/src/administrador/panel/reportes/materia/generatePDF.php';
             break;
-
+        case "/EIIS-ESCOM/verifica" :
+            require __DIR__ . '/src/alumno/inicio/validaridentidad/validacion.html';
+            break;
+        case "/EIIS-ESCOM/activacion" :
+            require __DIR__ . '/src/alumno/inicio/validaridentidad/complementaria.html';
+            break;
         default:
             http_response_code(404);
             require __DIR__ . '/src/404.html';
