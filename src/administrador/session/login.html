@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="assets/img/logoESCOM.png" />
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="assets/css/materialize/materialize.min.css">
+    <!-- Material Design Iconic Font CSS -->
+    <link rel="stylesheet" href="assets/css/materialize/material-design-iconic-font.min.css?v=4">
+    <!-- MaterialDark CSS -->
+    <link rel="stylesheet" href="assets/css/style.css?v=3">
+
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/materialize.min.js"></script>
+</head>
+
+<body class="font-cover" id="login">
+    <div class="container-login center-align">
+        <div style="margin:15px 0;">
+            <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
+            <p>Inicia sesión administrador</p>
+        </div>
+        <div class="input-field col s12">
+            <input id="numAdmin" type="text" class="validate" />
+            <label id="numAdminL" for="numAdmin"><i class="zmdi zmdi-account"></i>&nbsp; Clave</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="password" type="password" class="validate" />
+            <label id="passwordL" for="password"><i class="zmdi zmdi-lock"></i>&nbsp; Contraseña</label>
+            <code id="error" style="color:red"></code>
+        </div>
+        <button onClick="login();" class="waves-effect waves-teal btn-flat">Ingresar &nbsp; <i
+                class="zmdi zmdi-mail-send"></i></button>
+    </div>
+    <script>
+        function login() {
+            // JS Vanilla validation
+            let numAdmin = document.getElementById("numAdmin").value;
+            let password = document.getElementById("password").value;
+            if (numAdmin == "") {
+                document.getElementById("numAdminL").style.color = "red";
+                return;
+            } else document.getElementById("numAdminL").style.color = "";
+
+            if (password == "") {
+                document.getElementById("passwordL").style.color = "red";
+                return;
+            } else document.getElementById("passwordL").style.color = "";
+
+            $.ajax(
+                './src/administrador/session/login.php',
+                {
+                    type: "POST",
+                    data: {
+                        numAdmin: document.getElementById("numAdmin").value,
+                        password: document.getElementById("password").value
+                    },
+                    success: function (response) {
+                        if (response == 1) {
+                            location.href = "./panel";
+                        } else
+                            document.getElementById("error").innerHTML = "Datos erróneos";
+                    },
+                    error: function () {
+                        alert('There was some error performing the AJAX call!');
+                    }
+                }
+            );
+        }
+    </script>
+</body>
+
+</html>

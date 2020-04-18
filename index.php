@@ -37,6 +37,9 @@
         case "/EIIS-ESCOM/activacion" :
             require __DIR__ . '/src/alumno/inicio/validaridentidad/complementaria.html';
             break;
+        case "/EIIS-ESCOM/admin" :
+            require __DIR__ . '/src/administrador/session/login.html';
+            break;
         default:
             http_response_code(404);
             require __DIR__ . '/src/404.html';
