@@ -29,7 +29,7 @@
   * {
       margin: 0px; 
       padding: 0px; 
-      box-sizing: border-box;
+    box-sizing: border-box;
   }
   
   body, html {
@@ -114,6 +114,8 @@
   textarea:-ms-input-placeholder { color: #999999; }
   
   /*---------------------------------------------*/
+  /*Responsive*/
+  /*---------------------------------------------*/
   button {
       outline: none !important;
       border: none;
@@ -154,19 +156,18 @@
     align-items: center;
     padding: 15px;
     background: rgba(219,21,99,0.8);
-      background: -webkit-linear-gradient(45deg, #CBAFF0, rgba(196, 147, 217,0.8));
-      background: -o-linear-gradient(45deg, #CBAFF0, rgba(196, 147, 217 ,0.8));
-      background: -moz-linear-gradient(45deg, #CBAFF0, rgba(196, 147, 217 ,0.8));
-      background: linear-gradient(45deg, #CBAFF0, rgba(196, 147, 217,0.8 ));
-  
+    background: -webkit-linear-gradient(-180deg, #FDC3CE, #D948E8d2);
+    background: -o-linear-gradient(-180deg, #FDC3CE, #D948E8d2);
+    background: -moz-linear-gradient(-180deg, #FDC3CE, #D948E8d2);
+    background: linear-gradient(-180deg, #FDC3CE, #D948E8d2);
   }
   
   .wrap-contact2 {
-    width: 800px;
+    width:75%;
     background: #fff;
     border-radius: 100px;
     overflow: hidden;
-    padding: 72px 55px 30px 55px;
+    padding: 72px 55px 90px 55px;
   }
   
   .escudo1{
@@ -174,9 +175,9 @@
   }
   
   .escudo2{
-    padding-top: 10px;
     float: right;
   }
+  
   
   /*------------------------------------------------------------------
   [  ]*/
@@ -188,11 +189,11 @@
   .contact2-form-title {
     display: block;
     font-family: Poppins-Bold;
-    font-size: 39px;
+    font-size: 28px;
     color: #333333;
     line-height: 1.2;
     text-align: center;
-    padding-bottom: 90px;
+    padding-bottom: 30px;
   }
   
   .titulo1{
@@ -230,18 +231,19 @@
   
   
   
+  
   /*------------------------------------------------------------------
   [  ]*/
   
+  
   .datosGen{
-    border-radius: 25px;
+    border-radius: 50px;
     border:solid 1px #999999;
     padding: 30px;
     margin-top: 20px;
     margin-bottom: 7%;
-    margin-left: 40px;
-    width: 90%;
-    height: 300px;
+    width: 100%;
+    height: 480px;
   }
   
   .contacto{
@@ -265,11 +267,15 @@
   }
   
   .wrap-input2 {
-    width: 100%;
+    width: 47%;
     position: relative;
     border-bottom: 2px solid #adadad;
     margin-bottom: 37px;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: left;
   }
+  
   
   @media only screen and (max-width: 1150px) {
     .wrap-input2 {
@@ -325,6 +331,7 @@
     color: #555555;
     line-height: 1.2;
   }
+  
   
   .focus-input2 {
     position: absolute;
@@ -398,6 +405,7 @@
   }
   
   .input2:focus + .focus-input2::after {
+    color: #790640;
     top: -13px;
   }
   
@@ -406,6 +414,7 @@
   }
   
   .has-val.input2 + .focus-input2::after {
+    color: #790640;
     top: -13px;
   }
   
@@ -430,7 +439,7 @@
     display: block;
     position: relative;
     z-index: 1;
-    border-radius: 2px;
+    border-radius: 50px;
     width: auto;
     overflow: hidden;
     margin: 0 auto;
@@ -442,10 +451,10 @@
     width: 300%;
     height: 100%;
     background: rgba(219,21,99,1);
-        background: -webkit-linear-gradient(-135deg,#C493D9,#2DF877,#C493D9, #52FFD5);
-        background: -o-linear-gradient(-135deg,#C493D9,#2DF877,#C493D9, #52FFD5);
-        background: -moz-linear-gradient(-135deg,#C493D9, #2DF877,#C493D9, #52FFD5);
-        background: linear-gradient(-135deg,#C493D9, #2DF877,#C493D9, #52FFD5);
+    background: -webkit-linear-gradient(-135deg, #FDC3CE, #D948E8d2, #FDC3CE, #D948E8d2);
+    background: -o-linear-gradient(-135deg, #FDC3CE, #D948E8d2, #FDC3CE, #D948E8d2);
+    background: -moz-linear-gradient(-135deg, #FDC3CE, #D948E8d2, #FDC3CE, #D948E8d2);
+    background: linear-gradient(-135deg, #FDC3CE, #D948E8d2, #FDC3CE, #D948E8d2);
     top: 0;
     left: -100%;
   
@@ -466,15 +475,24 @@
     padding: 0 20px;
     min-width: 244px;
     height: 50px;
-  
-   
-  
     font-family: Poppins-Medium;
     font-size: 16px;
     color: #fff;
     line-height: 1.2;
-    
   
+  }
+  
+  .g-recaptcha{
+    margin-left: 33.5%;
+    margin-right: auto;
+  }
+  
+  @media (max-width: 800px){
+    .g-recaptcha{
+      size: 50px;
+      margin-left: 10%;
+      margin-right: auto;
+    }
   }
   
   .wrap-contact2-form-btn:hover .contact2-form-bgbtn {
@@ -552,9 +570,11 @@
     opacity: 1;
   }
   
+  
   @media (max-width: 992px) {
     .alert-validate::before {
       visibility: visible;
       opacity: 1;
     }
   }
+  

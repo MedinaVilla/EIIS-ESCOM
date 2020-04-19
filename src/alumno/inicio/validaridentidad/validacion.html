@@ -51,7 +51,7 @@
 				
                     <div class="datosGen">
                         <div class="wrap-input2 validate-input" data-validate="Ingrese una Boleta Válido">
-                            <input id="boleta" class="input2" type="tel" name="boleta" minlength="10" maxlength="10" size=10 min="0" max="9" title="Tu número de boleta debe tener 10 dígitos numéricos." required>
+                            <input id="boleta" class="input2" type="tel" name="boleta" minlength="10" maxlength="10" size=10 min="0" max="9" title="Tu número de boleta debe tener 10 dígitos numéricos.">
                             <span class="focus-input2" data-placeholder="Boleta"></span>
 						</div>
 						<code id="error" style="color: red"></code>
@@ -61,6 +61,15 @@
                                 <button type="button" onclick="validacion();" class="contact2-form-btn">
                                     Verificar
                                 </button>
+                            </div>
+						</div>
+						
+						<div class="container-contact2-form-btn">
+                            <div class="wrap-contact2-form-btn">
+								<div class="contact2-form-bgbtn"></div>								
+								<button type="button" onclick="alta();" class="contact2-form-btn">
+										Nuevo Alumno
+									</button>								
                             </div>
                         </div>
                     </div>
@@ -105,6 +114,12 @@
                 );
             }
 	</script>
+
+<script>
+	function alta() {				
+				location.href="./alta";						
+	}
+</script>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
