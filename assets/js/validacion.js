@@ -20,18 +20,14 @@
     
     /*==================================================================
     [ Validate ]*/
-    var name = $('.validate-input input[name="name"]');
+    
     var email = $('.validate-input input[name="email"]');
     var tel = $('.validate-input input[name="tel"]');
+    var contraseña = $('.validate-input input[name="contraseña"]');
     
-    $('.validate-form').on('submit',function(){
+    $('#validate').click(function(){
         var check = true;
-        
-        if($(name).val().trim() == ''){
-            showValidate(name);
-            check=false;
-        }       
-        
+          
         if($(tel).val().trim().match(/^[\(]?[\+]?(\d{2}|\d{3})[\)]?[\s]?((\d{6}|\d{8})|(\d{3}[\*\.\-\s]){3}|(\d{2}[\*\.\-\s]){4}|(\d{4}[\*\.\-\s]){2})|\d{8}|\d{10}|\d{12}$/) == null){
             showValidate(tel);
             check=false;
@@ -41,7 +37,13 @@
             showValidate(email);
             check=false;
         }
-
+        if($(contraseña).val().trim().match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/)== null){
+            showValidate(contraseña);
+            check=false;
+        }
+        if(check){
+            informacion();
+        } 
         return check;
     });
     

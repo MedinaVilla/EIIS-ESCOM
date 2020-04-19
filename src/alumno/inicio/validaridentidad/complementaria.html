@@ -8,7 +8,7 @@
 <!--===============================================================================================-->
 <link rel="icon" type="image/png" href="assets/img/logo-escom-white.png" />
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/complementaria.css">
 
-	<link href="https://stackpath.bootsrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+	
 	<link href="css/datePicker/jquery.datetimepicker.min.css" rel="stylesheet">
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 <!--===============================================================================================-->
@@ -51,24 +51,27 @@
 				
 				<div class="datosGen">
 					<div class="wrap-input2 validate-input" data-validate="Ingrese un Correo Electrónico Válido">
-						<input class="input2" type="email" name="email">
+						<input id="correo" class="input2" type="email" name="email">
 						<span class="focus-input2" data-placeholder="Correo"></span>
 					</div>
 
 					<div class="wrap-input2 validate-input" data-validate="Ingrese un Número Telefónico Válido">
-						<input class="input2" type="number" name="tel">
+						<input id="tel" class="input2" type="tel" name="tel" maxlength="10" minlength="10" size="10"
+								title="El número tiene únicamente 10 caracteres numéricos.">
 						<span class="focus-input2" data-placeholder="Telefono o Celular"></span>
 					</div>
 
 					<div class="wrap-input2 validate-input" data-validate="La Contraseña es Requerida">
-						<input class="input2" type="password" name="name" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" size="20" minlength="5" maxlength="20" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra,debe contener al menos un dígito,al menos 5 caracteres y evitar caracteres especiales.">
+						<input id="contraseña" class="input2" type="password" name="contraseña"
+							pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" size="15" minlength="8" maxlength="15"
+							title="La contraseña debe contener mínimo 8 caracteres y máximo 15,al menos una letra mayúscula,al menos una letra minúscula,al menos un dígito y al menos un caracter especial.">
 						<span class="focus-input2" data-placeholder="Contraseña"></span>
 					</div>
-
+					<code id="error" style="font-size: 23px; font-family:Verdana; color: red"></code>
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
 							<div class="contact2-form-bgbtn"></div>
-							<button type="submit" class="contact2-form-btn">
+							<button id="validate" type="button" class="contact2-form-btn">
 								Activar
 							</button>
 						</div>
@@ -80,6 +83,40 @@
 	</div>
 
 
+	<script>
+		function informacion() {
+			$.ajax(
+				'./src/alumno/inicio/validaridentidad/complementaria.php',
+				{
+					type: "POST",
+					data: {
+						tel: document.getElementById("tel").value,
+						email: document.getElementById("correo").value,
+						contraseña: document.getElementById("contraseña").value
+					},
+					success: function (response) {
+						console.log(response);
+						if (response == 1) {
+							//$('#modal3').modal('open');
+							alert("!Alumno Registrado Correctamente!");
+							location.href = "./";
+						}
+						else if (response == 3) {
+							document.getElementById("error").innerHTML = "El CURP ya ha sido registrado.";
+						}
+						else if (response == 4) {
+							document.getElementById("error").innerHTML = "La BOLETA ya ha sido registrada.";
+						}
+					},
+					error: function () {
+						alert('There was some error performing the AJAX call!');
+					}
+				}
+			);
+		}
+		
+	</script>
+
 
 
 <!--===============================================================================================-->
@@ -90,7 +127,7 @@
 <!--===============================================================================================-->
 	<script src="assets/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="assets/js/validacion.js"></script>
+	<script src="assets/js/validacion.js?v=2"></script>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
@@ -116,6 +153,6 @@
 			weeks: true
 		})
 	</script>
-
+	
 </body>
 </html>

@@ -27,6 +27,7 @@
     var email = $('.validate-input input[name="email"]');
     var curp = $('.validate-input input[name="curp"]');
     var tel = $('.validate-input input[name="tel"]');  
+    var contraseña = $('.validate-input input[name="contraseña"]');
 
     $('#validate').click(function(){
         var check = true;
@@ -69,7 +70,12 @@
         if($(email).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
             showValidate(email);
             check=false;
-        }        
+        }  
+        
+        if($(contraseña).val().trim().match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/)== null){
+            showValidate(contraseña);
+            check=false;
+        }
 
         if(miFuncion(this)){
             if(check){

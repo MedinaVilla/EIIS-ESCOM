@@ -1,6 +1,7 @@
 <?php
 require_once('./../../../../config/mysqli_connect.php');
-
+session_start();
+    $_SESSION["boleta"]=$_POST["boleta"];
     $boleta = $_POST['boleta'];
     $sql = "select * from alumno where boleta = '".$boleta."';";
     $result = mysqli_query($conn,$sql);
@@ -21,4 +22,5 @@ require_once('./../../../../config/mysqli_connect.php');
     } else{
         echo 3;
     }
+    
 ?>
