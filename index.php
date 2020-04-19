@@ -39,6 +39,7 @@
             break;
         case "/EIIS-ESCOM/alta" :
             require __DIR__ . '/src/alumno/inicio/nuevoalumno/newstudent.html';
+            break;
         case "/EIIS-ESCOM/admin" :
             require __DIR__ . '/src/administrador/session/login.html';
             break;

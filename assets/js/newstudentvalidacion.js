@@ -28,9 +28,9 @@
     var curp = $('.validate-input input[name="curp"]');
     var tel = $('.validate-input input[name="tel"]');  
 
-    $('.validate-form').on('submit',function(){
+    $('#validate').click(function(){
         var check = true;
-
+        
         if($(boleta).val().trim().match(/^[0-9]*\.?[0-9]*$/) == null){
             showValidate(boleta);
             check=false;
@@ -71,7 +71,18 @@
             check=false;
         }        
 
+        if(miFuncion(this)){
+            if(check){
+                student();
+            } 
+            
+        }else{
+            check=false;
+        }
         return check;
+              
+        
+
     });
     
     
