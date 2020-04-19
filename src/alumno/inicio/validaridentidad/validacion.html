@@ -100,10 +100,13 @@
 						data:{boleta:document.getElementById("boleta").value},
                         success: function (response) { 
 							console.log(response);     
-							if(response){
+							if(response==1){
 								location.href="./activacion";
 							}
-							else{
+							else if(response==2){
+								document.getElementById("error").innerHTML="La BOLETA esta ACTIVADA.";
+							}
+							else if(response==3){
 								document.getElementById("error").innerHTML="Boleta No Encontrada";
 							}                     
                         },
