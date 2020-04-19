@@ -39,6 +39,8 @@
             break;
         case "/EIIS-ESCOM/alta" :
             require __DIR__ . '/src/alumno/inicio/nuevoalumno/newstudent.html';
+        case "/EIIS-ESCOM/admin" :
+            require __DIR__ . '/src/administrador/session/login.html';
             break;
         default:
             http_response_code(404);

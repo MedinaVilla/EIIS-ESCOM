@@ -28,7 +28,7 @@
             </div>
         </nav>
         <br />
-        <h3 class="container">Bienvenido <b>MedinaVilla</b></h3>
+        <h3 class="container">Bienvenido <b id="adminName"></b></h3>
         <hr />
 
     </div>
@@ -43,6 +43,21 @@
         $(document).ready(function () {
             $('.dropdown-trigger').dropdown();
         });
+
+        function getAdminName() {
+            $.ajax(
+                './src/administrador/panel/getAdmin.php',
+                {
+                    success: function (response) {
+                        $("#adminName").html(response);
+                    },
+                    error: function () {
+                        alert('There was some error performing the AJAX call!');
+                    }
+                }
+            );
+        }
+        getAdminName();
     </script>
     <!-- END Dropdown Structure  -->
 
