@@ -1,5 +1,6 @@
 <?php
     $request = $_SERVER['REQUEST_URI'];
+    session_start();
     switch ($request) {
         case "/EIIS-ESCOM/" :
             require __DIR__ . '/index.html';
@@ -35,7 +36,13 @@
             require __DIR__ . '/src/alumno/inicio/validaridentidad/validacion.html';
             break;
         case "/EIIS-ESCOM/activacion" :
-            require __DIR__ . '/src/alumno/inicio/validaridentidad/complementaria.html';
+            if(isset($_SESSION["boleta"])){
+                require __DIR__ . '/src/alumno/inicio/validaridentidad/complementaria.html';
+                unset($_SESSION["boleta"]);
+            }
+            else
+                header("Location: /EIIS-ESCOM/verifica");
+            
             break;
         case "/EIIS-ESCOM/alta" :
             require __DIR__ . '/src/alumno/inicio/nuevoalumno/newstudent.html';

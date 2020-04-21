@@ -98,15 +98,16 @@
 
             function openModelInfo(alumno) {
                 $("#nombreA").html(alumno.nombre + " " + alumno.apellidop + " " + alumno.apellidom);
+                console.log(alumno);
                 $("#boletaA").html("Boleta: " + "<b>" + alumno.boleta + "</b>");
                 $("#semestreA").html("Semestre: " + "<b>" + alumno.semestre + "</b>");
                 $("#curp").html("CURP: " + "<b>" + alumno.curp + "</b>");
                 $("#fecha_nac").html("Fecha de nacimiento: " + "<b>" + alumno.fecha_nac + "</b>");
-                if (!alumno.fecha_nac) {
+                if (alumno.activacion==0) {
                     $("#fecha_act").html("Fecha activacion: <b>Sin activar</b>");
                 } else {
                     $("#telefonoA").html("Telefono: " + "<b>" + alumno.telefono + "</b>");
-                    $("#fecha_act").html("Fecha activacion: " + "<b>" + alumno.fecha_activacion + "</b>");
+                    $("#fecha_act").html("Fecha activacion: " + "<b>" + alumno.fecha_act + "</b>");
 
                 }
 
