@@ -4,9 +4,11 @@
     switch ($request) {
         case "/EIIS-ESCOM/" :
             require __DIR__ . '/index.html';
+            unset($_SESSION["boleta"]);
             break;
         case "/EIIS-ESCOM" :
             require __DIR__ . '/index.html';
+            unset($_SESSION["boleta"]);
             break;        
         case "/EIIS-ESCOM/registro" :
             require __DIR__ . '/src/alumno/registro/registro.html';
@@ -38,10 +40,12 @@
         case "/EIIS-ESCOM/activacion" :
             if(isset($_SESSION["boleta"])){
                 require __DIR__ . '/src/alumno/inicio/validaridentidad/complementaria.html';
+                
+            }
+            else{
+                header("Location: /EIIS-ESCOM/verifica");
                 unset($_SESSION["boleta"]);
             }
-            else
-                header("Location: /EIIS-ESCOM/verifica");
             
             break;
         case "/EIIS-ESCOM/alta" :
