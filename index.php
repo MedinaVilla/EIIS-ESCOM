@@ -16,6 +16,18 @@
         case "/EIIS-ESCOM/panel" :
             require __DIR__ . '/src/administrador/panel/panel.html';
             break;
+
+        case "/EIIS-ESCOM/aspirante" :
+            require __DIR__ . '/src/alumno/sesion/index.html';
+            break;
+
+        case '/EIIS-ESCOM/loginS' :
+                    require __DIR__ . '/src/alumno/sesion/login.php';
+                    break;
+
+        case '/EIIS-ESCOM/recupera' :
+            require __DIR__ . '/src/alumno/sesion/recupera.php';
+            break;
         case "/EIIS-ESCOM/alumnos" :
             require __DIR__ . '/src/administrador/panel/alumnos/alumnos.html';
             break;
