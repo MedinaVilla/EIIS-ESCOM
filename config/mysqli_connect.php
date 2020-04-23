@@ -1,8 +1,8 @@
 <?php
   //Database connection variables
   $servername = "localhost";
-  $username = "nenemalo";
-  $password = "jaiba";
+  $username = "root";
+  $password = "yeyo1253";
   $dbname  = "registro";
 
   // Create connection

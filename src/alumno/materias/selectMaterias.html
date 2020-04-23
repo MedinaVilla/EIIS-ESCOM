@@ -55,7 +55,6 @@
         </script>
     </head>
     <body>
-        
         <nav class="blue">
             <div class="nav-wrapper">
               <a href="#" class="brand-logo">&nbsp;&nbsp;Inscribir Materias</a>
@@ -64,6 +63,7 @@
               </ul>
             </div>
           </nav>
+          <p id="alumnoName" class="flow-text">Hola</p>
         
         <div id="modal1" class="modal">
             <div class="modal-content">
@@ -112,7 +112,7 @@
         </div> 
         
         <div class="container">
-        <form action="#">
+        <form action="./src/alumno/materias/selectMaterias.php" method="POST">
             <ul id="sort-me">
                 <li class="Cientifícas-Básicas" data-order="0">
                     <label>
@@ -503,6 +503,23 @@
         </form>
         <script src="assets/js/sort.js"></script>
         <script src="assets/js/choose.js?v=2"></script>
+        <script>
+
+            function getAlumnoName() {
+                $.ajax(
+                    './src/alumno/sesion/getAlumno.php',
+                    {
+                        success: function (response) {
+                            $("#alumnoName").html('&nbspBienvenido  ' + response);
+                        },
+                        error: function () {
+                            alert('There was some error performing the AJAX call!');
+                        }
+                    }
+                );
+            }
+            getAlumnoName();
+        </script>
 
     </body>
 </html>
