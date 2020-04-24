@@ -43,6 +43,9 @@
         case "/EIIS-ESCOM/cerrarsesion" :
             require __DIR__ . '/src/administrador/session/logout.php';
             break;
+        case "/EIIS-ESCOM/cierrasesion" :
+            require __DIR__ . '/src/alumno/sesion/sesionEnd.php';
+            break;
         case "/EIIS-ESCOM/generatePDF" :
             require __DIR__ . '/src/administrador/panel/reportes/materia/generatePDF.php';
             break;
