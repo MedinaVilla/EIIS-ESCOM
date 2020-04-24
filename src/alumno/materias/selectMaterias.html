@@ -33,10 +33,10 @@
                     materias = [];
                     $("#seleccion").empty();           
                     $.each($("input[name='curses[]']:checked"), function(){
-                        materias += "<br>" + "(Curse)" + $(this).val();
+                        materias += "(Curse)" + $(this).val() + "<br>";
                     });
                     $.each($("input[name='recurses[]']:checked"), function(){
-                        materias += "<br>" + "(Recurse)" + $(this).val();
+                        materias += "(Recurse)" + $(this).val() + "<br>";
                     });
                     $("#seleccion").append(materias);
                     
@@ -63,7 +63,7 @@
               </ul>
             </div>
           </nav>
-          <p id="alumnoName" class="flow-text">Hola</p>
+          <h4 id="alumnoName">Hola</h4>
         
         <div id="modal1" class="modal">
             <div class="modal-content">
@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <div class="row" style="margin-top: 10px;">
+        <div class="row" style="margin-top: 10px">
             <div class="col-xs-12">
                     <div class="col-xs-8 text-left">
                     <button class="btn btn-xl btn-primary sorter" data-filter="Cientifícas-Básicas">Cientifícas-Básicas</button>
@@ -504,7 +504,6 @@
         <script src="assets/js/sort.js"></script>
         <script src="assets/js/choose.js?v=2"></script>
         <script>
-
             function getAlumnoName() {
                 $.ajax(
                     './src/alumno/sesion/getAlumno.php',
