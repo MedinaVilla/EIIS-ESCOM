@@ -2,7 +2,7 @@
   //Database connection variables
   $servername = "localhost";
   $username = "root";
-  $password = "yeyo1253";
+  $password = "";
   $dbname  = "registro";
 
   // Create connection
