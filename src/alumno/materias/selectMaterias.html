@@ -112,7 +112,8 @@
         </div> 
         
         <div class="container">
-        <form action="./src/alumno/materias/selectMaterias.php" method="POST">
+        <!--<form action="./src/alumno/materias/selectMaterias.php" method="POST">-->
+        <form>
             <ul id="sort-me">
                 <li class="Cientifícas-Básicas" data-order="0">
                     <label>
@@ -509,7 +510,7 @@
                     './src/alumno/sesion/getAlumno.php',
                     {
                         success: function (response) {
-                            $("#alumnoName").html('&nbspBienvenido  ' + response);
+                            $("#alumnoName").html('&nbspBienvenid&#64;  ' + response);
                         },
                         error: function () {
                             alert('There was some error performing the AJAX call!');
@@ -519,6 +520,30 @@
             }
             getAlumnoName();
         </script>
-
+        <script>
+            $(function () {
+              $('form').on('submit', function(){
+                $.ajax(
+                    './src/alumno/materias/selectMaterias.php',
+                    {
+                        type: 'POST',
+                        data: $('form').serialize(),
+                        success: function (response) {
+                            if(response==1){
+                                alert("¡Materias Registradas Correctamente!");
+                                location.href = "./cierrasesion";
+                            }
+                            else if(response==0){
+                                alert("Usted ya registro materias previamente");
+                                location.href = "./cierrasesion";
+                            }
+                        },
+                        error: function () {
+						    alert('There was some error performing the AJAX call!');
+					    }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

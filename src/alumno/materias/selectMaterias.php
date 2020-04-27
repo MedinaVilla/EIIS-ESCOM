@@ -1,9 +1,9 @@
 <?php
     session_start();
-    if(isset($_POST['curses']) && isset($_POST['recurses'])){
+    if(isset($_POST['curses']) || isset($_POST['recurses'])){
+        $boleta = $_SESSION['user'];
         $curses = $_POST['curses'];
         $recurses = $_POST['recurses'];
-        $boleta = $_SESSION['user'];
         require_once('./../../../config/mysqli_connect.php');
         $sql = "select fecha_intencion from intencion where alumno_boleta='".$boleta."';";
         $result = mysqli_query($conn,$sql);
@@ -22,41 +22,50 @@
                 $sql = "INSERT INTO intencion (idintencion, alumno_boleta, fecha_intencion) values ('$idIntencion', '$boleta', '$fec_inten');";
                 mysqli_query($conn, $sql);
                 
-        
-                foreach($curses as $key => $value){
-                    $sql = "select * from asignatura where materia='".$value."';";
-                    $result = mysqli_query($conn,$sql);
-                    $resultCheck = mysqli_num_rows($result);
-                    if($resultCheck>0){
-                        while($row = mysqli_fetch_assoc($result)){
-                            $idMat = $row['idmateria'];
+                if(!empty($curses))
+                {
+                    foreach($curses as $key => $value){
+                        $sql = "select * from asignatura where materia='".$value."';";
+                        $result = mysqli_query($conn,$sql);
+                        $resultCheck = mysqli_num_rows($result);
+                        if($resultCheck>0){
+                            while($row = mysqli_fetch_assoc($result)){
+                                $idMat = $row['idmateria'];
+                            }
+                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '1');";
+                            mysqli_query($conn, $sql);
                         }
-                        $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '1');";
-                        mysqli_query($conn, $sql);
                     }
                 }
 
-                foreach($recurses as $key => $value){
-                    $sql = "select * from asignatura where materia='".$value."';";
-                    $result = mysqli_query($conn,$sql);
-                    $resultCheck = mysqli_num_rows($result);
-                    if($resultCheck>0){
-                        while($row = mysqli_fetch_assoc($result)){
-                            $idMat = $row['idmateria'];
+                if(!empty($recurses))
+                {
+                    foreach($recurses as $key => $value){
+                        $sql = "select * from asignatura where materia='".$value."';";
+                        $result = mysqli_query($conn,$sql);
+                        $resultCheck = mysqli_num_rows($result);
+                        if($resultCheck>0){
+                            while($row = mysqli_fetch_assoc($result)){
+                                $idMat = $row['idmateria'];
+                            }
+                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '2');";
+                            mysqli_query($conn, $sql);
                         }
-                        $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '2');";
-                        mysqli_query($conn, $sql);
                     }
                 }
             }
+            /*
             echo "<p>Tu id es: $idIntencion</p>";
-            //echo "<p>Tu idMat: $idMat</p>";
+            echo "<p>Tu idMat: $idMat</p>";
             echo "<p>La fecha es: $fec_inten</p>";
-            echo "<p> No esta registrado</p>";
+            echo "<p>Boleta: $boleta</P>";
+            echo "<p> No esta registrado</p>";*/
+            echo 1;
         }
-
         else{
-            echo "<p> Ya esta registrado</p>";
+            //echo "<p> Ya esta registrado</p>";
+            //echo "<p>Boleta: $boleta</P>";
+            echo 0;
         }
     }
 ?>
