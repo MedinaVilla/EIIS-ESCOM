@@ -2,8 +2,12 @@
     session_start();
     if(isset($_POST['curses']) || isset($_POST['recurses'])){
         $boleta = $_SESSION['user'];
-        $curses = $_POST['curses'];
-        $recurses = $_POST['recurses'];
+        if(!empty($_POST['curses'])){
+            $curses = $_POST['curses'];
+        }
+        if(!empty($_POST['recurses'])){
+            $recurses = $_POST['recurses'];
+        }
         require_once('./../../../config/mysqli_connect.php');
         $sql = "select fecha_intencion from intencion where alumno_boleta='".$boleta."';";
         $result = mysqli_query($conn,$sql);
@@ -54,17 +58,9 @@
                     }
                 }
             }
-            /*
-            echo "<p>Tu id es: $idIntencion</p>";
-            echo "<p>Tu idMat: $idMat</p>";
-            echo "<p>La fecha es: $fec_inten</p>";
-            echo "<p>Boleta: $boleta</P>";
-            echo "<p> No esta registrado</p>";*/
             echo 1;
         }
         else{
-            //echo "<p> Ya esta registrado</p>";
-            //echo "<p>Boleta: $boleta</P>";
             echo 0;
         }
     }
