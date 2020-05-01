@@ -1,7 +1,7 @@
  	<?php
 	
-	function isNull($nombre, $user, $pass, $pass_con, $email){
-		if(strlen(trim($nombre)) < 1 || strlen(trim($user)) < 1 || strlen(trim($pass)) < 1 || strlen(trim($pass_con)) < 1 || strlen(trim($email)) < 1)
+	function isNull($nombre,$pass, $pass_con, $email){
+		if(strlen(trim($nombre)) < 1 || strlen(trim($pass)) < 1 || strlen(trim($pass_con)) < 1 || strlen(trim($email)) < 1)
 		{
 			return true;
 			} else {
@@ -42,12 +42,12 @@
 		}
 	}
 	
-	function usuarioExiste($usuario)
+	function usuarioExiste($boleta)
 	{
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("SELECT boleta FROM alumno WHERE boleta = ? LIMIT 1");
-		$stmt->bind_param("s", $usuario);
+		$stmt = $conn->prepare("SELECT boleta FROM alumno WHERE boleta = ? LIMIT 1");
+		$stmt->bind_param("s", $boleta);
 		$stmt->execute();
 		$stmt->store_result();
 		$num = $stmt->num_rows;
@@ -62,9 +62,9 @@
 	
 	function emailExiste($email)
 	{
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("SELECT boleta FROM alumno WHERE correo = ? LIMIT 1");
+		$stmt = $conn->prepare("SELECT boleta FROM alumno WHERE correo = ? LIMIT 1");
 		$stmt->bind_param("s", $email);
 		$stmt->execute();
 		$stmt->store_result();
@@ -84,9 +84,9 @@
 		return $gen;
 	}
 	
-	function hashPassword($password) 
+	function hashPassword($contraseña) 
 	{
-		$hash = password_hash($password, PASSWORD_DEFAULT);
+		$hash = password_hash($contraseña, PASSWORD_DEFAULT);
 		return $hash;
 	}
 	
@@ -105,35 +105,35 @@
 		}
 	}
 	
-	function registraUsuario($usuario, $pass_hash, $nombre, $email, $activo, $token, $tipo_usuario){
+	/*function registraUsuario($usuario, $pass_hash, $nombre, $email, $activo, $token, $tipo_usuario){
 		
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("INSERT INTO usuarios (usuario, password, nombre, correo, activacion, token, id_tipo) VALUES(?,?,?,?,?,?,?)");
+		$stmt = $conn->prepare("INSERT INTO usuarios (usuario, password, nombre, correo, activacion, token, id_tipo) VALUES(?,?,?,?,?,?,?)");
 		$stmt->bind_param('ssssisi', $usuario, $pass_hash, $nombre, $email, $activo, $token, $tipo_usuario);
 		
 		if ($stmt->execute()){
-			return $mysqli->insert_id;
+			return $conn->insert_id;
 			} else {
 			return 0;	
 		}		
-	}
+	}*/
 	
 	function enviarEmail($email, $nombre, $asunto, $cuerpo){
 		
-		require_once 'PHPMailer/PHPMailerAutoload.php';
+		require_once './PHPMailer/PHPMailerAutoload.php';
 		
 		$mail = new PHPMailer();
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = 'tipo de seguridad'; //Modificar
-		$mail->Host = 'dominio'; //Modificar
-		$mail->Port = puerto; //Modificar
+		$mail->SMTPSecure = 'tls'; //Modificar
+		$mail->Host = 'smtp.gmail.com'; //Modificar
+		$mail->Port = '587'; //Modificar
 		
-		$mail->Username = 'correo emisor'; //Modificar
-		$mail->Password = 'password de correo emisor'; //Modificar
+		$mail->Username = 'dan.her.5311@gmail.com'; //Modificar
+		$mail->Password = '49sfjuan'; //Modificar
 		
-		$mail->setFrom('correo emisor', 'nombre de correo emisor'); //Modificar
+		$mail->setFrom('dan.her.5311@gmail.com', 'Sistema de Usuarios'); //Modificar
 		$mail->addAddress($email, $nombre);
 		
 		$mail->Subject = $asunto;
@@ -146,11 +146,11 @@
 		return false;
 	}
 	
-	function validaIdToken($id, $token){
-		global $mysqli;
+	function validaIdToken($boleta, $token){
+		global $conn;
 		
-		$stmt = $mysqli->prepare("SELECT activacion FROM usuarios WHERE id = ? AND token = ? LIMIT 1");
-		$stmt->bind_param("is", $id, $token);
+		$stmt = $conn->prepare("SELECT activacion FROM alumno	WHERE boleta = ? AND token = ? LIMIT 1");
+		$stmt->bind_param("ss", $boleta,$token);
 		$stmt->execute();
 		$stmt->store_result();
 		$rows = $stmt->num_rows;
@@ -174,19 +174,19 @@
 		return $msg;
 	}
 	
-	function activarUsuario($id)
+	function activarUsuario($boleta)
 	{
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("UPDATE usuarios SET activacion=1 WHERE id = ?");
-		$stmt->bind_param('s', $id);
+		$stmt = $conn->prepare("UPDATE alumno SET activacion=1 WHERE id = ?");
+		$stmt->bind_param('s', $boleta);
 		$result = $stmt->execute();
 		$stmt->close();
 		return $result;
 	}
 	
-	function isNullLogin($usuario, $password){
-		if(strlen(trim($usuario)) < 1 || strlen(trim($password)) < 1)
+	function isNullLogin($usuario, $contraseña){
+		if(strlen(trim($usuario)) < 1 || strlen(trim($contraseña)) < 1)
 		{
 			return true;
 		}
@@ -196,11 +196,11 @@
 		}		
 	}
 	
-	function login($usuario, $password)
+	/*function login($usuario, $contraseña)
 	{
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("SELECT id, id_tipo, password FROM usuarios WHERE usuario = ? || correo = ? LIMIT 1");
+		$stmt = $conn->prepare("SELECT id, id_tipo, password FROM usuarios WHERE usuario = ? || correo = ? LIMIT 1");
 		$stmt->bind_param("ss", $usuario, $usuario);
 		$stmt->execute();
 		$stmt->store_result();
@@ -233,23 +233,23 @@
 			$errors = "El nombre de usuario o correo electr&oacute;nico no existe";
 		}
 		return $errors;
-	}
+	}*/
 	
-	function lastSession($id)
+	/*function lastSession($id)
 	{
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("UPDATE usuarios SET last_session=NOW(), token_password='', password_request=0 WHERE id = ?");
+		$stmt = $conn->prepare("UPDATE usuarios SET last_session=NOW(), token_password='', password_request=0 WHERE id = ?");
 		$stmt->bind_param('s', $id);
 		$stmt->execute();
 		$stmt->close();
-	}
+	}*/
 	
 	function isActivo($usuario)
 	{
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("SELECT activacion FROM usuarios WHERE usuario = ? || correo = ? LIMIT 1");
+		$stmt = $conn->prepare("SELECT activacion FROM alumno WHERE boleta = ? || correo = ? LIMIT 1");
 		$stmt->bind_param('ss', $usuario, $usuario);
 		$stmt->execute();
 		$stmt->bind_result($activacion);
@@ -267,11 +267,11 @@
 	
 	function generaTokenPass($user_id)
 	{
-		global $mysqli;
+		global $conn;
 		
 		$token = generateToken();
 		
-		$stmt = $mysqli->prepare("UPDATE usuarios SET token_password=?, password_request=1 WHERE id = ?");
+		$stmt = $conn->prepare("UPDATE alumno SET token_password=?, password_request=1 WHERE boleta = ?");
 		$stmt->bind_param('ss', $token, $user_id);
 		$stmt->execute();
 		$stmt->close();
@@ -281,9 +281,9 @@
 	
 	function getValor($campo, $campoWhere, $valor)
 	{
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("SELECT $campo FROM usuarios WHERE $campoWhere = ? LIMIT 1");
+		$stmt = $conn->prepare("SELECT $campo FROM alumno WHERE $campoWhere = ? LIMIT 1");
 		$stmt->bind_param('s', $valor);
 		$stmt->execute();
 		$stmt->store_result();
@@ -303,15 +303,15 @@
 	
 	function getPasswordRequest($id)
 	{
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("SELECT password_request FROM usuarios WHERE id = ?");
-		$stmt->bind_param('i', $id);
+		$stmt = $conn->prepare("SELECT password_request FROM alumno WHERE boleta = ?");
+		$stmt->bind_param('s', $boleta);
 		$stmt->execute();
-		$stmt->bind_result($_id);
+		$stmt->bind_result($_boleta);
 		$stmt->fetch();
 		
-		if ($_id == 1)
+		if ($_boleta== 1)
 		{
 			return true;
 		}
@@ -323,10 +323,10 @@
 	
 	function verificaTokenPass($user_id, $token){
 		
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("SELECT activacion FROM usuarios WHERE id = ? AND token_password = ? AND password_request = 1 LIMIT 1");
-		$stmt->bind_param('is', $user_id, $token);
+		$stmt = $conn->prepare("SELECT activacion FROM alumno WHERE boleta = ? AND token_password = ? AND password_request = 1 LIMIT 1");
+		$stmt->bind_param('ss', $user_id, $token);
 		$stmt->execute();
 		$stmt->store_result();
 		$num = $stmt->num_rows;
@@ -350,12 +350,12 @@
 		}
 	}
 	
-	function cambiaPassword($password, $user_id){
+	function cambiaPassword($password, $user_id, $token){
 		
-		global $mysqli;
+		global $conn;
 		
-		$stmt = $mysqli->prepare("UPDATE usuarios SET password = ?, password_request=0 WHERE id = ?");
-		$stmt->bind_param('si', $password, $user_id);
+		$stmt = $conn->prepare("UPDATE alumno SET contraseña = ?, token_password='', password_request=0 WHERE boleta = ? AND token_password = ?");
+		$stmt->bind_param('sss', $password, $user_id, $token);
 		
 		if($stmt->execute()){
 			return true;

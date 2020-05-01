@@ -21,7 +21,7 @@
             require __DIR__ . '/src/alumno/sesion/index.html';
             break;
 
-        case '/EIIS-ESCOM/loginS' :
+        case '/EIIS-ESCOM/login' :
                     require __DIR__ . '/src/alumno/sesion/login.php';
                     break;
 

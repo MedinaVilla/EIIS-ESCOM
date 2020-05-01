@@ -1,4 +1,5 @@
 <?php
+
     if(isset($_POST)){
         $nombre=$_POST["name"];
         $paterno=$_POST["namep"];
@@ -13,6 +14,7 @@
 
         if($nombre && $paterno && $materno && $fecha_nac && $curp && $boleta && $telefono && $email && $contraseña) {
             require_once('./../../../../config/mysqli_connect.php');
+            require_once( './../../../../config/funcs.php');
                 
             $sql = "select * from alumno where boleta='".$boleta."';";
             $result = mysqli_query($conn,$sql);
@@ -22,17 +24,20 @@
                 $result = mysqli_query($conn,$sql);
                 $resultCheck = mysqli_num_rows($result);
                 if($resultCheck==0){
-                    $sql = "INSERT INTO alumno (boleta,nombre,apellidop,apellidom,correo,telefono,contraseña,curp,fecha_nac,fecha_act,activacion) values(?,?,?,?,?,?,?,?,?,?,?);";
+                    $sql = "INSERT INTO alumno (boleta,nombre,apellidop,apellidom,correo,telefono,contraseña,curp,fecha_nac,fecha_act,activacion,token) values(?,?,?,?,?,?,?,?,?,?,?,?);";
                     $stmt = mysqli_prepare($conn,$sql);
                     date_default_timezone_set('America/Mexico_City');
                     setlocale(LC_TIME, 'es_MX.UTF-8');
                     $Fecha_registro=date("Y-m-d H:i:s");
-                    $activacion=1;
+                    $activacion=0;
+                    //$pass_hash = hashPassword($contraseña);
+				    $token = generateToken();
+
                         // i Integers
                         // d Doubles
                         // b Blobs
                         // s Everything Else
-                    mysqli_stmt_bind_param($stmt,"sssssssssss",$boleta,$nombre,$paterno,$materno,$email,$telefono,$contraseña,$curp,$fecha_nac,$Fecha_registro,$activacion);
+                    mysqli_stmt_bind_param($stmt,"ssssssssssss",$boleta,$nombre,$paterno,$materno,$email,$telefono, $contraseña,$curp,$fecha_nac,$Fecha_registro,$activacion,$token);
                     mysqli_stmt_execute($stmt);
                     $affected_rows = mysqli_stmt_affected_rows($stmt);
                 
@@ -41,7 +46,8 @@
                         mysqli_stmt_close($stmt);
                         
                     } else{
-                        echo 2;
+                        echo "nel perrazo";
+                        echo mysqli_error($conn) . "\n";
                         
                     }
                 }else{

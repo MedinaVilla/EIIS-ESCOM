@@ -1,12 +1,12 @@
 <?php
 	 require_once('./config/mysqli_connect.php');
-	 require ('./config/funcs.php');
+	 require_once( './config/funcs.php');
 
 	 $errors= array();
 
 	 if(!empty($_POST))
 	{
-	 	$email = $mysqli->real_escape_string($_POST['email']);
+		$email= $conn-> real_escape_string($_POST['email']);
 
 	 	if(!isEmail($email))
 	 	{
@@ -16,18 +16,21 @@
 
 	 		if(emailExiste($email))
 	 		{
-	 			$user_id= getValor('id', 'correo', $email);
-	 			$nombre = getValor('nombre', 'correo', $email);
+	 			$user_id= getValor('boleta', 'correo', $email);
+				 $nombre = getValor('nombre', 'correo', $email);
+				 
+				 $token =generaTokenpass($user_id);
 
-	 			$url = 'https//'.$_SERVER["SERVER_NAME"].'/login/cambia_pass.php?user_id='.$user_id;
+	 			$url = ''.$_SERVER["SERVER_NAME"].'/EIIS-ESCOM/src/alumno/sesion/cambia_pass.php?user_id='.$user_id.'&token='.$token;
 
 	 			$asunto= 'Recupera Password - Sistema de Usuarios';
-	 			$cuerpo= "Hola $nombre: <br /><br />Se ha solicitado un cambio de contrase&tilde;a. <br /><br /a> Para restaurar su contrase&tilde;a., haga click en el siguiente link: <a href='$url'>Cambiar Password</a>";
+				 $cuerpo= "Hola $nombre: <br /><br />Se ha solicitado un cambio de contrase&ntilde;a. <br /><br /a>
+				  Para restaurar su contrase&ntilde;a., haga click en el siguiente link: <a href='$url'>Cambiar Password</a>";
 
 	 			if(enviarEmail($email, $nombre,$asunto, $cuerpo))
 	 			{
 	 				echo "Hemos enviado un correo electronico al correo $email para restablecer tu password.<br />";
-	 				echo "<a href='index.php' >Iniciar Sesion</a>";
+	 				echo "<a href='index.hmtml' >Iniciar Sesion</a>";
 	 				exit;
 	 				} else {
 	 				$errors[]= "Error al enviar Email";
@@ -45,51 +48,44 @@
 	<head>
 		<title>Recuperar Password</title>
 		
-		<link rel="stylesheet" href="css/bootstrap.min.css" >
-		<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
-		<script src="js/bootstrap.min.js" ></script>
+		<link rel="stylesheet" href="/EIIS-ESCOM/assets/css/master.css">
 		
 	</head>
 	
 	<body>
 		
-		<div class="container">    
-			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+		<div class="login-box">    
+			
 				<div class="panel panel-info" >
-					<div class="panel-heading">
-						<div class="panel-title">Recuperar Password</div>
-						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="index.php">Iniciar Sesi&oacute;n</a></div>
-					</div>     
+				
+				<h1>Recupera Password</h1> 
 					
-					<div style="padding-top:30px" class="panel-body" >
-						
-						<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+					<div style="padding-top:30px" class="panel-body" >							
+						<img src="/EIIS-ESCOM/assets/img/2.png" class="avatar" alt="Avatar Image">	
 						
 						<form id="loginform" class="form-horizontal" role="form" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off">
 							
-							<div style="margin-bottom: 25px" class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<div class="form-group input-group validate-input" class="input-group">
+								 <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
 								<input id="email" type="email" class="form-control" name="email" placeholder="email" required>                                        
 							</div>
 							
-							<div style="margin-top:10px" class="form-group">
+							<div><br><br> 
 								<div class="col-sm-12 controls">
 									<button id="btn-login" type="submit" class="btn btn-success">Enviar</a>
 								</div>
 							</div>
 							
-							<div class="form-group">
-								<div class="col-md-12 control">
-									<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-										No tiene una cuenta! <a href="registro.php">Registrate aquí</a>
+							
+									<div ><br><br>  
+										No tiene una cuenta! <a href="/EIIS-ESCOM/alta"> Registrate aquí</a>
 									</div>
-								</div>
-							</div>    
+								 
 						</form>
 						<?php echo resultBlock($errors); ?>
 					</div>                     
 				</div>  
-			</div>
+			
 		</div>
 	</body>
 </html>							
