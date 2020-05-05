@@ -130,10 +130,10 @@
 		$mail->Host = 'smtp.gmail.com'; //Modificar
 		$mail->Port = '587'; //Modificar
 		
-		$mail->Username = 'dan.her.5311@gmail.com'; //Modificar
-		$mail->Password = '49sfjuan'; //Modificar
+		$mail->Username = 'escomeiis43@gmail.com'; //Modificar
+		$mail->Password = 'jaibaelpatron'; //Modificar
 		
-		$mail->setFrom('dan.her.5311@gmail.com', 'Sistema de Usuarios'); //Modificar
+		$mail->setFrom('escomeiis43@gmail.com', 'Sistema de Usuarios'); //Modificar
 		$mail->addAddress($email, $nombre);
 		
 		$mail->Subject = $asunto;
