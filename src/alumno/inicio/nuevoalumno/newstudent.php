@@ -29,7 +29,7 @@
                     date_default_timezone_set('America/Mexico_City');
                     setlocale(LC_TIME, 'es_MX.UTF-8');
                     $Fecha_registro=date("Y-m-d H:i:s");
-                    $activacion=0;
+                    $activacion=1;
                     //$pass_hash = hashPassword($contraseña);
 				    $token = generateToken();
 
