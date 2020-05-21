@@ -2,8 +2,10 @@
   //Database connection variables
   $servername = "localhost";
   $username = "root";
+
   $password = "yeyo1253";
   $dbname  = "registro";
+
 
   // Create connection
   $conn= mysqli_connect($servername, $username, $password, $dbname);
