@@ -16,6 +16,18 @@
         case "/EIIS-ESCOM/panel" :
             require __DIR__ . '/src/administrador/panel/panel.html';
             break;
+
+        case "/EIIS-ESCOM/aspirante" :
+            require __DIR__ . '/src/alumno/sesion/index.html';
+            break;
+
+        case '/EIIS-ESCOM/login' :
+                    require __DIR__ . '/src/alumno/sesion/login.php';
+                    break;
+
+        case '/EIIS-ESCOM/recupera' :
+            require __DIR__ . '/src/alumno/sesion/recupera.php';
+            break;
         case "/EIIS-ESCOM/alumnos" :
             require __DIR__ . '/src/administrador/panel/alumnos/alumnos.html';
             break;
@@ -30,6 +42,9 @@
             break;
         case "/EIIS-ESCOM/cerrarsesion" :
             require __DIR__ . '/src/administrador/session/logout.php';
+            break;
+        case "/EIIS-ESCOM/cierrasesion" :
+            require __DIR__ . '/src/alumno/sesion/sesionEnd.php';
             break;
         case "/EIIS-ESCOM/generatePDF" :
             require __DIR__ . '/src/administrador/panel/reportes/materia/generatePDF.php';

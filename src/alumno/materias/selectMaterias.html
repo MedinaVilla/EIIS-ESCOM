@@ -13,11 +13,7 @@
         <script src="assets/js/materialize.min.js"></script>
         <script>
             $(document).ready(function(){
-
-                $("#clearAll").click(function(){
-                    $('input[type=checkbox]').prop('checked',false);
-                });
-
+                var materias = [];
                 $('#send').click(function() {
                     checked = $("input[type=checkbox]:checked").length;
 
@@ -34,9 +30,13 @@
                         return false;
                     }
 
-                    var materias = [];
-                    $.each($("input[type='checkbox']:checked"), function(){
-                        materias += "<br>" + $(this).val();
+                    materias = [];
+                    $("#seleccion").empty();           
+                    $.each($("input[name='curses[]']:checked"), function(){
+                        materias += "(Curse)" + $(this).val() + "<br>";
+                    });
+                    $.each($("input[name='recurses[]']:checked"), function(){
+                        materias += "(Recurse)" + $(this).val() + "<br>";
                     });
                     $("#seleccion").append(materias);
                     
@@ -45,10 +45,26 @@
                     $('.trigger-modal').modal();
                     return true;
                 });
+
+                $("#clearAll").click(function(){
+                    $('input[type=checkbox]').prop('checked',false);
+                    materias = [];
+                    $("#seleccion").empty();
+                });
             });
         </script>
     </head>
     <body>
+        <nav class="blue">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo">&nbsp;&nbsp;Inscribir Materias</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./cierrasesion"><i class="large material-icons">home</i></a></li>
+              </ul>
+            </div>
+          </nav>
+          <h4 id="alumnoName">Hola</h4>
+        
         <div id="modal1" class="modal">
             <div class="modal-content">
               <h4>Aviso</h4>
@@ -67,16 +83,8 @@
               <a href="#!" class="modal-close waves-effect waves-light btn">De Acuerdo</a>
             </div>
         </div>
-        <nav class="blue">
-            <div class="nav-wrapper">
-              <p class="flow-text">&nbsp;&nbsp;Inscribir Materias</p>
-              <ul class="right hide-on-med-and-down">
-                <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
-              </ul>
-            </div>
-        </nav>
-            
-        <div class="row" style="margin-top: 10px;">
+
+        <div class="row" style="margin-top: 10px">
             <div class="col-xs-12">
                     <div class="col-xs-8 text-left">
                     <button class="btn btn-xl btn-primary sorter" data-filter="Cientifícas-Básicas">Cientifícas-Básicas</button>
@@ -99,24 +107,23 @@
             <a id="clearAll" class="btn-floating pulse"><i class="material-icons">clear</i></a>
         </div>
 
-        <div class="Fixedform"">
+        <div class="Fixedform">
             <a id="send" class="btn-floating pulse"><i class="material-icons">send</i></a>
         </div> 
-        <!--<p id="demo">Hola</p>
-        <p id="demo2">Hola2</p>
-        <button onclick="myFunction()">Try it</button>-->
+        
         <div class="container">
-        <form action="#">
+        <!--<form action="./src/alumno/materias/selectMaterias.php" method="POST">-->
+        <form>
             <ul id="sort-me">
                 <li class="Cientifícas-Básicas" data-order="0">
                     <label>
-                        <input type="checkbox" name="UA[]" value="Análisis Vectorial" onclick="Choose(this)">
+                        <input type="checkbox" value="Análisis Vectorial" onclick="Choose(this)">
                         <span><p class="flow-text">An&aacute;lisis Vectorial</p></span>
                     </label>
                 </li>
                 <li class="Cientifícas-Básicas" data-order="1">
                     <label>
-                        <input type="checkbox" name="UA[]" value="Cálculo" onclick="Choose(this)">
+                        <input type="checkbox" value="Cálculo" onclick="Choose(this)">
                         <span><p class="flow-text">C&aacute;lculo</p></span>
                     </label>
                 </li>
@@ -328,7 +335,7 @@
                 </li>
                 <li class="Profesional" data-order="29">
                     <label>
-                        <input type="checkbox" value="Administración Financiera" onclick="Choose(this)">
+                        <input type="checkbox" value="Administración de Proyectos" onclick="Choose(this)">
                         <span>
                             <p class="flow-text">Administraci&oacute;n de Proyectos</p>
                         </span>
@@ -438,6 +445,38 @@
                         </span>
                     </label>
                 </li>
+                <li class="Profesional" data-order="43">
+                    <label>
+                    <input type="checkbox" value="Optativa A" onclick="Choose(this)">
+                        <span>
+                            <p class="flow-text">Optativa A</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="44">
+                    <label>
+                    <input type="checkbox" value="Optativa B" onclick="Choose(this)">
+                        <span>
+                            <p class="flow-text">Optativa B</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="45">
+                    <label>
+                    <input type="checkbox" value="Optativa C" onclick="Choose(this)">
+                        <span>
+                            <p class="flow-text">Optativa C</p>
+                        </span>
+                    </label>
+                </li>
+                <li class="Profesional" data-order="46">
+                    <label>
+                    <input type="checkbox" value="Optativa D" onclick="Choose(this)">
+                        <span>
+                            <p class="flow-text">Optativa D</p>
+                        </span>
+                    </label>
+                </li>
             </ul> 
             <div id="modal3" class="modal">
                 <div class="modal-content">
@@ -463,17 +502,48 @@
                 </div>
             </div>
         </form>
-    </div>
-    <!--<script>
-        function myFunction() {
-        var x = document.getElementById("vecto").name;
-        document.getElementById("demo").innerHTML = x;
-        var x = document.getElementById("calculo").name;
-        document.getElementById("demo2").innerHTML = x;
-    }
-    </script>-->
         <script src="assets/js/sort.js"></script>
-        <script src="assets/js/choose.js"></script>
-
+        <script src="assets/js/choose.js?v=2"></script>
+        <script>
+            function getAlumnoName() {
+                $.ajax(
+                    './src/alumno/sesion/getAlumno.php',
+                    {
+                        success: function (response) {
+                            $("#alumnoName").html('&nbspBienvenid&#64;  ' + response);
+                        },
+                        error: function () {
+                            alert('There was some error performing the AJAX call!');
+                        }
+                    }
+                );
+            }
+            getAlumnoName();
+        </script>
+        <script>
+            $(function () {
+              $('form').on('submit', function(){
+                $.ajax(
+                    './src/alumno/materias/selectMaterias.php',
+                    {
+                        type: 'POST',
+                        data: $('form').serialize(),
+                        success: function (response) {
+                            if(response==1){
+                                alert("¡Materias Registradas Correctamente!");
+                                location.href = "./cierrasesion";
+                            }
+                            else if(response==0){
+                                alert("Usted ya registro materias previamente");
+                                location.href = "./cierrasesion";
+                            }
+                        },
+                        error: function () {
+						    alert('There was some error performing the AJAX call!');
+					    }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
