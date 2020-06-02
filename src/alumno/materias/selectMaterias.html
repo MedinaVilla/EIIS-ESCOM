@@ -13,6 +13,18 @@
         <script src="assets/js/materialize.min.js"></script>
         <script>
             $(document).ready(function(){
+                var d = new Date();
+                d.setFullYear( d.getFullYear() - 100 );
+                $('.datepicker').datepicker({
+                    format: 'yyyy-mm-dd',
+                    selectYears: true,
+                    min: d,
+                    max: new Date()
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
                 var materias = [];
                 $('#send').click(function() {
                     checked = $("input[type=checkbox]:checked").length;
@@ -53,65 +65,6 @@
                 });
             });
         </script>
-        <script>
-            let alumno;
-            function getAlumno() {
-                $.ajax(
-                    './src/alumno/materias/getAlumnoBD.php',
-                    {
-                        success: function (response) {
-                            console.log(JSON.parse(response));
-                            alumno = JSON.parse(response);
-                        },
-                        error: function () {
-                            alert('There was some error performing the AJAX call!');
-                        }
-                    }
-                );
-            }
-            getAlumno();
-
-            function openModelModify(alumno) {
-                $('#nombre').val(alumno.nombre);
-                $('#apellidopB').val(alumno.apellidop);
-                $('#apellidomB').val(alumno.apellidom);
-                $('#boletaA').val(alumno.boleta);
-                $('#boletaB').val(alumno.boleta);
-                $('#curpB').val(alumno.curp);
-                $('#fecha_nacB').val(alumno.fecha_nac);
-                $('#telefonoB').val(alumno.telefono);
-                
-                $('.modal').modal();
-                $('#modal5').modal('open');
-                $('.trigger-modal').modal();
-            }
-
-            function updateAlumno() {
-                $.ajax(
-                    './src/alumno/materias/UpdateByAlumn.php',
-                    {
-                        type: "POST",
-                        data: {
-                            nombre: document.getElementById("nombreB").value,
-                            apellidop: document.getElementById("apellidopB").value,
-                            apellidom: document.getElementById("apellidomB").value,
-                            boletaA: document.getElementById("boletaA").value,
-                            boletaB: document.getElementById("boletaB").value,
-                            curp: document.getElementById("curpB").value,
-                            fecha_nac: document.getElementById("fecha_nacB").value,
-                            telefono: document.getElementById("telefonoB").value
-                        },
-                        success: function (response) {
-                            console.log(response);
-                        },
-                        error: function () {
-                            alert('There was some error performing the AJAX call!');
-                        }
-                    }
-                );
-
-            }
-        </script>
     </head>
     <body>
         <nav class="blue">
@@ -119,7 +72,7 @@
               <a href="#" class="brand-logo">&nbsp;&nbsp;Inscribir Materias</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="./cierrasesion"><i class="large material-icons">home</i></a></li>
-                <li><i onClick="openModelModify(JSON.stringify(alumno))" class='material-icons right'>create</i></li>
+                <li><i onClick="openModelModify()" class='material-icons right'>create</i></li>
               </ul>
             </div>
           </nav>
@@ -176,7 +129,7 @@
                             <label for="semestre">CURP</label>
                         </div>
                         <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="fecha_nacB" type="text" class="validate">
+                            <input placeholder="Placeholder" id="fecha_nacB" type="text" class="datepicker">
                             <label for="semestre">Fecha de nacimiento</label>
                         </div>
                         <div class="input-field col s6">
@@ -612,6 +565,7 @@
             </div>
         </form>
         <script src="assets/js/sort.js"></script>
+        <script src="assets/js/UpdateAlumno.js"></script>
         <script src="assets/js/choose.js?v=2"></script>
         <script>
             function getAlumnoName() {
