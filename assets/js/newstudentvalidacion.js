@@ -52,7 +52,7 @@
             check=false;
         }
 
-        if($(daten).val().trim().match(/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/) == null){
+        if($(daten).val().trim().match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/) == null){
             showValidate(daten);
             check=false;
         }        
