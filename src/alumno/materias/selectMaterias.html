@@ -53,6 +53,65 @@
                 });
             });
         </script>
+        <script>
+            let alumno;
+            function getAlumno() {
+                $.ajax(
+                    './src/alumno/materias/getAlumnoBD.php',
+                    {
+                        success: function (response) {
+                            console.log(JSON.parse(response));
+                            alumno = JSON.parse(response);
+                        },
+                        error: function () {
+                            alert('There was some error performing the AJAX call!');
+                        }
+                    }
+                );
+            }
+            getAlumno();
+
+            function openModelModify(alumno) {
+                $('#nombre').val(alumno.nombre);
+                $('#apellidopB').val(alumno.apellidop);
+                $('#apellidomB').val(alumno.apellidom);
+                $('#boletaA').val(alumno.boleta);
+                $('#boletaB').val(alumno.boleta);
+                $('#curpB').val(alumno.curp);
+                $('#fecha_nacB').val(alumno.fecha_nac);
+                $('#telefonoB').val(alumno.telefono);
+                
+                $('.modal').modal();
+                $('#modal5').modal('open');
+                $('.trigger-modal').modal();
+            }
+
+            function updateAlumno() {
+                $.ajax(
+                    './src/alumno/materias/UpdateByAlumn.php',
+                    {
+                        type: "POST",
+                        data: {
+                            nombre: document.getElementById("nombreB").value,
+                            apellidop: document.getElementById("apellidopB").value,
+                            apellidom: document.getElementById("apellidomB").value,
+                            boletaA: document.getElementById("boletaA").value,
+                            boletaB: document.getElementById("boletaB").value,
+                            curp: document.getElementById("curpB").value,
+                            fecha_nac: document.getElementById("fecha_nacB").value,
+                            telefono: document.getElementById("telefonoB").value
+                        },
+                        success: function (response) {
+                            console.log(response);
+                        },
+                        error: function () {
+                            alert('There was some error performing the AJAX call!');
+                        }
+                    }
+                );
+
+            }
+        </script>
     </head>
     <body>
         <nav class="blue">
@@ -60,9 +119,12 @@
               <a href="#" class="brand-logo">&nbsp;&nbsp;Inscribir Materias</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="./cierrasesion"><i class="large material-icons">home</i></a></li>
+                <li><i onClick="openModelModify(JSON.stringify(alumno))" class='material-icons right'>create</i></li>
               </ul>
             </div>
           </nav>
+
+           
           <h4 id="alumnoName">Hola</h4>
         
         <div id="modal1" class="modal">
@@ -81,6 +143,53 @@
             </div>
             <div class="modal-footer">
               <a href="#!" class="modal-close waves-effect waves-light btn">De Acuerdo</a>
+            </div>
+        </div>
+
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <div class="row">
+                    <form id="modifyForm">
+                        <div class="input-field col s6">
+                            <input type="hidden" id="boletaA">
+                            <input placeholder="Placeholder" id="nombreB" value="Jesus Medina" type="text"
+                                class="validate">
+                            <label for="nombre">Nombre</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="hidden" id="boletaA">
+                            <input placeholder="Placeholder" id="apellidopB" type="text" class="validate">
+                            <label for="nombre">Apellido paterno</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="hidden" id="boletaA">
+                            <input placeholder="Placeholder" id="apellidomB" type="text" class="validate">
+                            <label for="nombre">Apellido materno</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Placeholder" id="boletaB" value="2016696644" type="text"
+                                class="validate">
+                            <label for="boletaB">Boleta</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Placeholder" id="curpB" type="text" class="validate">
+                            <label for="semestre">CURP</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Placeholder" id="fecha_nacB" type="text" class="validate">
+                            <label for="semestre">Fecha de nacimiento</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Placeholder" id="telefonoB" type="text" class="validate">
+                            <label for="telefono">Teléfono</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a onClick="updateAlumno()" class="modal-close waves-effect waves-green btn">Guardar
+                    Cambios</a>
+                <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
             </div>
         </div>
 
