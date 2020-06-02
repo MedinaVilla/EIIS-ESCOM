@@ -14,31 +14,41 @@
             require __DIR__ . '/src/alumno/registro/registro.html';
             break;
         case "/EIIS-ESCOM/panel" :
-            require __DIR__ . '/src/administrador/panel/panel.html';
+            if(isset($_SESSION['user']))
+                require __DIR__ . '/src/administrador/panel/panel.html';
+            else
+                header("Location: /EIIS-ESCOM/");
             break;
-
         case "/EIIS-ESCOM/aspirante" :
             require __DIR__ . '/src/alumno/sesion/index.html';
             break;
 
         case '/EIIS-ESCOM/login' :
-                    require __DIR__ . '/src/alumno/sesion/login.php';
-                    break;
-
+            require __DIR__ . '/src/alumno/sesion/login.php';
+            break;
         case '/EIIS-ESCOM/recupera' :
             require __DIR__ . '/src/alumno/sesion/recupera.php';
             break;
         case "/EIIS-ESCOM/alumnos" :
-            require __DIR__ . '/src/administrador/panel/alumnos/alumnos.html';
+            if(isset($_SESSION['user']))
+                require __DIR__ . '/src/administrador/panel/alumnos/alumnos.html';
+            else
+                header("Location: /EIIS-ESCOM/");
             break;
         case "/EIIS-ESCOM/materias" :
             require __DIR__ . '/src/alumno/materias/selectMaterias.html';
             break;
         case "/EIIS-ESCOM/reporte_alumno" :
-            require __DIR__ . '/src/administrador/panel/reportes/alumno/alumno.html';
+            if(isset($_SESSION['user']))
+                require __DIR__ . '/src/administrador/panel/reportes/alumno/alumno.html';
+            else
+                header("Location: /EIIS-ESCOM/");
             break;
         case "/EIIS-ESCOM/reporte_materia" :
-            require __DIR__ . '/src/administrador/panel/reportes/materia/materia.html';
+            if(isset($_SESSION['user']))
+                require __DIR__ . '/src/administrador/panel/reportes/materia/materia.html';
+            else
+                header("Location: /EIIS-ESCOM/");
             break;
         case "/EIIS-ESCOM/cerrarsesion" :
             require __DIR__ . '/src/administrador/session/logout.php';
@@ -47,7 +57,10 @@
             require __DIR__ . '/src/alumno/sesion/sesionEnd.php';
             break;
         case "/EIIS-ESCOM/generatePDF" :
-            require __DIR__ . '/src/administrador/panel/reportes/materia/generatePDF.php';
+            if(isset($_SESSION['user']))
+                require __DIR__ . '/src/administrador/panel/reportes/materia/generatePDF.php';
+            else
+                header("Location: /EIIS-ESCOM/");
             break;
         case "/EIIS-ESCOM/verifica" :
             require __DIR__ . '/src/alumno/inicio/validaridentidad/validacion.html';
@@ -55,19 +68,20 @@
         case "/EIIS-ESCOM/activacion" :
             if(isset($_SESSION["boleta"])){
                 require __DIR__ . '/src/alumno/inicio/validaridentidad/complementaria.html';
-                
             }
             else{
                 header("Location: /EIIS-ESCOM/verifica");
                 unset($_SESSION["boleta"]);
             }
-            
             break;
         case "/EIIS-ESCOM/alta" :
             require __DIR__ . '/src/alumno/inicio/nuevoalumno/newstudent.html';
             break;
         case "/EIIS-ESCOM/admin" :
-            require __DIR__ . '/src/administrador/session/login.html';
+            if(isset($_SESSION['user']))
+                header("Location: /EIIS-ESCOM/panel");
+            else
+                require __DIR__ . '/src/administrador/session/login.html';
             break;
         default:
             http_response_code(404);

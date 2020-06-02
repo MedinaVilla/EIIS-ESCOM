@@ -57,7 +57,7 @@
             </div>
             <div id="buttonPDF" align="CENTER" style="display:none">
                 <button onClick="getPDF();" class="waves-effect waves-light btn-large"><i
-                        class="material-icons right">picture_as_pdf</i>Obtener PDF</a>
+                        class="material-icons right">picture_as_pdf</i>Obtener PDF</button>
             </div>
         </div>
         <br />
@@ -189,7 +189,7 @@
             pdf.addImage(base64IPN, 'png', 30, 30, 70, 70);
             pdf.addImage(base64ESCOM, 'png', 510, 30, 70, 70);
             pdf.text(165, 70, 'ESCUELA SUPERIOR DE CÓMPUTO');
-            pdf.text(100, 120, 'REPORTE DE ALUMNOS INSCRITOS DE LA MATERIA');
+            pdf.text(100, 120, 'REPORTE DE ALUMNOS INSCRITOS EN LA MATERIA');
             pdf.setFontType('Comic Sans');
             pdf.text(75, 170, 'Materia: "' + document.getElementById("materias").value + '"');
 
