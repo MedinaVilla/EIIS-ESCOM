@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/materiastyle.css">
         <link rel="stylesheet" type="text/css" href="assets/css/materialize/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
         <script src="assets/js/jquery-3.4.1.min.js"></script>
         <script src="assets/js/materialize.min.js"></script>
         <script>
@@ -549,7 +550,7 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-light btn">No</a>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Sí
+                    <button class="btn waves-effect waves-light" onclick="submitmaterias()" name="action">Sí
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
@@ -584,8 +585,9 @@
             getAlumnoName();
         </script>
         <script>
-            $(function () {
-              $('form').on('submit', function(){
+            function submitmaterias(){
+           // $(function () {
+              //$('form').on('submit', function(){
                 $.ajax(
                     './src/alumno/materias/selectMaterias.php',
                     {
@@ -594,19 +596,35 @@
                         success: function (response) {
                             if(response==1){
                                 alert("¡Materias Registradas Correctamente!");
-                                location.href = "./cierrasesion";
+                                var pdf = new jsPDF('p', 'pt', 'letter');
+                                pdf.text(165, 30, 'INSTITUTO POLITÉCNICO NACIONAL');
+                                pdf.setFontSize(12);
+                                pdf.text(205, 55, 'ESCUELA SUPERIOR DE CÓMPUTO');
+                                pdf.text(145, 95, 'REPORTE DE LAS MATERIAS INTENCIONADAS POR ALUMNO');
+                                pdf.setFont("helvetica");
+                                pdf.setFontType("bold");
+
+                                pdf.text(200, 140, "Alumno: ");
+                                pdf.text(200, 180, "MATERIAS:");
+                                pdf.setFontSize(10.5);
+
+                                // // Descargar el pdf
+                                pdf.save('reporte_' + '.pdf');
+                                //location.href = "./cierrasesion";
+                                alert("Osos Maduros");
                             }
                             else if(response==0){
                                 alert("Usted ya registro materias previamente");
-                                location.href = "./cierrasesion";
+                                //location.href = "./cierrasesion";
                             }
                         },
                         error: function () {
 						    alert('There was some error performing the AJAX call!');
 					    }
                     });
-                });
-            });
+                //});
+            //});
+            };
         </script>
     </body>
 </html>
