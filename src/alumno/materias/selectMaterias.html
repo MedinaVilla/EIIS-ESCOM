@@ -550,7 +550,7 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-light btn">No</a>
-                    <button class="btn waves-effect waves-light" onclick="submitmaterias()" name="action">Sí
+                    <button type="button" class="btn waves-effect waves-light" onclick="submitmaterias()" name="action">Sí
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
@@ -610,12 +610,11 @@
 
                                 // // Descargar el pdf
                                 pdf.save('reporte_' + '.pdf');
-                                //location.href = "./cierrasesion";
-                                alert("Osos Maduros");
+                                location.href = "./cierrasesion";
                             }
                             else if(response==0){
                                 alert("Usted ya registro materias previamente");
-                                //location.href = "./cierrasesion";
+                                location.href = "./cierrasesion";
                             }
                         },
                         error: function () {
