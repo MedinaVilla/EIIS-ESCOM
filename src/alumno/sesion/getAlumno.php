@@ -8,7 +8,7 @@
         $resultCheck = mysqli_num_rows($result);
         if($resultCheck>0){
             while($row = mysqli_fetch_assoc($result)){
-                echo "".$row['nombre']." ".$row['apellidop']."<br/>";
+                echo "".$row['nombre']." ".$row['apellidop']." ".$row['apellidom']." ".$row['boleta']."";
             }
         }
     }
