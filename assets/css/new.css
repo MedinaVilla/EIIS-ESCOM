@@ -292,7 +292,7 @@
       margin-top: 20px;
       margin-bottom: 15%;
       width: 100%;
-      height: 630px;
+      height: 800px;
     }
     
     .contacto{
@@ -490,8 +490,14 @@
   @media (max-width: 800px){
     .g-recaptcha{
       size: 50px;
-      margin-left: 10%;
+      margin-left: -10%;
       margin-right: auto;
+    }
+
+    .container-contact2-form-btn{
+      width: 110%;
+      position: relative;
+      margin-left: -10px;
     }
   }
   
