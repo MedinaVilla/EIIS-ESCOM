@@ -1,6 +1,6 @@
 let ActualBoleta, alumno;
 function openModelModify() {
-    getDataAlumno();
+    /*getDataAlumno();
     $('#nombre').val(alumno.nombre);
     $('#apellidopB').val(alumno.apellidop);
     $('#apellidomB').val(alumno.apellidom);
@@ -8,7 +8,7 @@ function openModelModify() {
     $('#boletaB').val(alumno.boleta);
     $('#curpB').val(alumno.curp);
     $('#fecha_nacB').val(alumno.fecha_nac);
-    $('#telefonoB').val(alumno.telefono);
+    $('#telefonoB').val(alumno.telefono);*/
     $('.modal').modal();
     $('#modal5').modal('open');
     $('.trigger-modal').modal();
@@ -16,7 +16,7 @@ function openModelModify() {
 
 }
 
-function getDataAlumno() {
+/*function getDataAlumno() {
     $.ajax(
         '/src/alumno/materias/getDataAlumno.php',
         {
@@ -28,7 +28,7 @@ function getDataAlumno() {
             }
         }
     );
-}
+}*/
 
 function getActualBoleta(){
     $.ajax(
