@@ -10,14 +10,12 @@
 
 	 	if(!isEmail($email))
 	 	{
-			echo 'entra 2:v';
 	 		$errors[]= "Debe de ingresar un correo electronico valido";
 
 	 	}
 
 	 		if(emailExiste($email))
 	 		{
-				 echo 'entra 1 :v';
 	 			$user_id= getValor('boleta', 'correo', $email);
 				 $nombre = getValor('nombre', 'correo', $email);
 				 
@@ -31,7 +29,6 @@
 
 	 			if(enviarEmail($email, $nombre,$asunto, $cuerpo))
 	 			{
-					echo 'entra 3 :v';
 	 				echo "Hemos enviado un correo electronico al correo $email para restablecer tu password.<br />";
 	 				echo "<a href='index.hmtml' >Iniciar Sesion</a>";
 	 				exit;

@@ -120,35 +120,30 @@
 	}*/
 	
 	function enviarEmail($email, $nombre, $asunto, $cuerpo){
-
 		
 		require_once './PHPMailer/PHPMailerAutoload.php';
-		echo 'OSOMADURO1';
+		
 		$mail = new PHPMailer();
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = 'tls'; //Modificar
-		$mail->Host = 'smtp.gmail.com'; //Modificar
-		$mail->Port = '587'; //Modificar
-		echo 'OSOMADURO2';
-		$mail->Username = 'dan.her.5311@gmail.com'; //Modificar
-		$mail->Password = '49sfjuan'; //Modificar
-		echo 'OSOMADURO3';
-		$mail->setFrom('dan.her.5311@gmail.com', 'Sistema de Usuarios'); //Modificar
+		$mail->Host = 'https://eiis-escom.herokuapp.com/'; //Modificar
+		$mail->Port = '465'; //Modificar
+		
+		$mail->Username = 'escomeiis43@gmail.com'; //Modificar
+		$mail->Password = 'jaibaelpatron'; //Modificar
+		
+		$mail->setFrom('escomeiis43@gmail.com', 'Sistema de Usuarios'); //Modificar
 		$mail->addAddress($email, $nombre);
-		echo 'OSOMADURO4';
+		
 		$mail->Subject = $asunto;
 		$mail->Body    = $cuerpo;
 		$mail->IsHTML(true);
-		echo 'OSOMADURO5';
-		echo $mail->send();
-
+		
 		if($mail->send())
 		return true;
 		else
 		return false;
-
-
 	}
 	
 	function validaIdToken($boleta, $token){
