@@ -10,7 +10,7 @@
         while($row = mysqli_fetch_assoc($result)){
             $alumnos[] = $row;
         }
-        printf("entra")
+        printf("entra");
         echo json_encode($alumnos);
     } 
     
