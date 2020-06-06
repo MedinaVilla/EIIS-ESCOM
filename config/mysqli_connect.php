@@ -1,9 +1,9 @@
 <?php
   //Database connection variables
-  $servername = "localhost";
-  $username = "root";
-  $password = "N0M3L0";
-  $dbname  = "eiis";
+  $servername = "us-cdbr-east-05.cleardb.net";
+  $username = "bbca97d1250b4e";
+  $password = "68027130";
+  $dbname  = "heroku_69f1905264af41f";
 
   // Create connection
   $conn= mysqli_connect($servername, $username, $password, $dbname);

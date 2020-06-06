@@ -2,84 +2,84 @@
     $request = $_SERVER['REQUEST_URI'];
     session_start();
     switch ($request) {
-        case "/EIIS-ESCOM/" :
+        case "/" :
             require __DIR__ . '/index.html';
             unset($_SESSION["boleta"]);
             break;
-        case "/EIIS-ESCOM" :
+        case "" :
             require __DIR__ . '/index.html';
             unset($_SESSION["boleta"]);
             break;        
-        case "/EIIS-ESCOM/registro" :
+        case "/registro" :
             require __DIR__ . '/src/alumno/registro/registro.html';
             break;
-        case "/EIIS-ESCOM/panel" :
+        case "/panel" :
             if(isset($_SESSION['user']))
                 require __DIR__ . '/src/administrador/panel/panel.html';
             else
-                header("Location: /EIIS-ESCOM/");
+                header("Location: /");
             break;
-        case "/EIIS-ESCOM/aspirante" :
+        case "/aspirante" :
             require __DIR__ . '/src/alumno/sesion/index.html';
             break;
 
-        case '/EIIS-ESCOM/login' :
+        case '/login' :
             require __DIR__ . '/src/alumno/sesion/login.php';
             break;
-        case '/EIIS-ESCOM/recupera' :
+        case '/recupera' :
             require __DIR__ . '/src/alumno/sesion/recupera.php';
             break;
-        case "/EIIS-ESCOM/alumnos" :
+        case "/alumnos" :
             if(isset($_SESSION['user']))
                 require __DIR__ . '/src/administrador/panel/alumnos/alumnos.html';
             else
-                header("Location: /EIIS-ESCOM/");
+                header("Location: /");
             break;
-        case "/EIIS-ESCOM/materias" :
+        case "/materias" :
             require __DIR__ . '/src/alumno/materias/selectMaterias.html';
             break;
-        case "/EIIS-ESCOM/reporte_alumno" :
+        case "/reporte_alumno" :
             if(isset($_SESSION['user']))
                 require __DIR__ . '/src/administrador/panel/reportes/alumno/alumno.html';
             else
-                header("Location: /EIIS-ESCOM/");
+                header("Location: /");
             break;
-        case "/EIIS-ESCOM/reporte_materia" :
+        case "/reporte_materia" :
             if(isset($_SESSION['user']))
                 require __DIR__ . '/src/administrador/panel/reportes/materia/materia.html';
             else
-                header("Location: /EIIS-ESCOM/");
+                header("Location: /");
             break;
-        case "/EIIS-ESCOM/cerrarsesion" :
+        case "/cerrarsesion" :
             require __DIR__ . '/src/administrador/session/logout.php';
             break;
-        case "/EIIS-ESCOM/cierrasesion" :
+        case "/cierrasesion" :
             require __DIR__ . '/src/alumno/sesion/sesionEnd.php';
             break;
-        case "/EIIS-ESCOM/generatePDF" :
+        case "/generatePDF" :
             if(isset($_SESSION['user']))
                 require __DIR__ . '/src/administrador/panel/reportes/materia/generatePDF.php';
             else
-                header("Location: /EIIS-ESCOM/");
+                header("Location: /");
             break;
-        case "/EIIS-ESCOM/verifica" :
+        case "/verifica" :
             require __DIR__ . '/src/alumno/inicio/validaridentidad/validacion.html';
             break;
-        case "/EIIS-ESCOM/activacion" :
+        case "/activacion" :
             if(isset($_SESSION["boleta"])){
                 require __DIR__ . '/src/alumno/inicio/validaridentidad/complementaria.html';
             }
             else{
-                header("Location: /EIIS-ESCOM/verifica");
+                header("Location: /verifica");
                 unset($_SESSION["boleta"]);
             }
             break;
-        case "/EIIS-ESCOM/alta" :
+        case "/alta" :
             require __DIR__ . '/src/alumno/inicio/nuevoalumno/newstudent.html';
             break;
-        case "/EIIS-ESCOM/admin" :
+        case "/admin" :
             if(isset($_SESSION['user']))
-                header("Location: /EIIS-ESCOM/panel");
+                header("Location: /panel");
             else
                 require __DIR__ . '/src/administrador/session/login.html';
             break;
