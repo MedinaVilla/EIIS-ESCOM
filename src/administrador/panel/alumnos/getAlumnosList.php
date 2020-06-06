@@ -12,7 +12,8 @@
             $alumnos[] = $row;
         }
         printf("entra");
-        print_r($alumnos);
+        $utfEncodedArray = array_map("utf8_encode", $alumnos );
+        print_r($utfEncodedArray);
         echo json_encode($alumnos,JSON_FORCE_OBJECT);
     } 
     
