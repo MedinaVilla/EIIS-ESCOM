@@ -18,7 +18,7 @@ function openModelModify() {
 
 function getDataAlumno() {
     $.ajax(
-        '/src/alumno/panel/materias/getDataAlumno.php',
+        '/src/alumno/materias/getDataAlumno.php',
         {
             success: function (response) {
                 alumno = response;
