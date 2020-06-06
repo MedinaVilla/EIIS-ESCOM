@@ -46,9 +46,7 @@
                         mysqli_stmt_close($stmt);
                         
                     } else{
-                        echo "nel perrazo";
                         echo mysqli_error($conn) . "\n";
-                        
                     }
                 }else{
                 echo 3;
