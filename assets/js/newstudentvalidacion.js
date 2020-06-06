@@ -77,15 +77,7 @@
             check=false;
         }
 
-        if(miFuncion(this)){
-            if(check){
-                student();
-            } 
-            
-        }else{
-            check=false;
-        }
-        return check;
+        
               
         
 
