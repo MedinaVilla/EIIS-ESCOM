@@ -7,10 +7,11 @@
     $resultCheck = mysqli_num_rows($result);
     printf("El resultado tiene %d filas.\n", $resultCheck);
     if($resultCheck>0){
-        printf("Entra");
         while($row = mysqli_fetch_assoc($result)){
+            printf("Entra a while");
             $alumnos[] = $row;
         }
     } 
+    printf($alumnos);
     echo json_encode($alumnos);
 ?>
