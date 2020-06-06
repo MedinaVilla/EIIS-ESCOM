@@ -47,7 +47,9 @@
             function getAlumnosList() {
                 $.ajax(
                     '/src/administrador/panel/alumnos/getAlumnosList.php',
+                    
                     {
+                        dataType:"json",
                         success: function (response) {
                             console.log(response);
                             alumnos = JSON.parse(response);
