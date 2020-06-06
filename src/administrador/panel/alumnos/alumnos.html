@@ -5,24 +5,24 @@
         Alumno
     </title>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="assets/img/logoESCOM.png" />
-    <link rel="stylesheet" type="text/css" href="assets/css/login.css?3">
-    <link rel="stylesheet" type="text/css" href="assets/css/materialize/materialize.min.css">
+    <link rel="icon" type="image/png" href="/assets/img/logoESCOM.png" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/login.css?3">
+    <link rel="stylesheet" type="text/css" href="/assets/css/materialize/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="assets/js/jquery-3.4.1.min.js"></script>
-    <script src="assets/js/materialize.min.js"></script>
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/materialize.min.js"></script>
 </head>
 
 <body>
     <nav>
         <div class="nav-wrapper">
-            <a href="./panel" class="brand-logo"> &nbsp;<b>EIIS-ESCOM</b></a>
+            <a href="/panel" class="brand-logo"> &nbsp;<b>EIIS-ESCOM</b></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="./panel">Inicio</a></li>
-                <li class="active"><a href="./alumnos">Buscar Alumno</a></li>
+                <li><a href="/panel">Inicio</a></li>
+                <li class="active"><a href="/alumnos">Buscar Alumno</a></li>
                 <li><a class="dropdown-trigger" data-target="dropdown1">Reportes<i
                             class="material-icons right">arrow_drop_down</i></a></li>
-                <li><b><a href="./cerrarsesion">Cerrar sesión</a></b></li>
+                <li><b><a href="/cerrarsesion">Cerrar sesión</a></b></li>
             </ul>
         </div>
     </nav>
@@ -46,7 +46,7 @@
             let alumnos = [];
             function getAlumnosList() {
                 $.ajax(
-                    './src/administrador/panel/alumnos/getAlumnosList.php',
+                    '/src/administrador/panel/alumnos/getAlumnosList.php',
                     {
                         success: function (response) {
                             alumnos = JSON.parse(response);
@@ -134,7 +134,7 @@
             //CRUD OPERATIONS
             function updateAlumno() {
                 $.ajax(
-                    './src/administrador/panel/alumnos/modifyAlumno.php',
+                    '/src/administrador/panel/alumnos/modifyAlumno.php',
                     {
                         type: "POST",
                         data: {
@@ -160,7 +160,7 @@
             }
             function deleteAlumno() {
                 $.ajax(
-                    './src/administrador/panel/alumnos/deleteAlumno.php',
+                    '/src/administrador/panel/alumnos/deleteAlumno.php',
                     {
                         type: "POST",
                         data: {
@@ -250,9 +250,9 @@
     </div>
     <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="./reporte_alumno">Alumno</a></li>
+        <li><a href="/reporte_alumno">Alumno</a></li>
         <li class="divider"></li>
-        <li><a href="./reporte_materia">Materia</a></li>
+        <li><a href="/reporte_materia">Materia</a></li>
     </ul>
     <script>
         $(document).ready(function () {

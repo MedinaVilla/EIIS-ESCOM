@@ -58,6 +58,5 @@
         $pdf->AddPage('L','A4',0);
         $pdf->body();
         $pdf->Output('F', './reportes/reporte_calculo.pdf');
-        echo "ola";
     }
 ?>

@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="icon" type="image/png" href="assets/img/logoESCOM.png" />
+    <link rel="icon" type="image/png" href="/assets/img/logoESCOM.png" />
     <!-- Materialize CSS -->
-    <link rel="stylesheet" href="assets/css/materialize/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/materialize/materialize.min.css">
     <!-- Material Design Iconic Font CSS -->
-    <link rel="stylesheet" href="assets/css/materialize/material-design-iconic-font.min.css?v=4">
+    <link rel="stylesheet" href="/assets/css/materialize/material-design-iconic-font.min.css?v=4">
     <!-- MaterialDark CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=3">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3">
 
-    <script src="assets/js/jquery-3.4.1.min.js"></script>
-    <script src="assets/js/materialize.min.js"></script>
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/materialize.min.js"></script>
 </head>
 
 <body class="font-cover" id="login">
@@ -51,7 +51,7 @@
             } else document.getElementById("passwordL").style.color = "";
 
             $.ajax(
-                './src/administrador/session/login.php',
+                '/src/administrador/session/login.php',
                 {
                     type: "POST",
                     data: {

@@ -3,12 +3,12 @@
 	require './../../../config/funcs.php';
 	
 	if(empty($_GET['user_id'])){
-		header('Location: index.html');
+		header('Location: /');
 		
 	}
 	
 	if(empty($_GET['token'])){
-		header('Location: index.html');
+		header('Location: /');
 		
 	}
 	

@@ -14,19 +14,19 @@
                     if($row ["activacion"]==1){
                         session_start();
                         $_SESSION['user'] = $name;
-                        header("Location: /EIIS-ESCOM/materias ");
+                        header("Location: /materias ");
                 
                     }else {
-                        header("Location: /EIIS-ESCOM/verifica");
+                        header("Location: /verifica");
                     }
                 
             } else {
 
-                echo header("Location: /EIIS-ESCOM/aspirante ");            
+                echo header("Location: /aspirante ");            
                 exit;
             }
         } else 
             echo "Datos no valido";
     } else
-            header("Location: /EIIS-ESCOM/");
+            header("Location: /");
 ?>
