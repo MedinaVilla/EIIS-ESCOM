@@ -1,5 +1,5 @@
 <?php 
-    header("Content-Type: text/html;charset=UTF-8");
+    // header("Content-Type: text/html;charset=UTF-8");
     require_once('./../../../../config/mysqli_connect.php');
     
     $alumnos = [];
