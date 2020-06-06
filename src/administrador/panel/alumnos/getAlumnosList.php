@@ -11,7 +11,8 @@
             printf("Entra a while");
             $alumnos[] = $row;
         }
+        printf($alumnos);
+        echo json_encode($alumnos);
     } 
-    printf($alumnos);
-    echo json_encode($alumnos);
+    
 ?>
