@@ -127,8 +127,8 @@
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = 'tls'; //Modificar
-		$mail->Host = 'eiis-escom.herokuapp.com'; //Modificar
-		$mail->Port = '465'; //Modificar
+		$mail->Host = 'eiis-escom.herokuapp.com/'; //Modificar
+		$mail->Port = '587'; //Modificar
 		
 		$mail->Username = 'escomeiis43@gmail.com'; //Modificar
 		$mail->Password = 'jaibaelpatron'; //Modificar
