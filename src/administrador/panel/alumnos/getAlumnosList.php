@@ -11,6 +11,7 @@
             $alumnos[] = $row;
         }
         printf("entra");
+        print_r($alumnos);
         echo json_encode($alumnos);
     } 
     
