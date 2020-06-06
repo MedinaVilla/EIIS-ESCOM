@@ -4,8 +4,6 @@
     
     $alumnos = [];
     $sql = "select * from alumno;";
-    mysqli_set_charset('utf8', $conn);
-    mysqli_query($conn,"set names 'utf8'");
     $result = mysqli_query($conn,$sql);
     $resultCheck = mysqli_num_rows($result);
     if($resultCheck>0){
