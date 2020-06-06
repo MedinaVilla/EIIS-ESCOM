@@ -1,5 +1,5 @@
 <?php 
-    require_once('/config/mysqli_connect.php');
+    require_once('./../../../../config/mysqli_connect.php');
     
     $sql = "select * from alumno;";
     $result = mysqli_query($conn,$sql);
@@ -9,6 +9,6 @@
         while($row = mysqli_fetch_assoc($result)){
             $alumnos[] = $row;
         }
-    } else echo "Ninguno";
+    } 
     echo json_encode($alumnos);
 ?>

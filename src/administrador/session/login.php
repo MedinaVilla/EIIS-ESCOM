@@ -3,7 +3,7 @@
     $pass= $_POST['password'];
 
     if($name && $pass){
-        require_once('/config/mysqli_connect.php');
+        require_once('./../../../config/mysqli_connect.php');
         $sql = "select * from administrador where numadmin='".$name."'AND contraseña='".$pass."';";
         $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);
