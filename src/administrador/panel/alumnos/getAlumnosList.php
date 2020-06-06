@@ -1,5 +1,5 @@
 <?php 
-    require_once('./../../../../config/mysqli_connect.php');
+    require_once('/config/mysqli_connect.php');
     
     $sql = "select * from alumno;";
     $result = mysqli_query($conn,$sql);
