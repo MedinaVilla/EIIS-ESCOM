@@ -1,10 +1,11 @@
 <?php 
-    // header("Content-Type: text/html; charset=utf-8");
+    header("Content-Type: text/html;charset=UTF-8");
     require_once('./../../../../config/mysqli_connect.php');
     
     $alumnos = [];
     $sql = "select * from alumno;";
-  mysqli_set_charset('utf8', $conn);
+    mysqli_set_charset('utf8', $conn);
+    mysqli_query("set names 'utf8'");
     $result = mysqli_query($conn,$sql);
     $resultCheck = mysqli_num_rows($result);
     if($resultCheck>0){
@@ -12,9 +13,8 @@
             $alumnos[] = $row;
         }
         printf("entra");
-        $utfEncodedArray = array_map("utf8_encode", $alumnos );
-        print_r($utfEncodedArray);
-        echo json_encode($alumnos,JSON_FORCE_OBJECT);
+        print_r($alumnos)l
+        echo json_encode($alumnos,"utf8_encode");
     } 
     
 ?>
