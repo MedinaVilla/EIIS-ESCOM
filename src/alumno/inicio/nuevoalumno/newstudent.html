@@ -24,7 +24,7 @@
 	<script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/assets/js/materialize.min.js"></script>
 	<link href="/assets/css/datePicker/jquery.datetimepicker.min.css" rel="stylesheet">
-	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
 	<!--<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>-->
 	
 </head>
@@ -37,7 +37,7 @@
 					<img src="/assets/img/LOGOTIPO_IPN.png" height=150px>
 				</div>
 				<div class="escudo2">
-					<img src="/assets/img/logoescom.png" width=150px>
+					<img src="/assets/img/logoESCOM.png" width=150px>
 				</div>
 				<!--<form method="POST" action="./src/alumno/inicio/nuevoalumno/newstudent.php" onsubmit="return miFuncion(this)" class="contact2-form validate-form">-->
 				<form class="contact2-form validate-form">
@@ -108,11 +108,11 @@
 					</div>
 
 					<!--======================================================================================================-->
-					<div class="g-recaptcha" data-sitekey="6LcFQ-oUAAAAAIyyM8IXo3Sw7bDyUA78_EGyCPnQ"></div>
+					<!--<div class="g-recaptcha" data-sitekey="6LcFQ-oUAAAAAIyyM8IXo3Sw7bDyUA78_EGyCPnQ"></div>-->
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
 							<div class="contact2-form-bgbtn"></div>
-							<button id="validate" type="button" class="contact2-form-btn">
+							<button id="validate" type="button" onclick="student()" class="contact2-form-btn">
 								Registrar y Activar
 							</button>
 						</div>
@@ -124,20 +124,7 @@
 	</div>
 
 
-	<script>
-		function miFuncion(a) {
-			var response = grecaptcha.getResponse();
-
-			if (response.length == 0) {
-				alert("Captcha no verificado");
-				return false;
-				event.preventDefault();
-			} else {
-
-				return true;
-			}
-		}
-	</script>
+	
 
 	<script>
 		function student() {
