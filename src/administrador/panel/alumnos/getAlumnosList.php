@@ -9,6 +9,7 @@
         while($row = mysqli_fetch_assoc($result)){
             $alumnos[] = $row;
         }
+        header('Content-Type: application/json; charset=utf-8');
         echo json_encode($alumnos);
     } 
     
