@@ -62,6 +62,7 @@
 	
 	function emailExiste($email)
 	{
+		echo $email;
 		global $conn;
 		
 		$stmt = $conn->prepare("SELECT boleta FROM alumno WHERE correo = ? LIMIT 1");
