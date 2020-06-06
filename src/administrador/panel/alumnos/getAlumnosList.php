@@ -1,4 +1,5 @@
 <?php 
+    header("Context-type: application/json;");
     require_once('./../../../../config/mysqli_connect.php');
     
     $alumnos = [];
@@ -9,8 +10,7 @@
         while($row = mysqli_fetch_assoc($result)){
             $alumnos[] = $row;
         }
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($alumnos);
+        echo json_encode($alumnos);
     } 
     
 ?>
