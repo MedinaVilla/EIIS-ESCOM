@@ -11,7 +11,7 @@
         }
         printf("entra");
         print_r($alumnos);
-        echo json_encode($alumnos,utf8_encode);
+        echo json_encode($alumnos,JSON_UNESCAPED_UNICODE);
     } 
     
 ?>
