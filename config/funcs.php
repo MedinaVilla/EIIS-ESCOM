@@ -120,9 +120,10 @@
 	}*/
 	
 	function enviarEmail($email, $nombre, $asunto, $cuerpo){
+
 		
 		require_once './PHPMailer/PHPMailerAutoload.php';
-		
+		echo 'enviarEmailfunction';
 		$mail = new PHPMailer();
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
@@ -140,10 +141,14 @@
 		$mail->Body    = $cuerpo;
 		$mail->IsHTML(true);
 		
+		echo $mail->send();
+
 		if($mail->send())
 		return true;
 		else
 		return false;
+
+
 	}
 	
 	function validaIdToken($boleta, $token){
