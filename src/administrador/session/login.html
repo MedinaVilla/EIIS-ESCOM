@@ -60,9 +60,11 @@
                     },
                     success: function (response) {
                         if (response == 1) {
-                            location.href = "./panel";
-                        } else
+                            // location.href = "./panel";
                             document.getElementById("error").innerHTML = "Datos erróneos";
+                        } else
+                            // document.getElementById("error").innerHTML = "Datos erróneos";
+                            location.href = "./panel";
                     },
                     error: function () {
                         alert('There was some error performing the AJAX call!');
