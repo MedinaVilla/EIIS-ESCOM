@@ -132,7 +132,7 @@
 		$mail->Port = '587'; //Modificar
 		echo 'OSOMADURO2';
 		$mail->Username = 'dan.her.5311@gmail.com'; //Modificar
-		$mail->Password = 'jaibaelpatron'; //Modificar
+		$mail->Password = '49sfjuan'; //Modificar
 		echo 'OSOMADURO3';
 		$mail->setFrom('dan.her.5311@gmail.com', 'Sistema de Usuarios'); //Modificar
 		$mail->addAddress($email, $nombre);
