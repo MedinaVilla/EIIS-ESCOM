@@ -2,8 +2,8 @@
   //Database connection variables
   $servername = "localhost";
   $username = "root";
-  $password = "root";
-  $dbname  = "registro";
+  $password = "N0M3L0";
+  $dbname  = "eiis";
 
   // Create connection
   $conn= mysqli_connect($servername, $username, $password, $dbname);
