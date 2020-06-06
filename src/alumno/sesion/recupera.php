@@ -78,7 +78,7 @@
 							
 							
 									<div ><br><br>  
-										No tiene una cuenta! <a href="/EIIS-ESCOM/alta"> Registrate aquí</a>
+										No tiene una cuenta! <a href="/alta"> Registrate aquí</a>
 									</div>
 								 
 						</form>
