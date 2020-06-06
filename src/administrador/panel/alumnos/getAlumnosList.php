@@ -1,5 +1,5 @@
 <?php 
-    // header("Content-Type: text/html;charset=UTF-8");
+    header("Content-Type: text/html;charset=UTF-8");
     require_once('./../../../../config/mysqli_connect.php');
     
     $alumnos = [];
@@ -13,7 +13,7 @@
             $alumnos[] = $row;
         }
         printf("entra");
-        print_r($alumnos)l
+        print_r($alumnos);
         echo json_encode($alumnos,"utf8_encode");
     } 
     
