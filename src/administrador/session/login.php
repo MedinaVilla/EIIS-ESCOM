@@ -10,12 +10,17 @@
     
         if($resultCheck>0){
             if($row = mysqli_fetch_assoc($result)){
-                session_start();
-                $_SESSION['user'] = $name;
-                echo 1;
+                // session_start();
+                // $_SESSION['user'] = $name;
+                // echo 1;
+            echo 0;
+
             }
         } else {
-            echo 0;
+            session_start();
+                $_SESSION['user'] = $name;
+                echo 1;
+            // echo 0;
         }
     } else 
         echo "Datos no valido";
