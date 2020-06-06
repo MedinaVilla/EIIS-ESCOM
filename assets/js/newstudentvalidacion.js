@@ -32,7 +32,7 @@
     $('#validate').click(function(){
         var check = true;
         
-        if($(boleta).val().trim().match(/^[0-9]*\.?[0-9]*$/) == null){
+        if(($(boleta).val().trim().match(/^[0-9]*\.?[0-9]*$/) == null)||($(boleta).val().trim()=='')){
             showValidate(boleta);
             check=false;
         }  
