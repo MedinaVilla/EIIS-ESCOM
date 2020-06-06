@@ -1,6 +1,6 @@
 <?php
-	 require_once('/config/mysqli_connect.php');
-	 require_once('/config/funcs.php');
+	 require_once('./config/mysqli_connect.php');
+	 require_once('./config/funcs.php');
 
 	 $errors= array();
 
@@ -21,7 +21,7 @@
 				 
 				 $token =generaTokenpass($user_id);
 
-	 			$url = ''.$_SERVER["SERVER_NAME"].'/EIIS-ESCOM/src/alumno/sesion/cambia_pass.php?user_id='.$user_id.'&token='.$token;
+	 			$url = ''.$_SERVER["SERVER_NAME"].'/src/alumno/sesion/cambia_pass.php?user_id='.$user_id.'&token='.$token;
 
 	 			$asunto= 'Recupera Password - Sistema de Usuarios';
 				 $cuerpo= "Hola $nombre: <br /><br />Se ha solicitado un cambio de contrase&ntilde;a. <br /><br /a>
@@ -48,7 +48,7 @@
 	<head>
 		<title>Recuperar Password</title>
 		
-		<link rel="stylesheet" href="/EIIS-ESCOM/assets/css/master.css">
+		<link rel="stylesheet" href="/assets/css/master.css">
 		
 	</head>
 	
@@ -61,7 +61,7 @@
 				<h1>Recupera Password</h1> 
 					
 					<div style="padding-top:30px" class="panel-body" >							
-						<img src="/EIIS-ESCOM/assets/img/2.png" class="avatar" alt="Avatar Image">	
+						<img src="/assets/img/2.png" class="avatar" alt="Avatar Image">	
 						
 						<form id="loginform" class="form-horizontal" role="form" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off">
 							
