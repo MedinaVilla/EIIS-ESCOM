@@ -19,7 +19,7 @@
                     },
                     success: function (response) {
                         if (response == 0) {
-                            alert("Correo invalido");
+                            alert("Correo no registrado");
                         } else
                             $.ajax(
                                 {
@@ -63,7 +63,7 @@
 
                     <div><br><br>
                         <div class="col-sm-12 controls">
-                            <button id="btn-login" type="button" onClick="sendEmail()"
+                            <button id="btn-login"  onClick="sendEmail()"
                                 class="btn btn-success">Enviar</button>
                         </div>
                     </div>
