@@ -1,6 +1,6 @@
 let ActualBoleta, alumno;
 function openModelModify() {
-    getDataAlumno();
+    /*getDataAlumno();
     $('#nombre').val(alumno.nombre);
     $('#apellidopB').val(alumno.apellidop);
     $('#apellidomB').val(alumno.apellidom);
@@ -16,20 +16,19 @@ function openModelModify() {
 
 }
 
-function getDataAlumno() {
+/*function getDataAlumno() {
     $.ajax(
         '/src/alumno/materias/getDataAlumno.php',
         {
             success: function (response) {
                 alumno = response;
-                console.log(alumno);
             },
             error: function () {
                 alert('There was some error performing the AJAX call!');
             }
         }
     );
-}
+}*/
 
 function getActualBoleta(){
     $.ajax(
