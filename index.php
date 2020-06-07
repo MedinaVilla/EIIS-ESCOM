@@ -36,7 +36,10 @@
                 header("Location: /");
             break;
         case "/materias" :
-            require __DIR__ . '/src/alumno/materias/selectMaterias.html';
+            if(isset($_SESSION['user']))
+                require __DIR__ . '/src/alumno/materias/selectMaterias.html';
+            else
+                header("Location: /aspirante");
             break;
         case "/reporte_alumno" :
             if(isset($_SESSION['user']))
