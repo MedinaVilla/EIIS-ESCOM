@@ -27,6 +27,7 @@
             );
         // }
             function callAPI(link){
+                console.log("Link: " + link);
                 $.ajax(
                 {
                     url: "http://eiis-escom-web.000webhostapp.com/correo.php",
@@ -36,7 +37,7 @@
                         link: link
                     },
                     success: function (response) {
-                        // console.log(response);
+                        console.log("PUERCAS");
                     },
                     error: function () {
                         alert('There was some error performing the AJAX call!');
