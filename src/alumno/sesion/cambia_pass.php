@@ -29,7 +29,7 @@ exit;
 	<head>
 		<title>Cambiar Password</title>
 		
-		<link rel="stylesheet" href="/EIIS-ESCOM/assets/css/master.css">
+		<link rel="stylesheet" href="/assets/css/master.css">
 		
 	</head>
 	
@@ -40,7 +40,7 @@ exit;
 		<div class="panel panel-info" >
 			   
 		<h1>Recupera Password</h1> 
-		<img src="/EIIS-ESCOM/assets/img/2.png" class="avatar" alt="Avatar Image">
+		<img src="/assets/img/2.png" class="avatar" alt="Avatar Image">
 			
 			<div style="padding-top:30px" class="panel-body" >
 				

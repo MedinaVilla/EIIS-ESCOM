@@ -15,7 +15,7 @@
 		 
 		 if(cambiaPassword($password, $user_id, $token))
 		 {
-			 echo "Contrase&ntilde;a Modificada <br> <a href='index.html' >Iniciar Sesion</a>";
+			 echo "Contrase&ntilde;a Modificada <br> <a href='/aspirante' >Iniciar Sesion</a>";
 			 } else {
 			 
 			 echo "Error al modificar contrase&ntilde;a";
