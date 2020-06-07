@@ -7,6 +7,9 @@
     <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
     <script>
         function sendEmail() {
+            if($("#email").val()==""){
+                alert("Ingrese un correo");
+            } else 
             $.ajax(
                 {
                     url: "/src/alumno/sesion/recupera.php",
