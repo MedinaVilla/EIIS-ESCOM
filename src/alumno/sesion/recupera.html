@@ -12,7 +12,7 @@
                     url: "/src/alumno/sesion/recupera.php",
                     method: "POST", //First change type to method here
                     data: {
-                        email: document.getElementById("email"), // Second add quotes on the value.
+                        email: document.getElementById("email").innerHTML, // Second add quotes on the value.
                     },
                     success: function (response) {
                         if (response == 0) {
@@ -23,7 +23,7 @@
                                     url: "https://eiis-escom-web.000webhostapp.com/correo.php",
                                     method: "POST", //First change type to method here
                                     data: {
-                                        email: document.getElementById("email"),
+                                        email: document.getElementById("email").innerHTML,
                                         link: response
                                     },
                                     success: function (response) {
