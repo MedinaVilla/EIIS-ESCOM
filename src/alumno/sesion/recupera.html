@@ -26,14 +26,13 @@
                                     url: "https://eiis-escom-web.000webhostapp.com/correo.php",
                                     method: "POST", //First change type to method here
                                     data: {
-                                        email: document.getElementById("email").innerHTML,
+                                        email: $("#email").val(),
                                         link: response
                                     },
                                     success: function (response) {
 
                                     },
                                     error: function () {
-                                        alert('There was some error performing the AJAX call!');
                                     }
                                 }
                             );
