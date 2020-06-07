@@ -6,8 +6,7 @@
 
 	 if(!empty($_POST))
 	{
-		echo "hola";
-		$email= $_POST['email'];
+		$email= $conn-> real_escape_string($_POST['email']);
 
 	 	if(!isEmail($email))
 	 	{
