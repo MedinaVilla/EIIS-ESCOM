@@ -1,4 +1,5 @@
-let ActualBoleta, alumno;
+let ActualBoleta;
+let alumno;
 function openModelModify() {
     getDataAlumno();
     $('#nombre').val(alumno.nombre);
