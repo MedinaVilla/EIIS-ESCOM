@@ -8,7 +8,7 @@ function openModelModify() {
     $('#boletaB').val(alumno.boleta);
     $('#curpB').val(alumno.curp);
     $('#fecha_nacB').val(alumno.fecha_nac);
-    $('#telefonoB').val(alumno.telefono);*/
+    $('#telefonoB').val(alumno.telefono);
     $('.modal').modal();
     $('#modal5').modal('open');
     $('.trigger-modal').modal();
