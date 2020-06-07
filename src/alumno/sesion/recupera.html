@@ -6,6 +6,7 @@
     <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <script>
+        $(document).ready(function(){
         $('#loginform').on('submit', function(e){
             $.ajax({
                     url: "/src/alumno/sesion/recupera.php",
@@ -40,6 +41,7 @@
                 }
             );
         });
+    });
     </script>
 </head>
 
@@ -50,7 +52,7 @@
             <div style="padding-top:30px" class="panel-body">
                 <img src="/assets/img/2.png" class="avatar" alt="Avatar Image">
 
-                <form id="loginform" name="loginform" class="form-horizontal" role="form" autocomplete="off">
+                <form id="loginform" name="loginform" class="form-horizontal">
 
                     <div class="form-group input-group validate-input" class="input-group">
                         <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
