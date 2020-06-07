@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Verifica Tu Identidad</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-<!--===============================================================================================-->
-<link rel="icon" type="image/png" href="/assets/img/logo-escom-white.png" />
-<!--===============================================================================================-->
+
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/assets/img/logo-escom-white.png" />
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/assets/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/assets/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/validacion.css">
 
-	<link href="https://stackpath.bootsrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/datePicker/jquery.datetimepicker.min.css" rel="stylesheet">
+	<!-- <link href="https://stackpath.bootsrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
+	<link href="/assets/css/datePicker/jquery.datetimepicker.min.css" rel="stylesheet">
 	<script src='https://www.google.com/recaptcha/api.js'></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 </head>
+
 <body>
 
 	<div class="bg-contact2" style="background-image: url('/assets/img/materias.png');">
@@ -48,31 +50,32 @@
 					<span class="subtitulo">
 						Ingresa tu Boleta para Verificar tu Identidad
 					</span>
-				
-                    <div class="datosGen">
-                        <div class="wrap-input2 validate-input" data-validate="Ingrese una Boleta Válido">
-                            <input id="boleta" class="input2" type="tel" name="boleta" minlength="10" maxlength="10" size=10 min="0" max="9" title="Tu número de boleta debe tener 10 dígitos numéricos.">
-                            <span class="focus-input2" data-placeholder="Boleta"></span>
+
+					<div class="datosGen">
+						<div class="wrap-input2 validate-input" data-validate="Ingrese una Boleta Válido">
+							<input id="boleta" class="input2" type="tel" name="boleta" minlength="10" maxlength="10"
+								size=10 min="0" max="9" title="Tu número de boleta debe tener 10 dígitos numéricos.">
+							<span class="focus-input2" data-placeholder="Boleta"></span>
 						</div>
 						<code id="error" style="color: red"></code>
-                        <div class="container-contact2-form-btn">
-                            <div class="wrap-contact2-form-btn">
-								<div class="contact2-form-bgbtn"></div>
-                                <button type="button" onclick="validacion();" class="contact2-form-btn">
-                                    Verificar
-                                </button>
-                            </div>
-						</div>
-						
 						<div class="container-contact2-form-btn">
-                            <div class="wrap-contact2-form-btn">
-								<div class="contact2-form-bgbtn"></div>								
+							<div class="wrap-contact2-form-btn">
+								<div class="contact2-form-bgbtn"></div>
+								<button type="button" onclick="validacion();" class="contact2-form-btn">
+									Verificar
+								</button>
+							</div>
+						</div>
+
+						<div class="container-contact2-form-btn">
+							<div class="wrap-contact2-form-btn">
+								<div class="contact2-form-bgbtn"></div>
 								<button type="button" onclick="alta();" class="contact2-form-btn">
-										Nuevo Alumno
-									</button>								
-                            </div>
-                        </div>
-                    </div>
+									Nuevo Alumno
+								</button>
+							</div>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -81,48 +84,48 @@
 
 
 
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="/assets/vendor/bootstrap/js/popper.js"></script>
 	<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="/assets/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="/assets/js/contraseña.js"></script>
 
 	<script>
 		function validacion() {
-                $.ajax(
-                    '/src/alumno/inicio/validaridentidad/validacion.php',
-                    {
-						type:"POST",
-						data:{boleta:document.getElementById("boleta").value},
-                        success: function (response) { 
-							console.log(response);     
-							if(response==1){
-								location.href="./activacion";
-							}
-							else if(response==2){
-								document.getElementById("error").innerHTML="La BOLETA esta ACTIVADA.";
-							}
-							else if(response==3){
-								document.getElementById("error").innerHTML="Boleta No Encontrada";
-							}                     
-                        },
-                        error: function () {
-                            alert('There was some error performing the AJAX call!');
-                        }
-                    }
-                );
-            }
+			$.ajax(
+				'/src/alumno/inicio/validaridentidad/validacion.php',
+				{
+					type: "POST",
+					data: { boleta: document.getElementById("boleta").value },
+					success: function (response) {
+						console.log(response);
+						if (response == 1) {
+							location.href = "./activacion";
+						}
+						else if (response == 2) {
+							document.getElementById("error").innerHTML = "La boleta esta ACTIVADA.";
+						}
+						else if (response == 3) {
+							document.getElementById("error").innerHTML = "Boleta No Encontrada";
+						}
+					},
+					error: function () {
+						alert('There was some error performing the AJAX call!');
+					}
+				}
+			);
+		}
 	</script>
 
-<script>
-	function alta() {				
-				location.href="/alta";						
-	}
-</script>
+	<script>
+		function alta() {
+			location.href = "/alta";
+		}
+	</script>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
@@ -136,9 +139,9 @@
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootsrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<!-- <script src="https://stackpath.bootsrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-	<script src="/css//datePicker/jquery.datetimepicker.full.min.js"></script>
+	<script src="/assets/css/datePicker/jquery.datetimepicker.full.min.js"></script>
 	<script>
 		$('#picker').datetimepicker({
 			timepicker: false,
@@ -150,4 +153,5 @@
 	</script>
 
 </body>
+
 </html>
