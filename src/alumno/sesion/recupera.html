@@ -15,7 +15,7 @@
                     url: "/src/alumno/sesion/recupera.php",
                     method: "POST", //First change type to method here
                     data: {
-                        email:  $("#email").val(d); // Second add quotes on the value.
+                        email:  $("#email").val() // Second add quotes on the value.
                     },
                     success: function (response) {
                         if (response == 0) {
