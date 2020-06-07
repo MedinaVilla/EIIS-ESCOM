@@ -25,7 +25,7 @@ function getDataAlumno() {
             success: function (response) {
                 console.log("voy a ver que me regresa");
                 console.log(response)
-                alumno = (response);
+                alumno = JSON.parse(response);
             },
             error: function () {
                 alert('There was some error performing the AJAX call!');
