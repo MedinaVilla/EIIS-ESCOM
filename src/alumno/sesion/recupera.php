@@ -8,7 +8,7 @@
 	 if(!empty($_POST))
 	{
 		$email= $conn-> real_escape_string($_POST['email']);
-
+		echo "a su";
 	 	if(!isEmail($email))
 	 	{
 	 		$errors[]= "Debe de ingresar un correo electronico valido";
@@ -17,6 +17,7 @@
 
 	 		if(emailExiste($email))
 	 		{
+				 echo "madre";
 	 			$user_id= getValor('boleta', 'correo', $email);
 				 $nombre = getValor('nombre', 'correo', $email);
 				 
