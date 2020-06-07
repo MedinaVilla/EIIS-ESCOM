@@ -27,14 +27,15 @@
 				 $cuerpo= "Hola $nombre: <br /><br />Se ha solicitado un cambio de contrase&ntilde;a. <br /><br /a>
 				  Para restaurar su contrase&ntilde;a., haga click en el siguiente link: <a href='$url'>Cambiar Password</a>";
 
-	 			if(enviarEmail($email, $nombre,$asunto, $cuerpo))
-	 			{
-	 				echo "Hemos enviado un correo electronico al correo $email para restablecer tu password.<br />";
-	 				echo "<a href='index.hmtml' >Iniciar Sesion</a>";
-	 				exit;
-	 				} else {
-	 				$errors[]= "Error al enviar Email";
-	 			}
+				  echo $url;
+	 			// if(enviarEmail($email, $nombre,$asunto, $cuerpo))
+	 			// {
+	 			// 	echo "Hemos enviado un correo electronico al correo $email para restablecer tu password.<br />";
+	 			// 	echo "<a href='index.hmtml' >Iniciar Sesion</a>";
+	 			// 	exit;
+	 			// 	} else {
+	 			// 	$errors[]= "Error al enviar Email";
+	 			// }
 
 
 	 		} $errors[]= "No existe el correo electronico";
@@ -63,7 +64,7 @@
 					<div style="padding-top:30px" class="panel-body" >							
 						<img src="/assets/img/2.png" class="avatar" alt="Avatar Image">	
 						
-						<form id="loginform" class="form-horizontal" role="form" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off">
+						<form id="loginform" class="form-horizontal" role="form"  ?>" method="POST" autocomplete="off">
 							
 						<div class="form-group input-group validate-input" class="input-group">
 								 <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
@@ -75,7 +76,22 @@
 									<button id="btn-login" type="submit" class="btn btn-success">Enviar</a>
 								</div>
 							</div>
-							
+							<script>
+								let dato = document.getElementById("email");
+								$.ajax(
+									'./',
+									data: {"email": dato}
+									{
+										success: function (response) {
+											console.log(response);
+											// $("#adminName").html(response);
+										},
+									error: function () {
+									alert('There was some error performing the AJAX call!');
+										}
+									}
+								);
+							</script>
 							
 									<div ><br><br>  
 										No tiene una cuenta! <a href="/alta"> Registrate aquí</a>
