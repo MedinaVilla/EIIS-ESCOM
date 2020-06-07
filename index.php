@@ -27,7 +27,7 @@
             require __DIR__ . '/src/alumno/sesion/login.php';
             break;
         case '/recupera' :
-            require __DIR__ . '/src/alumno/sesion/recupera.php';
+            require __DIR__ . '/src/alumno/sesion/recupera.html';
             break;
         case "/alumnos" :
             if(isset($_SESSION['user']))
