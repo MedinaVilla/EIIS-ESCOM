@@ -2,6 +2,7 @@ let ActualBoleta;
 let alumno;
 function openModelModify() {
     getDataAlumno();
+    console.log("Otra vez alumno: "+alumno);
     $('#nombreB').val(alumno.nombre);
     $('#apellidopB').val(alumno.apellidop);
     $('#apellidomB').val(alumno.apellidom);
@@ -26,6 +27,7 @@ function getDataAlumno() {
                 console.log("voy a ver que me regresa");
                 console.log(response)
                 alumno = JSON.parse(response);
+                console.log("Alumno: "+alumno);
             },
             error: function () {
                 alert('There was some error performing the AJAX call!');
