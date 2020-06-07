@@ -22,8 +22,9 @@ function getDataAlumno() {
         '/src/alumno/materias/getDataAlumno.php',
         {
             success: function (response) {
-                alumno = response;
-                console.log(alumno);
+                console.log("voy a ver que me regresa");
+                console.log(response);
+                alumno = JSON.parse(response);
             },
             error: function () {
                 alert('There was some error performing the AJAX call!');
