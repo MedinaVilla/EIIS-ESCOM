@@ -71,7 +71,8 @@ function updateAlumno() {
             },
             success: function (response) {
                 console.log(response);
-                location.href = "/cierrasesion";
+                getAlumnoName();
+                //location.href = "/cierrasesion";
             },
             error: function () {
                 alert('There was some error performing the AJAX call!');
