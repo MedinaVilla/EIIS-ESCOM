@@ -1,7 +1,7 @@
 <?php
 	echo "chinguen ";
-	 require_once('./config/mysqli_connect.php');
-	 require_once('./config/funcs.php');
+	 require_once('/config/mysqli_connect.php');
+	 require_once('/config/funcs.php');
 	echo "a su madre";
 	 $errors= array();
 
