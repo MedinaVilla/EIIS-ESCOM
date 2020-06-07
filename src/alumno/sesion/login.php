@@ -1,5 +1,5 @@
 <?php 
-    if(isset($_POST['submit'])){
+    if(isset($_POST)){
         $name= $_POST['nomUsu'];
         $pass= $_POST['password'];
 
@@ -22,7 +22,6 @@
                 
             } else {
                 echo 1;
-                exit;
             }
         } else 
         header("Location: /aspirante");

@@ -19,8 +19,9 @@
             password: $("#password").val()
           },
           success: function (response) {
+            console.log(response);
             if (response == 1) {
-              document.getElementById("error").innerHTML = response;
+              document.getElementById("error").innerHTML = "Credenciales incorrectas";
             }
           },
           error: function () {
