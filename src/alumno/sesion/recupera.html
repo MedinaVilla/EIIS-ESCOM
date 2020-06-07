@@ -6,46 +6,40 @@
     <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <script>
-        function sendEmail(){
-        $.ajax(
-            {
-                url: "/src/alumno/sesion/recupera.php",
-                method: "POST", //First change type to method here
-                data: {
-                    email: document.getElementById("email"), // Second add quotes on the value.
-                },
-                success: function (response) {
-                    if(response ==0){
-                        alert("Correo invalido");
-                    } else
-                    $.ajax(
-                        {
-                            url: "https://eiis-escom-web.000webhostapp.com/correo.php",
-                            method: "POST", //First change type to method here
-                            data: {
-                                email: document.getElementById("email"),
-                                link: response
-                            },
-                            success: function (response) {
+        $('#loginform').on('submit', function(e){
+            $.ajax({
+                    url: "/src/alumno/sesion/recupera.php",
+                    method: "POST", //First change type to method here
+                    data: {
+                        email: document.getElementById("email"), // Second add quotes on the value.
+                    },
+                    success: function (response) {
+                        if (response == 0) {
+                            alert("Correo invalido");
+                        } else
+                            $.ajax(
+                                {
+                                    url: "https://eiis-escom-web.000webhostapp.com/correo.php",
+                                    method: "POST", //First change type to method here
+                                    data: {
+                                        email: document.getElementById("email"),
+                                        link: response
+                                    },
+                                    success: function (response) {
 
-                            },
-                            error: function () {
-                                alert('There was some error performing the AJAX call!');
-                            }
-                        }
-                    );
-                },
-                error: function () {
-                   
+                                    },
+                                    error: function () {
+                                        alert('There was some error performing the AJAX call!');
+                                    }
+                                }
+                            );
+                    },
+                    error: function () {
+
+                    }
                 }
-            }
-        );
-        }
-        function callAPI(link) {
-            console.log("Link: " + link);
-
-
-        }
+            );
+        });
     </script>
 </head>
 
@@ -56,7 +50,7 @@
             <div style="padding-top:30px" class="panel-body">
                 <img src="/assets/img/2.png" class="avatar" alt="Avatar Image">
 
-                <form id="loginform" class="form-horizontal" role="form" autocomplete="off">
+                <form id="loginform" name="loginform" class="form-horizontal" role="form" autocomplete="off">
 
                     <div class="form-group input-group validate-input" class="input-group">
                         <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
@@ -65,7 +59,7 @@
 
                     <div><br><br>
                         <div class="col-sm-12 controls">
-                            <button id="btn-login" type="button" onClick="sendEmail()"
+                            <button id="btn-login" type="submit" onClick="sendEmail()"
                                 class="btn btn-success">Enviar</button>
                         </div>
                     </div>
