@@ -6,9 +6,9 @@
     <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $('#loginform').on('submit', function (e) {
-                $.ajax({
+        function sendEmail() {
+            $.ajax(
+                {
                     url: "/src/alumno/sesion/recupera.php",
                     method: "POST", //First change type to method here
                     data: {
@@ -39,9 +39,9 @@
 
                     }
                 }
-                );
-            });
-        });
+            );
+        }
+
     </script>
 </head>
 
@@ -52,7 +52,7 @@
             <div style="padding-top:30px" class="panel-body">
                 <img src="/assets/img/2.png" class="avatar" alt="Avatar Image">
 
-                <form id="loginform" name="loginform" class="form-horizontal">
+                <form id="loginform" class="form-horizontal" role="form" autocomplete="off">
 
                     <div class="form-group input-group validate-input" class="input-group">
                         <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
@@ -61,7 +61,8 @@
 
                     <div><br><br>
                         <div class="col-sm-12 controls">
-                            <button id="btn-login" class="btn btn-success">Enviar</button>
+                            <button id="btn-login" type="button" onClick="sendEmail()"
+                                class="btn btn-success">Enviar</button>
                         </div>
                     </div>
                     <div><br><br>
