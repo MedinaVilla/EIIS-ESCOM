@@ -24,7 +24,8 @@ function getDataAlumno() {
         {
             success: function (response) {
                 console.log("voy a ver que me regresa");
-                console.log(JSON.stringify(response));
+                console.log("1: "+JSON.stringify(response));
+                console.log("2: "+response)
                 //alumno = JSON.stringify(response);
             },
             error: function () {
