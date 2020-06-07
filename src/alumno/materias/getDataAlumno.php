@@ -10,7 +10,7 @@
         /*while($row = mysqli_fetch_assoc($result)){
             $alumno = $row;
         }*/
-        echo "Sí la encontre";
+        echo $row;
     } 
     else{
         echo "No la encontre";
