@@ -23,8 +23,8 @@ function getDataAlumno() {
         {
             success: function (response) {
                 console.log("voy a ver que me regresa");
-                console.log(response);
-                alumno = response;
+                console.log(JSON.stringify(response));
+                //alumno = JSON.stringify(response);
             },
             error: function () {
                 alert('There was some error performing the AJAX call!');
