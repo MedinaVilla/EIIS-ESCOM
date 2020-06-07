@@ -8,6 +8,7 @@
     <script>
         function callAPI() {
             let dato = document.getElementById("email");
+            console.log("ENTRA " + dato)
             $.ajax(
                 {
                     url: "./recupera.php ",
@@ -45,7 +46,7 @@
 
                     <div><br><br>
                         <div class="col-sm-12 controls">
-                            <button id="btn-login" type="button" onClick="callAPI();"
+                            <button id="btn-login" type="button" onClick="callAPI()"
                                 class="btn btn-success">Enviar</button>
                         </div>
                     </div>
