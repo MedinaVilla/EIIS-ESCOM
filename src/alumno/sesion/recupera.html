@@ -8,10 +8,10 @@
     <script>
         function callAPI() {
             let dato = document.getElementById("email");
-            console.log("ENTRA " + dato)
+            console.log("ENTRA " + dato);
             $.ajax(
                 {
-                    url: "./recupera.php ",
+                    url: "/src/alumno/sesion/recupera.php",
                     method: "POST", //First change type to method here
                     data: {
                         email: dato, // Second add quotes on the value.
