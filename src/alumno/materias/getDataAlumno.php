@@ -7,9 +7,12 @@
     $result = mysqli_query($conn,$sql);
     $resultCheck = mysqli_num_rows($result);
     if($resultCheck>0){
-        while($row = mysqli_fetch_assoc($result)){
+        /*while($row = mysqli_fetch_assoc($result)){
             $alumno = $row;
-        }
-        echo $alumno;
+        }*/
+        echo "Sí la encontre";
     } 
+    else{
+        echo "No la encontre";
+    }
 ?>
