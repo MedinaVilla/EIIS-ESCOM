@@ -6,7 +6,7 @@
     <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <script>
-
+        function sendEmail(){
         $.ajax(
             {
                 url: "/src/alumno/sesion/recupera.php",
@@ -40,7 +40,7 @@
                 }
             }
         );
-        // }
+        }
         function callAPI(link) {
             console.log("Link: " + link);
 
@@ -65,7 +65,7 @@
 
                     <div><br><br>
                         <div class="col-sm-12 controls">
-                            <button id="btn-login" type="button" onClick="callAPI()"
+                            <button id="btn-login" type="button" onClick="sendEmail()"
                                 class="btn btn-success">Enviar</button>
                         </div>
                     </div>
