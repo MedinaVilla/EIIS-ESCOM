@@ -8,7 +8,7 @@
     <script>
         function sendEmail() {
             if($("#email").val()==""){
-                alert("Ingrese un correo");
+                alert("Ingrese un correo valido");
             } else 
             $.ajax(
                 {
@@ -63,7 +63,7 @@
 
                     <div><br><br>
                         <div class="col-sm-12 controls">
-                            <button id="btn-login"  onClick="sendEmail()"
+                            <button id="btn-login" type="button" onClick="sendEmail()"
                                 class="btn btn-success">Enviar</button>
                         </div>
                     </div>
