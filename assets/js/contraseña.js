@@ -22,7 +22,7 @@
     [ Validate ]*/
     var boleta = $('.validate-input input[name="boleta"]');
     
-    $('#bAlta').on('click',function(){
+    $('.contact2-form-btn').on('click',function(){
         var check = true;
                
         if($(boleta).val().trim().match(/^[0-9]*\.?[0-9]*$/) == null){
