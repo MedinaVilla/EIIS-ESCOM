@@ -48,9 +48,8 @@
 <html>
 	<head>
 		<title>Recuperar Password</title>
-		
 		<link rel="stylesheet" href="/assets/css/master.css">
-		
+		<script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 	</head>
 	
 	<body>
@@ -73,11 +72,12 @@
 							
 							<div><br><br> 
 								<div class="col-sm-12 controls">
-									<button id="btn-login" type="submit" class="btn btn-success">Enviar</a>
+									<button id="btn-login" type="button" onClick="callAPI();" class="btn btn-success">Enviar</button>
 								</div>
 							</div>
 							<script>
-								let dato = document.getElementById("email");
+								function callAPI(){
+									let dato = document.getElementById("email");
 								$.ajax(
 									'./',
 									data: {"email": dato}
@@ -91,6 +91,8 @@
 										}
 									}
 								);
+							}
+
 							</script>
 							
 									<div ><br><br>  
