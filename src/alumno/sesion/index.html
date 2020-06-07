@@ -8,7 +8,8 @@
   <link rel="icon" type="image/png" href="/assets/img/logo-escom-white.png" />
   <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
   <script>
-    function login() {
+    function loginHandle() {
+      console.log("ENTRA");
       $.ajax(
         {
           url: "/login",
@@ -55,7 +56,7 @@
         <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
         <input id="password" type="password" class="form-control" name="password" placeholder="Contraseña" required>
       </div>
-      <button name="submit" type="button" onClick="login()" class="btn btn-primary button-submit">Ingresar </button><br>
+      <button name="submit" type="button" onClick="loginHandle();" class="btn btn-primary button-submit">Ingresar </button><br>
       <code id="error" style="color: red;"></code>
       <a href="/verifica">Activar cuenta</a><br>
       <a href="/recupera">Olvidaste tu contraseña?</a><br>
@@ -63,7 +64,6 @@
     </form>
   </div>
 
-  <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
   <script src="/assets/js/js/validationAdmin.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
@@ -73,8 +73,6 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-23581568-13');
-
-
   </script>
 
 </body>
