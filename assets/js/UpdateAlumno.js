@@ -2,7 +2,7 @@ let ActualBoleta;
 let alumno;
 function openModelModify() {
     getDataAlumno();
-    $('#nombre').val(alumno.nombre);
+    /*$('#nombre').val(alumno.nombre);
     $('#apellidopB').val(alumno.apellidop);
     $('#apellidomB').val(alumno.apellidom);
     $('#boletaA').val(alumno.boleta);
@@ -10,6 +10,7 @@ function openModelModify() {
     $('#curpB').val(alumno.curp);
     $('#fecha_nacB').val(alumno.fecha_nac);
     $('#telefonoB').val(alumno.telefono);
+    */
     $('.modal').modal();
     $('#modal5').modal('open');
     $('.trigger-modal').modal();
