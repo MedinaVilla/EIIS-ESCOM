@@ -22,7 +22,7 @@
             console.log(response);
             if (response == 1) {
               document.getElementById("error").innerHTML = "Credenciales incorrectas";
-            }
+            } else window.location = "/materias";
           },
           error: function () {
             alert("AJAX error");
