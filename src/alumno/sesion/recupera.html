@@ -6,15 +6,15 @@
     <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <script>
-        function callAPI() {
-            let dato = document.getElementById("email");
-            console.log("ENTRA " + dato);
+        // function callAPI() {
+            // let dato = document.getElementById("email");
+            // console.log("ENTRA " + dato);
             $.ajax(
                 {
                     url: "/src/alumno/sesion/recupera.php",
                     method: "POST", //First change type to method here
                     data: {
-                        email: dato, // Second add quotes on the value.
+                        email: "daniel.rivero132@gmail.com", // Second add quotes on the value.
                     },
                     success: function (response) {
                         console.log(response);
@@ -25,7 +25,7 @@
                     }
                 }
             );
-        }
+        // }
 
     </script>
 </head>
