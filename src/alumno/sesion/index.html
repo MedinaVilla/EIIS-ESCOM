@@ -5,13 +5,15 @@
   <meta charset="utf-8">
   <title>Inicio</title>
   <link rel="stylesheet" href="/assets/css/master.css">
+  <link rel="icon" type="image/png" href="/assets/img/logo-escom-white.png" />
+  <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
 
   <div class="login-box">
     <a class="link " href="/">Regresar</a>
-    <form id="login" name="login" action="/login" method="POST">
+    <form id="login" name="login" method="POST">
       <img src="/assets/img/2.png" class="avatar" alt="Avatar Image">
 
       <h1>Inicia Sesión</h1>
@@ -30,7 +32,7 @@
         <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
         <input id="password" type="password" class="form-control" name="password" placeholder="Contraseña" required>
       </div>
-      <button name="submit" class="btn btn-primary button-submit">Ingresar </button><br>
+      <button name="submit" type="button" onClick="login()" class="btn btn-primary button-submit">Ingresar </button><br>
       <code id="error" style="color: red;"></code>
       <a href="/verifica">Activar cuenta</a><br>
       <a href="/recupera">Olvidaste tu contraseña?</a><br>
@@ -48,25 +50,27 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-23581568-13');
-
-    $.ajax(
-      {
-        url: "/login",
-        method: "POST", 
-        data: {
-          nomUsu: $("#nomUsu").val(),
-          password: $("#password").val()
-        },
-        success: function (response) {
-          if(response == 1){
-            document.getElementById("error").innerHTML = response;
+    
+    function login() {
+      $.ajax(
+        {
+          url: "/login",
+          method: "POST",
+          data: {
+            nomUsu: $("#nomUsu").val(),
+            password: $("#password").val()
+          },
+          success: function (response) {
+            if (response == 1) {
+              document.getElementById("error").innerHTML = response;
+            }
+          },
+          error: function () {
+            alert("error");
           }
-        },
-        error: function () {
-          alert("error");
         }
-      }
-    );
+      );
+    }
   </script>
 
 </body>
