@@ -136,6 +136,12 @@
                                             window["myChart"].data.datasets[0].data.push(1);
                                         });
                                         window["myChart"].update();
+                                        console.log(response);
+                                        console.log(JSONresponse);
+                                        if(response=="[]"){
+                                            console.log("entra");
+                                            document.getElementById("messageEmpty").innerHTML = "Sin intenciones";
+                                        } else document.getElementById("messageEmpty").innerHTML = "";
                                     },
                                     error: function () {
                                         console.log('There was some error performing the AJAX call!');
@@ -155,6 +161,7 @@
                         <div class="modal-content">
                             <h4 id="nombreA"></h4>
                             <p id="boletaA"></p>
+                            <p id="messageEmpty" style="color:red"></p>
                             <canvas id="doughnut-chart" width="20%" height="20%"></canvas>
                         </div>
                         <div class="modal-footer">
