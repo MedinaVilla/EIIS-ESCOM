@@ -50,6 +50,26 @@
 		<title>Recuperar Password</title>
 		<link rel="stylesheet" href="/assets/css/master.css">
 		<script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+		<script>
+								function callAPI(){
+									let dato = document.getElementById("email");
+								$.ajax(
+									'./',
+									data: {"email": dato}
+									{
+										success: function (response) {
+											console.log(response);
+											// $("#adminName").html(response);
+										},
+									error: function () {
+									alert('There was some error performing the AJAX call!');
+										}
+									}
+								);
+							}
+
+							</script>
 	</head>
 	
 	<body>
@@ -75,25 +95,7 @@
 									<button id="btn-login" type="button" onClick="callAPI();" class="btn btn-success">Enviar</button>
 								</div>
 							</div>
-							<script>
-								function callAPI(){
-									let dato = document.getElementById("email");
-								$.ajax(
-									'./',
-									data: {"email": dato}
-									{
-										success: function (response) {
-											console.log(response);
-											// $("#adminName").html(response);
-										},
-									error: function () {
-									alert('There was some error performing the AJAX call!');
-										}
-									}
-								);
-							}
-
-							</script>
+						
 							
 									<div ><br><br>  
 										No tiene una cuenta! <a href="/alta"> Registrate aquí</a>
