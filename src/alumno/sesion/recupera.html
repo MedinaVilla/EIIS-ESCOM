@@ -6,9 +6,9 @@
     <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <script>
-        $(document).ready(function(){
-        $('#loginform').on('submit', function(e){
-            $.ajax({
+        $(document).ready(function () {
+            $('#loginform').on('submit', function (e) {
+                $.ajax({
                     url: "/src/alumno/sesion/recupera.php",
                     method: "POST", //First change type to method here
                     data: {
@@ -39,9 +39,9 @@
 
                     }
                 }
-            );
+                );
+            });
         });
-    });
     </script>
 </head>
 
@@ -61,8 +61,7 @@
 
                     <div><br><br>
                         <div class="col-sm-12 controls">
-                            <button id="btn-login" onClick="sendEmail()"
-                                class="btn btn-success">Enviar</button>
+                            <button id="btn-login" class="btn btn-success">Enviar</button>
                         </div>
                     </div>
                     <div><br><br>
