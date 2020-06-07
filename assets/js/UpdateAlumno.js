@@ -1,5 +1,5 @@
 let ActualBoleta;
-let alumno;
+var alumno;
 function openModelModify() {
     getDataAlumno();
     console.log("Otra vez alumno: "+alumno);
