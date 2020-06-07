@@ -10,7 +10,7 @@ function openModelModify() {
     $('#curpB').val(alumno.curp);
     $('#fecha_nacB').val(alumno.fecha_nac);
     $('#telefonoB').val(alumno.telefono);
-
+    
     $('.modal').modal();
     $('#modal5').modal('open');
     $('.trigger-modal').modal();
@@ -25,7 +25,7 @@ function getDataAlumno() {
             success: function (response) {
                 console.log("voy a ver que me regresa");
                 console.log(response)
-                alumno = JSON.parse(response);
+                alumno = (response);
             },
             error: function () {
                 alert('There was some error performing the AJAX call!');
