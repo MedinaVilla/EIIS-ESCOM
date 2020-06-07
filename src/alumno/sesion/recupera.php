@@ -1,14 +1,11 @@
 <?php
-	echo "chinguen ";
 	 require_once('./../../../config/mysqli_connect.php');
 	 require_once('./../../../config/funcs.php');
-	echo "a su madre";
 	 $errors= array();
 
 	 if(!empty($_POST))
 	{
 		$email= $conn-> real_escape_string($_POST['email']);
-		echo "a su";
 	 	if(!isEmail($email))
 	 	{
 	 		$errors[]= "Debe de ingresar un correo electronico valido";
@@ -17,7 +14,6 @@
 
 	 		if(emailExiste($email))
 	 		{
-				 echo "madre";
 	 			$user_id= getValor('boleta', 'correo', $email);
 				 $nombre = getValor('nombre', 'correo', $email);
 				 

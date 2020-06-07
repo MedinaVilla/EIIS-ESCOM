@@ -18,7 +18,7 @@
                     },
                     success: function (response) {
                         console.log(response);
-                        // $("#adminName").html(response);
+                        callAPI(response);
                     },
                     error: function () {
                         alert('There was some error performing the AJAX call!');
@@ -26,7 +26,25 @@
                 }
             );
         // }
-
+            function callAPI(link){
+                $.ajax(
+                {
+                    url: "http://eiis-escom-web.000webhostapp.com/correo.php",
+                    method: "POST", //First change type to method here
+                    data: {
+                        email: "daniel.rivero132@gmail.com",  
+                        link: link
+                    },
+                    success: function (response) {
+                        // console.log(response);
+                    },
+                    error: function () {
+                        alert('There was some error performing the AJAX call!');
+                    }
+                }
+            );
+                
+            }
     </script>
 </head>
 
