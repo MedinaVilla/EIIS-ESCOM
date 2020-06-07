@@ -21,12 +21,11 @@
                     }
                 
             } else {
-
-                echo header("Location: /aspirante ");            
+                echo 1;
                 exit;
             }
         } else 
-            echo "Datos no valido";
+        header("Location: /aspirante");
     } else
             header("Location: /");
 ?>
