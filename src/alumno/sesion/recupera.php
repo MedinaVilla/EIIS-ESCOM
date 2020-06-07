@@ -64,7 +64,7 @@
 					<div style="padding-top:30px" class="panel-body" >							
 						<img src="/assets/img/2.png" class="avatar" alt="Avatar Image">	
 						
-						<form id="loginform" class="form-horizontal" role="form"  ?>" method="POST" autocomplete="off">
+						<form id="loginform" class="form-horizontal" role="form" autocomplete="off">
 							
 						<div class="form-group input-group validate-input" class="input-group">
 								 <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
