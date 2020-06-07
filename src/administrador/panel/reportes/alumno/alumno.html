@@ -136,6 +136,8 @@
                                             window["myChart"].data.datasets[0].data.push(1);
                                         });
                                         window["myChart"].update();
+                                        console.log(response);
+                                        console.log(JSONresponse);
                                         if(JSONresponse==[]){
                                             document.getElementById("messageEmpty").innerHTML = "Sin intenciones";
                                         } else document.getElementById("messageEmpty").innerHTML = "";
