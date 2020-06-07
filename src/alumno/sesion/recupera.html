@@ -19,7 +19,7 @@
                     },
                     success: function (response) {
                         if (response == 0) {
-                            alert("Correo no registrado");
+                            document.getElementById("error").innerHTML = "Correo no registrado";
                         } else
                             $.ajax(
                                 {
@@ -30,7 +30,7 @@
                                         link: response
                                     },
                                     success: function (response) {
-
+                                        console.log(response);
                                     },
                                     error: function () {
                                     }
@@ -66,6 +66,7 @@
                             <button id="btn-login" type="button" onClick="sendEmail()"
                                 class="btn btn-success">Enviar</button>
                         </div>
+                        <code id="error" style="color: red;"></code>
                     </div>
                     <div><br><br>
                         No tiene una cuenta! <a href="/alta"> Registrate aquí</a>
