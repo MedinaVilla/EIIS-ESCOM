@@ -7,6 +7,29 @@
   <link rel="stylesheet" href="/assets/css/master.css">
   <link rel="icon" type="image/png" href="/assets/img/logo-escom-white.png" />
   <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script>
+    function login() {
+      $.ajax(
+        {
+          url: "/login",
+          method: "POST",
+          data: {
+            nomUsu: $("#nomUsu").val(),
+            password: $("#password").val()
+          },
+          success: function (response) {
+            if (response == 1) {
+              document.getElementById("error").innerHTML = response;
+            }
+          },
+          error: function () {
+            alert("AJAX error");
+          }
+        }
+      );
+    }
+
+  </script>
 </head>
 
 <body>
@@ -50,27 +73,8 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-23581568-13');
-    
-    function login() {
-      $.ajax(
-        {
-          url: "/login",
-          method: "POST",
-          data: {
-            nomUsu: $("#nomUsu").val(),
-            password: $("#password").val()
-          },
-          success: function (response) {
-            if (response == 1) {
-              document.getElementById("error").innerHTML = response;
-            }
-          },
-          error: function () {
-            alert("error");
-          }
-        }
-      );
-    }
+
+
   </script>
 
 </body>
