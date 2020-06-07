@@ -36,7 +36,7 @@
 	 			// }
 
 
-	 		} $errors[]= "No existe el correo electronico";
+	 		} else echo 0;
 	 	//}
 	 		
 	}

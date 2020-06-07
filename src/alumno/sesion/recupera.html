@@ -6,27 +6,28 @@
     <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <script>
-        // function callAPI() {
-        // let dato = document.getElementById("email");
-        // console.log("ENTRA " + dato);
+
         $.ajax(
             {
                 url: "/src/alumno/sesion/recupera.php",
                 method: "POST", //First change type to method here
                 data: {
-                    email: "daniel.rivero132@gmail.com", // Second add quotes on the value.
+                    email: document.getElementById("email"), // Second add quotes on the value.
                 },
                 success: function (response) {
+                    if(response ==0){
+                        alert("Correo invalido");
+                    } else
                     $.ajax(
                         {
                             url: "https://eiis-escom-web.000webhostapp.com/correo.php",
                             method: "POST", //First change type to method here
                             data: {
-                                email: "daniel.rivero132@gmail.com",
+                                email: document.getElementById("email"),
                                 link: response
                             },
                             success: function (response) {
-                                console.log("PUERCAS");
+
                             },
                             error: function () {
                                 alert('There was some error performing the AJAX call!');
@@ -35,7 +36,7 @@
                     );
                 },
                 error: function () {
-                    alert('There was some error performing the AJAX call!');
+                   
                 }
             }
         );
