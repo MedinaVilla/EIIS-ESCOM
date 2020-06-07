@@ -9,6 +9,6 @@
         while($row = mysqli_fetch_assoc($result)){
             $edades[] = $row;
         }
-    } else echo "Ninguno";
+    } 
     echo json_encode($edades);
 ?>
