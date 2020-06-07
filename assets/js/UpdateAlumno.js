@@ -1,14 +1,16 @@
-let ActualBoleta, alumno;
+let ActualBoleta;
+let alumno;
 function openModelModify() {
-    /*getDataAlumno();
-    $('#nombre').val(alumno.nombre);
+    getDataAlumno();
+    /*$('#nombre').val(alumno.nombre);
     $('#apellidopB').val(alumno.apellidop);
     $('#apellidomB').val(alumno.apellidom);
     $('#boletaA').val(alumno.boleta);
     $('#boletaB').val(alumno.boleta);
     $('#curpB').val(alumno.curp);
     $('#fecha_nacB').val(alumno.fecha_nac);
-    $('#telefonoB').val(alumno.telefono);*/
+    $('#telefonoB').val(alumno.telefono);
+    */
     $('.modal').modal();
     $('#modal5').modal('open');
     $('.trigger-modal').modal();
@@ -16,19 +18,22 @@ function openModelModify() {
 
 }
 
-/*function getDataAlumno() {
+function getDataAlumno() {
     $.ajax(
         '/src/alumno/materias/getDataAlumno.php',
         {
             success: function (response) {
-                alumno = response;
+                console.log("voy a ver que me regresa");
+                console.log("1: "+JSON.stringify(response));
+                console.log("2: "+response)
+                //alumno = JSON.stringify(response);
             },
             error: function () {
                 alert('There was some error performing the AJAX call!');
             }
         }
     );
-}*/
+}
 
 function getActualBoleta(){
     $.ajax(
