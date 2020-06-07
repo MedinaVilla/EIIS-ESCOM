@@ -1,16 +1,18 @@
 let ActualBoleta;
 var alumn;
 function openModelModify() {
-    let alumno = getDataAlumno();
-    console.log("Otra vez alumno: "+alumno);
-    $('#nombreB').val(alumno.nombre);
-    $('#apellidopB').val(alumno.apellidop);
-    $('#apellidomB').val(alumno.apellidom);
-    $('#boletaA').val(alumno.boleta);
-    $('#boletaB').val(alumno.boleta);
-    $('#curpB').val(alumno.curp);
-    $('#fecha_nacB').val(alumno.fecha_nac);
-    $('#telefonoB').val(alumno.telefono);
+        getDataAlumno(function(alumno){
+        console.log(alumno);
+        $('#nombreB').val(alumno.nombre);
+        $('#apellidopB').val(alumno.apellidop);
+        $('#apellidomB').val(alumno.apellidom);
+        $('#boletaA').val(alumno.boleta);
+        $('#boletaB').val(alumno.boleta);
+        $('#curpB').val(alumno.curp);
+        $('#fecha_nacB').val(alumno.fecha_nac);
+        $('#telefonoB').val(alumno.telefono);
+
+    });
 
     $('.modal').modal();
     $('#modal5').modal('open');
@@ -19,7 +21,7 @@ function openModelModify() {
 
 }
 
-function getDataAlumno() {
+function getDataAlumno(handleData) {
     $.ajax(
         '/src/alumno/materias/getDataAlumno.php',
         {
@@ -28,7 +30,7 @@ function getDataAlumno() {
                 console.log(response)
                 alumn = JSON.parse(response);
                 console.log("Alumno: "+alumn);
-                return JSON.parse(alumn);
+                handleData(JSON.parse(response));
             },
             error: function () {
                 alert('There was some error performing the AJAX call!');
