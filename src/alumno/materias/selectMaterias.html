@@ -597,7 +597,7 @@
                         data: $('form').serialize(),
                         success: function (response) {
                             //console.log(response);
-                            var tabla = JSON.stringify(response);
+                            var tabla = JSON.parse(response);
                             //console.log(tabla);
                             console.log("OSO");
                             if(response!=0){
