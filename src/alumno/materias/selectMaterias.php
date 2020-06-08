@@ -13,7 +13,7 @@
         $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);
         if($resultCheck==0){
-            // $sql = "select count(*) from intencion;";
+            // $sql = "select count(*) from intencion;"; ESTO NO SIRVE!
             // $result = mysqli_query($conn,$sql);
             // $resultCheck = mysqli_num_rows($result);
             // if($resultCheck>0){
@@ -23,24 +23,17 @@
                 date_default_timezone_set('America/Mexico_City');
                 setlocale(LC_TIME, 'es_MX.UTF-8');
                 $fec_inten=date("Y-m-d");
-                echo "boleta a insertar:".$boleta;
-                echo "fecha de intecion a insertar:";
                 $sql = "insert into intencion (alumno_boleta, fecha_intencion) values ('".$boleta."', '".$fec_inten."');";
                 $result = mysqli_query($conn, $sql);
-                echo "SIENTRAS";
                 $sql2 = "select idintencion from intencion where alumno_boleta=".$boleta.";";
                 $result = mysqli_query($conn, $sql2);
                 $resultCheck = mysqli_num_rows($result);
                 $idIntencion=0;
-                echo "SIENTRAS2";
                 if($resultCheck>0){
                     if($row = mysqli_fetch_assoc($result)){
-                        echo "ENTRAAA";
                         $idIntencion= $row["idintencion"];
                     }
                 } 
-                echo "WEEEE idIntencion".$idIntencion;
-
                 if(!empty($curses))
                 {
                     foreach($curses as $key => $value){
@@ -71,8 +64,6 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            echo "id_materia a insertar:".$idMat;
-                            echo "id_intencion a insergar".$idIntencion;
                             $sql = "insert into asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('".$idMat."',".$idIntencion.", 2);";
                             mysqli_query($conn, $sql);
                         }
@@ -83,12 +74,10 @@
                 $resultCheck = mysqli_num_rows($result);
                 $tabla = [];
                 if($resultCheck>0){
-                    echo " Intencion FINAL";
-                    while($row = mysqli_fetch_assoc($result)){
-                        echo json_encode($row);
+                    if($row = mysqli_fetch_assoc($result)){
+                        $tabla[] = $row;
                     }
-                } else echo " Ninguno";
-                //echo json_encode($tabla);
+                } 
             }
             echo json_encode($tabla);
         }
