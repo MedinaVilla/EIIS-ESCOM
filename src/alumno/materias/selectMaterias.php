@@ -65,10 +65,10 @@
                     while($row = mysqli_fetch_assoc($result)){
                         $tabla[] = $row;
                     }
-                } else echo "Ninguno";
-                //echo json_encode($tabla);
+                } else echo "Vacio";
+                echo json_encode($tabla);
             }
-            echo json_encode($tabla);
+            //echo json_encode($tabla);
         }
         else{
             echo 0;
