@@ -70,7 +70,7 @@
                 $resultCheck = mysqli_num_rows($result);
                 $tabla = [];
                 if($resultCheck>0){
-                    if($row = mysqli_fetch_assoc($result)){
+                    while($row = mysqli_fetch_assoc($result)){
                         $tabla[] = $row;  // CORREGIDO OTRA COSA QUE NO SIRVE!
                     }
                 } 
