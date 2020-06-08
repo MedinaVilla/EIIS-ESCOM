@@ -9,7 +9,7 @@
             $recurses = $_POST['recurses'];
         }
         require_once('./../../../config/mysqli_connect.php');
-        $sql = "select fecha_intencion from intencion where alumno_boleta='".$boleta."';";
+        $sql = "select fecha_intencion from intencion where alumno_boleta='2020630421';";
         $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);
         if($resultCheck==0){
