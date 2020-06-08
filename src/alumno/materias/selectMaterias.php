@@ -1,6 +1,6 @@
 <?php
     //session_start();
-    if(isset($_POST)){
+    
         $boleta = '2020630421';
         if(!empty($_POST['curses'])){
             $curses = $_POST['curses'];
@@ -73,5 +73,5 @@
         else{
             echo 0;
         }
-    }
+    
 ?>
