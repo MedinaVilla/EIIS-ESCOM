@@ -45,8 +45,6 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            echo "id_materia a insertar:".$idMat;
-                            echo "id_intencion a insergar".$idIntencion;
                             $sql = "insert into asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values (".$idMat.", ".$idIntencion.", 1);";
                             mysqli_query($conn, $sql);
                         }
@@ -60,7 +58,6 @@
                         $result = mysqli_query($conn,$sql);
                         $resultCheck = mysqli_num_rows($result);
                         if($resultCheck>0){
-                            echo " Inserto recurse";
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
