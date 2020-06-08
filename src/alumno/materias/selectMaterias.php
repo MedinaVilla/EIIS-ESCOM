@@ -63,7 +63,7 @@
                 $tabla = [];
                 if($resultCheck>0){
                     while($row = mysqli_fetch_assoc($result)){
-                        $tabla[] = $row;
+                        $tabla[] = "$row";
                     }
                 } else echo "Ninguno";
                 //echo json_encode($tabla);
