@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_POST)){
+    if(isset($_POST['curses']) || isset($_POST['recurses'])){
         $boleta = $_SESSION['user'];
         if(!empty($_POST['curses'])){
             $curses = $_POST['curses'];
@@ -57,18 +57,8 @@
                         }
                     }
                 }
-                $sql = "SELECT F2.materia,situacion.situacion FROM (SELECT asignatura.materia,F1.situacion_idsituacion FROM (SELECT asignatura_intencion.asignatura_idmateria,asignatura_intencion.situacion_idsituacion FROM asignatura_intencion INNER JOIN intencion ON intencion.idintencion=asignatura_intencion.intencion_idintencion where intencion.alumno_boleta='".$boleta."')AS F1 inner join asignatura on asignatura.idmateria=F1.asignatura_idmateria)AS F2 inner join situacion on F2.situacion_idsituacion=situacion.idsituacion;";
-                $result = mysqli_query($conn,$sql);
-                $resultCheck = mysqli_num_rows($result);
-                $tabla = [];
-                if($resultCheck>0){
-                    while($row = mysqli_fetch_assoc($result)){
-                        $tabla[] = $row;
-                    }
-                } else echo "Ninguno";
-                //echo json_encode($tabla);
             }
-            echo json_encode($tabla);
+            echo 1;
         }
         else{
             echo 0;
