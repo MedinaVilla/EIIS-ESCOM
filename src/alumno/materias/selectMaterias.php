@@ -39,7 +39,9 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('".$idMat."', '".$idIntencion."', '1');";
+                            echo "id_materia a insertar:".$idMat;
+                            echo "id_intencion a insergar".$idIntencion;
+                            $sql = "insert into asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values (".$idMat.", ".$idIntencion.", 1);";
                             mysqli_query($conn, $sql);
                         }
                     }
@@ -56,12 +58,14 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('".$idMat."', '".$idIntencion."', '2');";
+                            echo "id_materia a insertar:".$idMat;
+                            echo "id_intencion a insergar".$idIntencion;
+                            $sql = "insert into asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('".$idMat."',".$idIntencion.", 2);";
                             mysqli_query($conn, $sql);
                         }
                     }
                 }
-                $sql = "SELECT F2.materia,situacion.situacion FROM (SELECT asignatura.materia,F1.situacion_idsituacion FROM (SELECT asignatura_intencion.asignatura_idmateria,asignatura_intencion.situacion_idsituacion FROM asignatura_intencion INNER JOIN intencion ON intencion.idintencion=asignatura_intencion.intencion_idintencion where intencion.alumno_boleta='".$boleta."')AS F1 inner join asignatura on asignatura.idmateria=F1.asignatura_idmateria)AS F2 inner join situacion on F2.situacion_idsituacion=situacion.idsituacion;";
+                $sql = "select F2.materia,situacion.situacion FROM (SELECT asignatura.materia,F1.situacion_idsituacion FROM (SELECT asignatura_intencion.asignatura_idmateria,asignatura_intencion.situacion_idsituacion FROM asignatura_intencion INNER JOIN intencion ON intencion.idintencion=asignatura_intencion.intencion_idintencion where intencion.alumno_boleta='".$boleta."')AS F1 inner join asignatura on asignatura.idmateria=F1.asignatura_idmateria)AS F2 inner join situacion on F2.situacion_idsituacion=situacion.idsituacion;";
                 $result = mysqli_query($conn,$sql);
                 $resultCheck = mysqli_num_rows($result);
                 $tabla = [];
