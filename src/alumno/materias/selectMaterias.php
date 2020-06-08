@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_POST)){
+    if(isset($_POST['curses']) || isset($_POST['recurses'])){
         $boleta = $_SESSION['user'];
         if(!empty($_POST['curses'])){
             $curses = $_POST['curses'];
