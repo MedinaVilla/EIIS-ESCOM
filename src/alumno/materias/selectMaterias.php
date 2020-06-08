@@ -36,6 +36,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
+                            printf("1 OSO".$idMat);
                             $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '1');";
                             mysqli_query($conn, $sql);
                         }else echo 2;
@@ -51,6 +52,7 @@
                         if($resultCheck>0){
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
+                                printf("2 OSO".$idMat);
                             }
                             $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '2');";
                             mysqli_query($conn, $sql);
