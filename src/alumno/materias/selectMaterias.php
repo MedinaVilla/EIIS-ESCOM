@@ -41,7 +41,6 @@
                         $result = mysqli_query($conn,$sql);
                         $resultCheck = mysqli_num_rows($result);
                         if($resultCheck>0){
-                            echo " Inserto curse";
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
@@ -72,11 +71,11 @@
                 $tabla = [];
                 if($resultCheck>0){
                     if($row = mysqli_fetch_assoc($result)){
-                        $tabla[] = $row;
+                        $tabla[] = $row;  // CORREGIDO OTRA COSA QUE NO SIRVE!
                     }
                 } 
-            }
             echo json_encode($tabla);
+            }
         }
         else{
             echo 0;
