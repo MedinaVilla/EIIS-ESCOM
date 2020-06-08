@@ -3,6 +3,7 @@
     if(isset($_POST)){
         echo "Entre a post";
         $boleta = $_SESSION['user'];
+        echo "boleta:".$boleta;
         if(!empty($_POST['curses'])){
             $curses = $_POST['curses'];
             echo " Obtengo curses";
