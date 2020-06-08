@@ -1,7 +1,7 @@
 let ActualBoleta;
 var alumn;
 function openModelModify() {
-        getDataAlumno(function(alumno){
+    getDataAlumno(function(alumno){
         console.log(alumno);
         $('#nombreB').val(alumno.nombre);
         $('#apellidopB').val(alumno.apellidop);

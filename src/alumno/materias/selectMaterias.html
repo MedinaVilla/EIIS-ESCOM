@@ -176,7 +176,7 @@
         
         <div class="container">
         <!--<form action="./src/alumno/materias/selectMaterias.php" method="POST">-->
-        <form>
+        <form id="asignaturas">
             <ul id="sort-me">
                 <li class="Cientifícas-Básicas" data-order="0">
                     <label>
@@ -594,7 +594,7 @@
                     '/src/alumno/materias/selectMaterias.php',
                     {
                         type: 'POST',
-                        data: $('form').serialize(),
+                        data: $('#asignaturas').serialize(),
                         success: function (response) {
                             console.log(response);
                             var tabla = JSON.parse(response);
