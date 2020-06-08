@@ -13,21 +13,30 @@
         $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);
         if($resultCheck==0){
-            $sql = "select count(*) from intencion;";
-            $result = mysqli_query($conn,$sql);
-            $resultCheck = mysqli_num_rows($result);
-            if($resultCheck>0){
-                while($row = mysqli_fetch_assoc($result)){
-                    $idIntencion = $row['count(*)'] + 1;
-                }
+            // $sql = "select count(*) from intencion;";
+            // $result = mysqli_query($conn,$sql);
+            // $resultCheck = mysqli_num_rows($result);
+            // if($resultCheck>0){
+                // while($row = mysqli_fetch_assoc($result)){
+                    // $idIntencion = $row['count(*)'] + 1;
+                // }
                 date_default_timezone_set('America/Mexico_City');
                 setlocale(LC_TIME, 'es_MX.UTF-8');
                 $fec_inten=date("Y-m-d");
                 echo "boleta a insertar:".$boleta;
                 echo "fecha de intecion a insertar:";
                 $sql = "insert into intencion (alumno_boleta, fecha_intencion) values ('".$boleta."', '".$fec_inten."');";
-                mysqli_query($conn, $sql);
-                
+                $result = mysqli_query($conn, $sql);
+                $resultCheck = mysqli_num_rows($result);
+                $idIntencion;
+                if($resultCheck>0){
+                    if($row = mysqli_fetch_assoc($result)){
+                        $idIntencion= $row["idintencion"];
+                    }
+                    echo json_encode($alumnos);
+                } 
+
+
                 if(!empty($curses))
                 {
                     foreach($curses as $key => $value){
@@ -45,7 +54,7 @@
                             mysqli_query($conn, $sql);
                         }
                     }
-                }
+                // }
 
                 if(!empty($recurses))
                 {
