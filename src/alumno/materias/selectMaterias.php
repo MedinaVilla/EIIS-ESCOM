@@ -1,35 +1,31 @@
 <?php
     session_start();
     if(isset($_POST)){
-        echo "Entre a post";
         $boleta = $_SESSION['user'];
-        echo "boleta:".$boleta;
         if(!empty($_POST['curses'])){
             $curses = $_POST['curses'];
-            echo " Obtengo curses";
         }
         if(!empty($_POST['recurses'])){
             $recurses = $_POST['recurses'];
-            echo " Obtengo recurses";
         }
         require_once('./../../../config/mysqli_connect.php');
         $sql = "select fecha_intencion from intencion where alumno_boleta='".$boleta."';";
         $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);
         if($resultCheck==0){
-            echo " No he metido materias activado";
             $sql = "select count(*) from intencion;";
             $result = mysqli_query($conn,$sql);
             $resultCheck = mysqli_num_rows($result);
             if($resultCheck>0){
-                echo " Obtengo la cuenta";
                 while($row = mysqli_fetch_assoc($result)){
                     $idIntencion = $row['count(*)'] + 1;
                 }
                 date_default_timezone_set('America/Mexico_City');
                 setlocale(LC_TIME, 'es_MX.UTF-8');
                 $fec_inten=date("Y-m-d");
-                $sql = "insert into intencion (idintencion, alumno_boleta, fecha_intencion) values (".$idIntencion.", '".$boleta."', '".$fec_inten."');";
+                echo "boleta a insertar:".$boleta;
+                echo "fecha de intecion a insertar:";
+                $sql = "insert into intencion (alumno_boleta, fecha_intencion) values ('".$boleta."', '".$fec_inten."');";
                 mysqli_query($conn, $sql);
                 
                 if(!empty($curses))
