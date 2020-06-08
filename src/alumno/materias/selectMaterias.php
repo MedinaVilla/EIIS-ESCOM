@@ -28,9 +28,17 @@
                 date_default_timezone_set('America/Mexico_City');
                 setlocale(LC_TIME, 'es_MX.UTF-8');
                 $fec_inten=date("Y-m-d");
-                $sql = "UPDATE INTO intencion (idintencion, alumno_boleta, fecha_intencion) values ('$idIntencion', '$boleta', '$fec_inten');";
+                $sql = "INSERT INTO intencion set idintencion=?, alumno_boleta=?, fecha_intencion=? WHERE boleta=?;";
+                //$sql = "INSERT INTO intencion (idintencion, alumno_boleta, fecha_intencion) values ('$idIntencion', '$boleta', '$fec_inten');";
+                $stmt = mysqli_prepare($conn,$sql);
+                mysqli_stmt_bind_param($stmt,"sss",$idIntencion,$boleta,$fec_inten);
+                mysqli_stmt_execute($stmt);
                 mysqli_query($conn, $sql);
-                
+                $affected_rows = mysqli_stmt_affected_rows($stmt);
+                if($affected_rows > 0){
+                    mysqli_stmt_close($stmt);
+                    echo "Inserte Intencion sin problema"; 
+                }
                 if(!empty($curses))
                 {
                     foreach($curses as $key => $value){
@@ -42,7 +50,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            $sql = "UPDATE INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '1');";
+                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '1');";
                             mysqli_query($conn, $sql);
                         }
                     }
@@ -59,7 +67,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            $sql = "UPDATE INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '2');";
+                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '2');";
                             mysqli_query($conn, $sql);
                         }
                     }
