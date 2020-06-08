@@ -596,10 +596,10 @@
                         type: 'POST',
                         data: $('form').serialize(),
                         success: function (response) {
-                            //console.log(response);
-                            var tabla = JSON.parse(response);
-                            //console.log(tabla);
-                            console.log("OSO");
+                            console.log(response);
+                            var tabla = JSON.parse(JSON.stringify(response));;
+                            console.log(tabla);
+                           
                             if(response!=0){
                                 alert("¡Materias Registradas Correctamente!");
                                 var pdf = new jsPDF('p', 'pt', 'letter');
