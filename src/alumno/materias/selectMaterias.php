@@ -13,7 +13,7 @@
         $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);
         if($resultCheck==0){
-            $sql = "select count from intencion;";
+            $sql = "select count(*) from intencion;";
             $result = mysqli_query($conn,$sql);
             $resultCheck = mysqli_num_rows($result);
             if($resultCheck>0){
