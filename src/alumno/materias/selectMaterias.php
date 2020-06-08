@@ -28,14 +28,12 @@
                 $sql = "insert into intencion (alumno_boleta, fecha_intencion) values ('".$boleta."', '".$fec_inten."');";
                 $result = mysqli_query($conn, $sql);
                 $resultCheck = mysqli_num_rows($result);
-                $idIntencion;
                 if($resultCheck>0){
                     if($row = mysqli_fetch_assoc($result)){
                         $idIntencion= $row["idintencion"];
                     }
-                    echo json_encode($alumnos);
                 } 
-
+                echo "WEEEE idIntencion".$idIntencion;
 
                 if(!empty($curses))
                 {
