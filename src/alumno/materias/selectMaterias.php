@@ -1,22 +1,27 @@
 <?php
     //session_start();
-    
+    if(isset($_POST)){
+        echo "Entre a post";
         $boleta = '2020630421';
         if(!empty($_POST['curses'])){
             $curses = $_POST['curses'];
+            echo "Obtengo curses";
         }
         if(!empty($_POST['recurses'])){
             $recurses = $_POST['recurses'];
+            echo "Obtengo recurses";
         }
         require_once('./../../../config/mysqli_connect.php');
         $sql = "select fecha_intencion from intencion where alumno_boleta='".$boleta."';";
         $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);
         if($resultCheck==0){
+            echo "No he metido materias activado";
             $sql = "select count(*) from intencion;";
             $result = mysqli_query($conn,$sql);
             $resultCheck = mysqli_num_rows($result);
             if($resultCheck>0){
+                echo "Obtengo la cuenta";
                 while($row = mysqli_fetch_assoc($result)){
                     $idIntencion = $row['count(*)'] + 1;
                 }
@@ -33,6 +38,7 @@
                         $result = mysqli_query($conn,$sql);
                         $resultCheck = mysqli_num_rows($result);
                         if($resultCheck>0){
+                            echo "Inserto curse";
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
@@ -49,6 +55,7 @@
                         $result = mysqli_query($conn,$sql);
                         $resultCheck = mysqli_num_rows($result);
                         if($resultCheck>0){
+                            echo "Inserto recurse";
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
@@ -62,6 +69,7 @@
                 $resultCheck = mysqli_num_rows($result);
                 $tabla = [];
                 if($resultCheck>0){
+                    echo "Intencion FINAL";
                     while($row = mysqli_fetch_assoc($result)){
                         $tabla[] = $row;
                     }
@@ -73,5 +81,5 @@
         else{
             echo 0;
         }
-    
+    }
 ?>
