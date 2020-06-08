@@ -27,11 +27,12 @@
                 echo "fecha de intecion a insertar:";
                 $sql = "insert into intencion (alumno_boleta, fecha_intencion) values ('".$boleta."', '".$fec_inten."');";
                 $result = mysqli_query($conn, $sql);
-                
-                $sql = "select idintencion from intencion where alumno_boleta=".$boleta.";";
-                $result = mysqli_query($conn, $sql);
+                echo "SIENTRAS";
+                $sql2 = "select idintencion from intencion where alumno_boleta=".$boleta.";";
+                $result = mysqli_query($conn, $sql2);
                 $resultCheck = mysqli_num_rows($result);
                 $idIntencion=0;
+                echo "SIENTRAS2";
                 if($resultCheck>0){
                     if($row = mysqli_fetch_assoc($result)){
                         echo "ENTRAAA";
