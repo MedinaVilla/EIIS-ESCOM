@@ -1,6 +1,7 @@
 <?php
     session_start();
     if(isset($_POST)){
+        printf ($_SESSION['user']);
         $boleta = $_SESSION['user'];
         if(!empty($_POST['curses'])){
             $curses = $_POST['curses'];
@@ -65,7 +66,7 @@
                     while($row = mysqli_fetch_assoc($result)){
                         $tabla[] = $row;
                     }
-                } else echo "Ninguno";
+                } 
                 //echo json_encode($tabla);
             }
             echo json_encode($tabla);
