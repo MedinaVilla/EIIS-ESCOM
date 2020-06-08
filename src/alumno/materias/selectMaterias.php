@@ -31,8 +31,10 @@
                 $sql = "select idintencion from intencion where alumno_boleta=".$boleta.";";
                 $result = mysqli_query($conn, $sql);
                 $resultCheck = mysqli_num_rows($result);
+                $idIntencion=0;
                 if($resultCheck>0){
                     if($row = mysqli_fetch_assoc($result)){
+                        echo "ENTRAAA";
                         $idIntencion= $row["idintencion"];
                     }
                 } 
