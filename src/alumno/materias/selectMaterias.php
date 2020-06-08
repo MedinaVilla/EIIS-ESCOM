@@ -28,7 +28,7 @@
                 date_default_timezone_set('America/Mexico_City');
                 setlocale(LC_TIME, 'es_MX.UTF-8');
                 $fec_inten=date("Y-m-d");
-                $sql = "INSERT INTO intencion (idintencion, alumno_boleta, fecha_intencion) values ('$idIntencion', '$boleta', '$fec_inten');";
+                $sql = "UPDATE INTO intencion (idintencion, alumno_boleta, fecha_intencion) values ('$idIntencion', '$boleta', '$fec_inten');";
                 mysqli_query($conn, $sql);
                 
                 if(!empty($curses))
@@ -42,7 +42,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '1');";
+                            $sql = "UPDATE INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '1');";
                             mysqli_query($conn, $sql);
                         }
                     }
@@ -59,7 +59,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '2');";
+                            $sql = "UPDATE INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '2');";
                             mysqli_query($conn, $sql);
                         }
                     }
