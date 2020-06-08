@@ -29,7 +29,7 @@
                 date_default_timezone_set('America/Mexico_City');
                 setlocale(LC_TIME, 'es_MX.UTF-8');
                 $fec_inten=date("Y-m-d");
-                $sql = "INSERT INTO intencion (idintencion, alumno_boleta, fecha_intencion) values ('$idIntencion', '$boleta', '$fec_inten');";
+                $sql = "insert into intencion (idintencion, alumno_boleta, fecha_intencion) values (".$idIntencion.", '".$boleta."', '".$fec_inten."');";
                 mysqli_query($conn, $sql);
                 
                 if(!empty($curses))
