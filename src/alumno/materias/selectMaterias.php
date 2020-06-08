@@ -39,7 +39,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '1');";
+                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('".$idMat."', '".$idIntencion."', '1');";
                             mysqli_query($conn, $sql);
                         }
                     }
@@ -56,7 +56,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $idMat = $row['idmateria'];
                             }
-                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('$idMat', '$idIntencion', '2');";
+                            $sql = "INSERT INTO asignatura_intencion (asignatura_idmateria, intencion_idintencion, situacion_idsituacion) values ('".$idMat."', '".$idIntencion."', '2');";
                             mysqli_query($conn, $sql);
                         }
                     }
