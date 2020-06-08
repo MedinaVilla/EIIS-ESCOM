@@ -28,17 +28,9 @@
                 date_default_timezone_set('America/Mexico_City');
                 setlocale(LC_TIME, 'es_MX.UTF-8');
                 $fec_inten=date("Y-m-d");
-                $sql = "INSERT INTO intencion set idintencion=?, alumno_boleta=?, fecha_intencion=? WHERE boleta=?;";
-                //$sql = "INSERT INTO intencion (idintencion, alumno_boleta, fecha_intencion) values ('$idIntencion', '$boleta', '$fec_inten');";
-                $stmt = mysqli_prepare($conn,$sql);
-                mysqli_stmt_bind_param($stmt,"sss",$idIntencion,$boleta,$fec_inten);
-                mysqli_stmt_execute($stmt);
+                $sql = "INSERT INTO intencion (idintencion, alumno_boleta, fecha_intencion) values ('$idIntencion', '$boleta', '$fec_inten');";
                 mysqli_query($conn, $sql);
-                $affected_rows = mysqli_stmt_affected_rows($stmt);
-                if($affected_rows > 0){
-                    mysqli_stmt_close($stmt);
-                    echo "Inserte Intencion sin problema"; 
-                }
+                
                 if(!empty($curses))
                 {
                     foreach($curses as $key => $value){
