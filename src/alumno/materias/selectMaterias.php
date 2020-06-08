@@ -1,7 +1,7 @@
 <?php
-    session_start();
+    //session_start();
     if(isset($_POST)){
-        $boleta = $_SESSION['user'];
+        $boleta = '2020630421';
         if(!empty($_POST['curses'])){
             $curses = $_POST['curses'];
         }
